@@ -32,12 +32,12 @@ export default function CookieConsentBanner() {
     }
 
     return (
-        <div className="fixed inset-x-0 bottom-0 z-50 border-t bg-background/95 p-4 shadow-lg backdrop-blur">
+        <div className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-background/95 p-4 shadow-lg backdrop-blur">
             <div className="mx-auto flex max-w-7xl flex-col gap-3 text-sm md:flex-row md:items-center md:justify-between">
                 <p className="text-muted-foreground">
                     We use cookies for essential site features and, with your consent, for Google AdSense personalization.
-                    Read our <Link className="font-medium text-indigo-600 hover:text-indigo-700" href="/page/privacy-policy">Privacy Policy</Link> and{' '}
-                    <Link className="font-medium text-indigo-600 hover:text-indigo-700" href="/page/cookie-policy">Cookie Policy</Link>.
+                    Read our <Link className="public-accent-link" href="/page/privacy-policy">Privacy Policy</Link> and{' '}
+                    <Link className="public-accent-link" href="/page/cookie-policy">Cookie Policy</Link>.
                 </p>
                 <div className="flex items-center gap-2">
                     <Button type="button" variant="outline" onClick={() => {

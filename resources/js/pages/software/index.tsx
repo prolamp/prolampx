@@ -64,7 +64,7 @@ export default function SoftwareIndex({ selectedOs, detectedOs, software, seo }:
                 <select
                     value={activeOs}
                     onChange={(e) => changeOs(e.target.value as CatalogOs)}
-                    className="rounded-xl border border-input bg-white/80 px-4 py-2 text-sm shadow-sm"
+                    className="public-surface rounded-xl px-4 py-2 text-sm shadow-sm"
                 >
                     {OS_OPTIONS.map((option) => (
                         <option key={option.value} value={option.value}>{option.label}</option>

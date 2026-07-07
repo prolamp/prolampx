@@ -21,7 +21,7 @@ export default function PublicHeader() {
     const isAdmin = auth?.user?.role === 'super_admin' || auth?.user?.role === 'admin';
 
     return (
-        <header className="sticky top-0 z-50 border-b border-white/60 bg-white/80 shadow-sm shadow-indigo-500/5 backdrop-blur-xl supports-[backdrop-filter]:bg-white/70">
+        <header className="sticky top-0 z-50 border-b border-white/60 bg-white/80 shadow-sm shadow-indigo-500/5 backdrop-blur-xl supports-[backdrop-filter]:bg-white/70 dark:border-border/60 dark:bg-card/80 dark:shadow-black/10 dark:supports-[backdrop-filter]:bg-card/70">
             <div className="mx-auto flex h-16 max-w-7xl items-center gap-4 px-4 sm:px-6">
                 <Link href="/" className="group flex shrink-0 items-center gap-2.5">
                     <span className="relative flex size-10 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-600 via-violet-600 to-purple-600 text-white shadow-lg shadow-indigo-600/30 transition group-hover:scale-105">
@@ -39,7 +39,7 @@ export default function PublicHeader() {
                 </Link>
 
                 <nav className="hidden flex-1 items-center justify-center md:flex">
-                    <div className="flex items-center gap-1 rounded-full border border-indigo-100/80 bg-indigo-50/50 p-1">
+                    <div className="flex items-center gap-1 rounded-full border border-indigo-100/80 bg-indigo-50/50 p-1 dark:border-border/60 dark:bg-muted/50">
                         {navLinks.map(({ href, label, match }) => (
                             <Link
                                 key={href}
@@ -47,8 +47,8 @@ export default function PublicHeader() {
                                 className={cn(
                                     'rounded-full px-4 py-2 text-sm font-medium transition',
                                     match(path)
-                                        ? 'bg-white text-indigo-700 shadow-sm'
-                                        : 'text-muted-foreground hover:text-indigo-700',
+                                        ? 'bg-white text-indigo-700 shadow-sm dark:bg-card dark:text-indigo-200'
+                                        : 'text-muted-foreground hover:text-indigo-700 dark:hover:text-indigo-300',
                                 )}
                             >
                                 {label}
@@ -95,7 +95,7 @@ export default function PublicHeader() {
                         <SheetContent side="right" className="w-[min(100vw-2rem,320px)]">
                             <SheetHeader>
                                 <SheetTitle className="flex items-center gap-2 text-left">
-                                    <Sparkles className="size-4 text-indigo-600" />
+                                    <Sparkles className="public-accent-text size-4" />
                                     ProLampX
                                 </SheetTitle>
                             </SheetHeader>
@@ -108,11 +108,11 @@ export default function PublicHeader() {
                                         className={cn(
                                             'flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition',
                                             match(path)
-                                                ? 'bg-indigo-50 text-indigo-700'
+                                                ? 'bg-indigo-50 text-indigo-700 dark:bg-indigo-950/50 dark:text-indigo-200'
                                                 : 'text-foreground hover:bg-muted',
                                         )}
                                     >
-                                        {Icon && <Icon className="size-4 text-indigo-600" />}
+                                        {Icon && <Icon className="public-accent-text size-4" />}
                                         {label}
                                     </Link>
                                 ))}

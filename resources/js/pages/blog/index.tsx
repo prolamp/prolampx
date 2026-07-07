@@ -69,7 +69,7 @@ export default function BlogIndex({ posts, categories, activeCategory, seo }: Pr
                         <Link key={post.id} href={`/blog/${post.slug}`}>
                             <PublicCard className="block p-6">
                                 {post.category && (
-                                    <span className="text-xs font-semibold uppercase tracking-wide text-indigo-600">{post.category.name}</span>
+                                    <span className="public-accent-text text-xs font-semibold uppercase tracking-wide">{post.category.name}</span>
                                 )}
                                 <h2 className="text-xl font-semibold">{post.title}</h2>
                                 <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>

@@ -28,7 +28,7 @@ export default function BlogShow({ post, seo }: Props) {
             <SeoHead {...seo} type="article" />
             <ContentWithSidebarAd>
                 <article>
-                    <Link href="/blog" className="text-sm font-medium text-indigo-600 hover:text-indigo-700">
+                    <Link href="/blog" className="public-accent-link text-sm">
                         ← Back to blog
                     </Link>
                     <h1 className="mt-4 text-4xl font-bold tracking-tight">{post.title}</h1>
@@ -41,7 +41,7 @@ export default function BlogShow({ post, seo }: Props) {
                             })}
                         </p>
                     )}
-                    <PublicCard className="prose prose-indigo mt-8 max-w-none p-8">
+                    <PublicCard className="public-prose mt-8 p-8">
                         <div dangerouslySetInnerHTML={{ __html: post.body }} />
                     </PublicCard>
                 </article>

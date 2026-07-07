@@ -82,7 +82,7 @@ export function renderPortfolioSection(
                     {section.title && <h2 className="text-2xl font-bold tracking-tight">{section.title}</h2>}
                     {section.body && (
                         <div
-                            className="prose prose-indigo mt-4 max-w-3xl text-muted-foreground"
+                            className="prose prose-indigo mt-4 max-w-3xl text-muted-foreground dark:prose-invert"
                             dangerouslySetInnerHTML={{ __html: section.body }}
                         />
                     )}
@@ -99,7 +99,7 @@ export function renderPortfolioSection(
                             const Icon = iconMap[item.icon ?? ''] ?? Zap;
                             return (
                                 <PublicCard key={item.title} className="p-5">
-                                    <Icon className="size-5 text-indigo-600" />
+                                    <Icon className="public-accent-text size-5" />
                                     <h3 className="mt-3 font-semibold">{item.title}</h3>
                                     <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
                                 </PublicCard>
@@ -124,7 +124,7 @@ export function renderPortfolioSection(
                                     <h3 className="font-semibold">{item.title}</h3>
                                     <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
                                     {item.url && (
-                                        <Link href={item.url} className="mt-3 inline-flex text-sm font-medium text-indigo-600 hover:text-indigo-700">
+                                        <Link href={item.url} className="public-accent-link mt-3 inline-flex text-sm">
                                             Learn more <ArrowRight className="ml-1 inline size-3.5" />
                                         </Link>
                                     )}
@@ -141,7 +141,7 @@ export function renderPortfolioSection(
                 <SectionShell key={section.id}>
                     {section.title && <h2 className="text-2xl font-bold tracking-tight">{section.title}</h2>}
                     {section.body && (
-                        <div className="prose prose-indigo mt-4 max-w-3xl" dangerouslySetInnerHTML={{ __html: section.body }} />
+                        <div className="public-prose mt-4 max-w-3xl" dangerouslySetInnerHTML={{ __html: section.body }} />
                     )}
                 </SectionShell>
             );
@@ -166,7 +166,7 @@ export function renderPortfolioSection(
                 <SectionShell key={section.id}>
                     {section.title && <h2 className="text-2xl font-bold tracking-tight">{section.title}</h2>}
                     {section.body && (
-                        <div className="prose mt-4 max-w-xl" dangerouslySetInnerHTML={{ __html: section.body }} />
+                        <div className="public-prose mt-4 max-w-xl" dangerouslySetInnerHTML={{ __html: section.body }} />
                     )}
                 </SectionShell>
             );
@@ -185,14 +185,14 @@ export function BlogPreviewSection({ posts }: { posts: BlogPost[] }) {
         <SectionShell>
             <div className="mb-4 flex items-end justify-between gap-4">
                 <h2 className="text-2xl font-bold tracking-tight">Latest from the blog</h2>
-                <Link href="/blog" className="text-sm font-medium text-indigo-600 hover:text-indigo-700">View all</Link>
+                <Link href="/blog" className="public-accent-link text-sm">View all</Link>
             </div>
             <div className="space-y-3">
                 {posts.map((post) => (
                     <Link key={post.id} href={`/blog/${post.slug}`}>
                         <PublicCard className="block p-5">
                             {post.category && (
-                                <span className="text-xs font-semibold uppercase tracking-wide text-indigo-600">{post.category.name}</span>
+                                <span className="public-accent-text text-xs font-semibold uppercase tracking-wide">{post.category.name}</span>
                             )}
                             <h3 className="font-semibold">{post.title}</h3>
                             {post.meta_description && (
@@ -215,7 +215,7 @@ export function SoftwarePreviewSection({ items }: { items: SoftwareItem[] }) {
         <SectionShell>
             <div className="mb-4 flex items-end justify-between gap-4">
                 <h2 className="text-2xl font-bold tracking-tight">Featured software</h2>
-                <Link href="/software" className="text-sm font-medium text-indigo-600 hover:text-indigo-700">View all</Link>
+                <Link href="/software" className="public-accent-link text-sm">View all</Link>
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {items.map((item) => (

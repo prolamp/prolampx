@@ -32,7 +32,7 @@ export default function AdSection({
     return (
         <aside
             className={cn(
-                'overflow-hidden rounded-2xl border border-indigo-100/80 bg-gradient-to-b from-white to-indigo-50/30 p-4 shadow-sm',
+                'overflow-hidden rounded-2xl border border-indigo-100/80 bg-gradient-to-b from-white to-indigo-50/30 p-4 shadow-sm dark:border-border/60 dark:from-card dark:to-indigo-950/30',
                 className,
             )}
             aria-label="Advertisement"

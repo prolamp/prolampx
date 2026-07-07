@@ -23,7 +23,7 @@ export default function SoftwareIcon({ name, icon, slug, size = 'md', className 
     return (
         <div
             className={cn(
-                'flex shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-black/5',
+                'flex shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-black/5 dark:bg-muted dark:ring-white/10',
                 className,
             )}
             style={{ width: px, height: px }}

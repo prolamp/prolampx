@@ -44,7 +44,7 @@ export default function OsBanner({ detectedOs, activeOs, isOverridden, onResetDe
                     type="button"
                     variant="outline"
                     size="sm"
-                    className="border-indigo-200 bg-white/80"
+                    className="border-indigo-200 bg-white/80 dark:border-indigo-500/30 dark:bg-card/80"
                     onClick={() => {
                         clearOsOverride();
                         onResetDetection();

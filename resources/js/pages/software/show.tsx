@@ -34,7 +34,7 @@ export default function SoftwareShow({ software, seo }: Props) {
                     <div className="flex items-start gap-4">
                         <SoftwareIcon name={software.name} icon={software.icon} slug={software.slug} size="lg" />
                         <div>
-                            <p className="text-xs font-semibold uppercase tracking-wide text-indigo-600">
+                            <p className="public-accent-text text-xs font-semibold uppercase tracking-wide">
                                 {software.category.replace('-', ' ')}
                             </p>
                             <h1 className="mt-1 text-4xl font-bold tracking-tight">{software.name}</h1>

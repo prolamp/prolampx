@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@plugin '@tailwindcss/typography';
+
 @import 'tw-animate-css';
 
 @source '../views';
@@ -151,7 +153,35 @@
             radial-gradient(at 50% 100%, oklch(0.94 0.06 250 / 0.3) 0, transparent 50%);
     }
 
+    .dark .public-mesh-bg {
+        background-color: oklch(0.145 0.015 275);
+        background-image:
+            radial-gradient(at 0% 0%, oklch(0.28 0.1 275 / 0.35) 0, transparent 50%),
+            radial-gradient(at 100% 0%, oklch(0.26 0.12 285 / 0.28) 0, transparent 50%),
+            radial-gradient(at 50% 100%, oklch(0.22 0.08 250 / 0.22) 0, transparent 50%);
+    }
+
     .glass-panel {
-        @apply border border-white/60 bg-white/80 shadow-xl shadow-indigo-500/5 backdrop-blur-xl;
+        @apply border border-white/60 bg-white/80 shadow-xl shadow-indigo-500/5 backdrop-blur-xl dark:border-border/60 dark:bg-card/80 dark:shadow-black/20;
+    }
+
+    .public-accent-link {
+        @apply font-medium text-indigo-600 hover:text-indigo-700 dark:text-indigo-300 dark:hover:text-indigo-200;
+    }
+
+    .public-accent-text {
+        @apply text-indigo-600 dark:text-indigo-300;
+    }
+
+    .public-heading-accent {
+        @apply text-indigo-950 dark:text-indigo-100;
+    }
+
+    .public-surface {
+        @apply border border-input bg-white/80 dark:bg-card/80;
+    }
+
+    .public-prose {
+        @apply prose prose-indigo max-w-none dark:prose-invert;
     }
 }

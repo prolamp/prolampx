@@ -41,7 +41,7 @@ export default function BundlesShow({ bundle, seo }: Props) {
     return (
         <PublicLayout>
             <SeoHead title={seo.title} description={seo.description} />
-            <Link href="/bundles" className="text-sm font-medium text-indigo-600 hover:text-indigo-700">
+            <Link href="/bundles" className="public-accent-link text-sm">
                 ← All bundles
             </Link>
 
@@ -75,7 +75,7 @@ export default function BundlesShow({ bundle, seo }: Props) {
                         <li key={app.id} className="flex items-center gap-4 py-4 first:pt-0 last:pb-0">
                             <SoftwareIcon name={app.name} icon={app.icon} slug={app.slug} />
                             <div className="min-w-0 flex-1">
-                                <Link href={`/software/${app.slug}`} className="font-semibold hover:text-indigo-600">
+                                <Link href={`/software/${app.slug}`} className="public-accent-link font-semibold">
                                     {app.name}
                                 </Link>
                                 {app.description && (

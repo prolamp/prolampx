@@ -48,7 +48,7 @@ export default function BundlesIndex({ bundles, seo }: Props) {
                     {bundles.map((bundle) => (
                         <PublicCard key={bundle.id} className="flex flex-col p-6">
                             <div className="flex items-center gap-2">
-                                <span className="flex size-9 items-center justify-center rounded-xl bg-indigo-100 text-indigo-700">
+                                <span className="flex size-9 items-center justify-center rounded-xl bg-indigo-100 text-indigo-700 dark:bg-indigo-950/60 dark:text-indigo-300">
                                     <Package className="size-4" />
                                 </span>
                                 <div>

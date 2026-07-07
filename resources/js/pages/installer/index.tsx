@@ -1,6 +1,7 @@
 import { Link, router, usePage } from '@inertiajs/react';
 import { Check, Download, Loader2, Package } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
+import InstallerRunGuide from '@/components/installer-run-guide';
 import OsBanner from '@/components/os-banner';
 import SeoHead from '@/components/seo-head';
 import SoftwareIcon from '@/components/software-icon';
@@ -145,7 +146,7 @@ export default function InstallerIndex({
                     Select apps or start from a bundle — download one file that installs everything automatically.
                 </p>
                 {selectedBundle && (
-                    <p className="mt-2 text-sm font-medium text-indigo-700">
+                    <p className="mt-2 text-sm font-medium text-indigo-700 dark:text-indigo-300">
                         Using bundle: {selectedBundle.name}
                         {selected.length === 0 && (
                             <span className="font-normal text-muted-foreground">
@@ -174,7 +175,7 @@ export default function InstallerIndex({
                             <h2 className="text-lg font-semibold">Start from a bundle</h2>
                             <p className="text-sm text-muted-foreground">Pre-selected app groups — or browse all bundles.</p>
                         </div>
-                        <Link href="/bundles" className="text-sm font-medium text-indigo-600 hover:text-indigo-700">
+                        <Link href="/bundles" className="public-accent-link text-sm">
                             View all bundles
                         </Link>
                     </div>
@@ -191,12 +192,12 @@ export default function InstallerIndex({
                                     className={cn(
                                         'rounded-2xl border p-4 text-left transition',
                                         isActive
-                                            ? 'border-indigo-400 bg-indigo-50/80 shadow-md ring-2 ring-indigo-200'
-                                            : 'border-transparent bg-white/80 shadow-sm hover:border-indigo-200 hover:shadow-md',
+                                            ? 'border-indigo-400 bg-indigo-50/80 shadow-md ring-2 ring-indigo-200 dark:border-indigo-500/50 dark:bg-indigo-950/40 dark:ring-indigo-500/30'
+                                            : 'border-transparent bg-white/80 shadow-sm hover:border-indigo-200 hover:shadow-md dark:bg-card/80 dark:hover:border-indigo-500/30',
                                     )}
                                 >
                                     <div className="flex items-center gap-2 font-semibold">
-                                        <Package className="size-4 text-indigo-600" />
+                                        <Package className="public-accent-text size-4" />
                                         {bundle.name}
                                     </div>
                                     {bundle.description && (
@@ -222,7 +223,7 @@ export default function InstallerIndex({
                 <select
                     value={os}
                     onChange={(e) => changeOs(e.target.value as CatalogOs)}
-                    className="rounded-xl border border-input bg-white/80 px-4 py-2 text-sm shadow-sm backdrop-blur-sm focus:ring-2 focus:ring-indigo-500/30 focus:outline-none"
+                    className="public-surface rounded-xl px-4 py-2 text-sm shadow-sm backdrop-blur-sm focus:ring-2 focus:ring-indigo-500/30 focus:outline-none dark:focus:ring-indigo-400/30"
                 >
                     {OS_OPTIONS.map((option) => (
                         <option key={option.value} value={option.value}>{option.label}</option>
@@ -232,7 +233,7 @@ export default function InstallerIndex({
                 {activeBundleSlug && (
                     <Link
                         href={`/installer?os=${os}`}
-                        className="text-sm font-medium text-indigo-600 hover:text-indigo-700"
+                        className="public-accent-link text-sm"
                     >
                         Clear bundle
                     </Link>
@@ -242,7 +243,7 @@ export default function InstallerIndex({
             <div className="grid gap-6 md:grid-cols-2">
                 {Object.entries(grouped).map(([category, items]) => (
                     <PublicCard key={category} className="p-5">
-                        <h2 className="mb-4 text-lg font-semibold text-indigo-950">{category}</h2>
+                        <h2 className="public-heading-accent mb-4 text-lg font-semibold">{category}</h2>
                         <div className="space-y-2">
                             {items.map((item) => {
                                 const checked = selected.includes(item.id);
@@ -254,8 +255,8 @@ export default function InstallerIndex({
                                         className={cn(
                                             'flex w-full items-center gap-3 rounded-xl border p-3 text-left transition',
                                             checked
-                                                ? 'border-indigo-300 bg-indigo-50/80 shadow-sm'
-                                                : 'border-transparent bg-muted/40 hover:bg-muted/70',
+                                                ? 'border-indigo-300 bg-indigo-50/80 shadow-sm dark:border-indigo-500/50 dark:bg-indigo-950/40'
+                                                : 'border-transparent bg-muted/40 hover:bg-muted/70 dark:bg-muted/20 dark:hover:bg-muted/40',
                                         )}
                                     >
                                         <SoftwareIcon name={item.name} icon={item.icon} slug={item.slug} size="sm" />
@@ -290,9 +291,11 @@ export default function InstallerIndex({
                         <a href={downloadUrl}>Download {filename}</a>
                     </Button>
                 )}
-                <p className="w-full text-sm text-muted-foreground">
-                    Double-click on Windows/macOS, or run in terminal on Ubuntu. Internet required.
-                </p>
+                <InstallerRunGuide
+                    os={os}
+                    filename={filename}
+                    ready={!!downloadUrl}
+                />
             </PublicCard>
         </PublicLayout>
     );
