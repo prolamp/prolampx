@@ -13,6 +13,7 @@ class Page extends Model
         'meta_title',
         'meta_description',
         'og_image',
+        'is_published',
     ];
 
     public function getRouteKeyName(): string

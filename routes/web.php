@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\BundleController as AdminBundleController;
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\MediaController as AdminMediaController;
+use App\Http\Controllers\Admin\PageController as AdminPageController;
 use App\Http\Controllers\Admin\PortfolioController as AdminPortfolioController;
 use App\Http\Controllers\Admin\SoftwareController as AdminSoftwareController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
@@ -33,7 +34,10 @@ Route::middleware([DetectOperatingSystem::class])->group(function () {
     Route::post('/installer/generate', [InstallerController::class, 'generate'])->name('installer.generate');
     Route::redirect('/setup', '/installer');
     Route::post('/setup/generate', [InstallerController::class, 'generate']);
-    Route::get('/page/{page:slug}', [PageController::class, 'show'])->name('page.show');
+    Route::redirect('/privacy', '/page/privacy-policy');
+    Route::redirect('/terms', '/page/terms-of-service');
+    Route::redirect('/cookies', '/page/cookie-policy');
+    Route::get('/page/{slug}', [PageController::class, 'show'])->name('page.show');
 
     Route::get('/api/catalog/version', [CatalogApiController::class, 'version'])->name('api.catalog.version');
     Route::get('/api/catalog/{os}', [CatalogApiController::class, 'show'])->name('api.catalog.show');
@@ -91,6 +95,15 @@ Route::middleware(['auth', 'verified', EnsureUserHasRole::class.':super_admin,ad
         Route::patch('/blog-categories/{blogCategory:id}/toggle-active', [AdminBlogCategoryController::class, 'toggleActive'])->name('blog-categories.toggle-active');
 
         Route::post('/media', [AdminMediaController::class, 'store'])->name('media.store');
+
+        Route::get('/pages', [AdminPageController::class, 'index'])->name('pages.index');
+        Route::get('/pages/create', [AdminPageController::class, 'create'])->name('pages.create');
+        Route::post('/pages', [AdminPageController::class, 'store'])->name('pages.store');
+        Route::get('/pages/{page:id}', [AdminPageController::class, 'show'])->name('pages.show');
+        Route::get('/pages/{page:id}/edit', [AdminPageController::class, 'edit'])->name('pages.edit');
+        Route::put('/pages/{page:id}', [AdminPageController::class, 'update'])->name('pages.update');
+        Route::delete('/pages/{page:id}', [AdminPageController::class, 'destroy'])->name('pages.destroy');
+        Route::patch('/pages/{page:id}/toggle-published', [AdminPageController::class, 'togglePublished'])->name('pages.toggle-published');
 
         Route::get('/portfolio', [AdminPortfolioController::class, 'index'])->name('portfolio.index');
         Route::get('/portfolio/create', [AdminPortfolioController::class, 'create'])->name('portfolio.create');

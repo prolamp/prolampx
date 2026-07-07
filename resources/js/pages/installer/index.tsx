@@ -1,7 +1,6 @@
 import { Link, router, usePage } from '@inertiajs/react';
 import { Check, Download, Loader2, Package } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
-import AdSection from '@/components/ad-section';
 import OsBanner from '@/components/os-banner';
 import SeoHead from '@/components/seo-head';
 import SoftwareIcon from '@/components/software-icon';
@@ -295,8 +294,6 @@ export default function InstallerIndex({
                     Double-click on Windows/macOS, or run in terminal on Ubuntu. Internet required.
                 </p>
             </PublicCard>
-
-            <AdSection slot="content" variant="inline" className="mt-8" />
         </PublicLayout>
     );
 }

@@ -1,7 +1,6 @@
-import { usePage } from '@inertiajs/react';
 import { useEffect, useRef } from 'react';
+import { useAdsense, type AdSenseSlot } from '@/hooks/use-adsense';
 import { cn } from '@/lib/utils';
-import type { AdSenseSlot } from '@/hooks/use-adsense';
 
 type AdSlotProps = {
     slot: AdSenseSlot;
@@ -9,9 +8,7 @@ type AdSlotProps = {
 };
 
 export default function AdSlot({ slot, className }: AdSlotProps) {
-    const { adsense } = usePage().props as {
-        adsense?: { enabled: boolean; clientId: string | null; slots: Partial<Record<AdSenseSlot, string>> };
-    };
+    const adsense = useAdsense();
     const pushed = useRef(false);
 
     useEffect(() => {

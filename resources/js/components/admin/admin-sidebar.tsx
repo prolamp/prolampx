@@ -1,6 +1,7 @@
 import { Link, usePage } from '@inertiajs/react';
 import {
     FolderKanban,
+    FileText,
     Layers,
     LayoutGrid,
     Monitor,
@@ -29,6 +30,7 @@ const adminNavItems: NavItem[] = [
     { title: 'Bundles', href: '/admin/bundles', icon: Package },
     { title: 'Blog', href: '/admin/blog', icon: Newspaper },
     { title: 'Blog Categories', href: '/admin/blog-categories', icon: Tags },
+    { title: 'Pages', href: '/admin/pages', icon: FileText },
     { title: 'Website Sections', href: '/admin/portfolio', icon: FolderKanban },
 ];
 
