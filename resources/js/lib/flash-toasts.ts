@@ -8,8 +8,44 @@ type SharedFlash = {
     error?: string | null;
 };
 
+let lastShown: { key: string; at: number } | null = null;
+
+function flashKey(flash: SharedFlash): string | null {
+    if (flash.toast) {
+        return `toast:${flash.toast.type}:${flash.toast.message}`;
+    }
+
+    if (flash.success) {
+        return `success:${flash.success}`;
+    }
+
+    if (flash.error) {
+        return `error:${flash.error}`;
+    }
+
+    return null;
+}
+
+function shouldShow(key: string): boolean {
+    const now = Date.now();
+
+    if (lastShown && lastShown.key === key && now - lastShown.at < 750) {
+        return false;
+    }
+
+    lastShown = { key, at: now };
+
+    return true;
+}
+
 function showFlash(flash: SharedFlash | undefined): void {
     if (!flash) {
+        return;
+    }
+
+    const key = flashKey(flash);
+
+    if (!key || !shouldShow(key)) {
         return;
     }
 

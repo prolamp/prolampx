@@ -35,6 +35,9 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
                     <Link href="/page/cookie-policy" className="public-accent-link ml-4 mt-2 inline-block text-sm">
                         Cookie Policy
                     </Link>
+                    <Link href="/contact" className="public-accent-link ml-4 mt-2 inline-block text-sm">
+                        Contact
+                    </Link>
                     <button
                         type="button"
                         className="public-accent-link ml-4 mt-2 inline-block text-sm"

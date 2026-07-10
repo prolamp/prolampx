@@ -22,6 +22,7 @@ class SitemapController extends Controller
                 ['loc' => url('/bundles'), 'priority' => '0.9'],
                 ['loc' => url('/software'), 'priority' => '0.9'],
                 ['loc' => url('/blog'), 'priority' => '0.8'],
+                ['loc' => url('/contact'), 'priority' => '0.7'],
             ]);
 
             BlogPost::query()->published()->get(['slug', 'updated_at'])->each(function (BlogPost $post) use ($urls) {

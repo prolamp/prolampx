@@ -12,7 +12,7 @@ use App\Http\Controllers\Admin\SoftwareController as AdminSoftwareController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BundlePageController;
-use App\Http\Controllers\CatalogApiController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InstallerController;
 use App\Http\Controllers\PageController;
@@ -37,6 +37,8 @@ Route::middleware([DetectOperatingSystem::class])->group(function () {
     Route::redirect('/privacy', '/page/privacy-policy');
     Route::redirect('/terms', '/page/terms-of-service');
     Route::redirect('/cookies', '/page/cookie-policy');
+    Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+    Route::post('/contact', [ContactController::class, 'store'])->middleware('throttle:6,1')->name('contact.store');
     Route::get('/page/{slug}', [PageController::class, 'show'])->name('page.show');
 
     Route::get('/api/catalog/version', [CatalogApiController::class, 'version'])->name('api.catalog.version');
