@@ -1,6 +1,7 @@
 import { Link, usePage } from '@inertiajs/react';
-import { Download, Layers, LayoutGrid, LogIn, Menu, Monitor, Newspaper, Package, Sparkles } from 'lucide-react';
+import { Download, Layers, LayoutGrid, LogIn, Menu, Monitor, Newspaper } from 'lucide-react';
 import { useState } from 'react';
+import { ProLampLogo } from '@/components/prolamp-logo';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
@@ -24,18 +25,10 @@ export default function PublicHeader() {
         <header className="sticky top-0 z-50 border-b border-white/60 bg-white/80 shadow-sm shadow-indigo-500/5 backdrop-blur-xl supports-[backdrop-filter]:bg-white/70 dark:border-border/60 dark:bg-card/80 dark:shadow-black/10 dark:supports-[backdrop-filter]:bg-card/70">
             <div className="mx-auto flex h-16 max-w-7xl items-center gap-4 px-4 sm:px-6">
                 <Link href="/" className="group flex shrink-0 items-center gap-2.5">
-                    <span className="relative flex size-10 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-600 via-violet-600 to-purple-600 text-white shadow-lg shadow-indigo-600/30 transition group-hover:scale-105">
-                        <Sparkles className="size-4" />
-                        <span className="absolute inset-0 rounded-2xl bg-white/20 opacity-0 transition group-hover:opacity-100" />
+                    <ProLampLogo variant="full" imageClassName="h-9 w-auto transition group-hover:opacity-90 sm:h-10" />
+                    <span className="hidden text-[10px] font-medium uppercase tracking-wider text-muted-foreground sm:block">
+                        Multi-OS installer
                     </span>
-                    <div className="hidden leading-tight sm:block">
-                        <span className="block text-base font-bold tracking-tight">
-                            Pro<span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">Lamp</span>X
-                        </span>
-                        <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
-                            Multi-OS installer
-                        </span>
-                    </div>
                 </Link>
 
                 <nav className="hidden flex-1 items-center justify-center md:flex">
@@ -95,7 +88,7 @@ export default function PublicHeader() {
                         <SheetContent side="right" className="w-[min(100vw-2rem,320px)]">
                             <SheetHeader>
                                 <SheetTitle className="flex items-center gap-2 text-left">
-                                    <Sparkles className="public-accent-text size-4" />
+                                    <ProLampLogo variant="mark" imageClassName="h-6 w-auto" />
                                     ProLampX
                                 </SheetTitle>
                             </SheetHeader>
