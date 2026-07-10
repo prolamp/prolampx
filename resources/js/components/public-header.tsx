@@ -1,5 +1,5 @@
 import { Link, usePage } from '@inertiajs/react';
-import { Download, Layers, LayoutGrid, LogIn, Menu, Monitor, Newspaper } from 'lucide-react';
+import { Download, Layers, LayoutGrid, Menu, Monitor, Newspaper } from 'lucide-react';
 import { useState } from 'react';
 import { ProLampLogo } from '@/components/prolamp-logo';
 import { Button } from '@/components/ui/button';
@@ -62,18 +62,11 @@ export default function PublicHeader() {
                         </Link>
                     </Button>
 
-                    {isAdmin ? (
+                    {isAdmin && (
                         <Button asChild variant="outline" size="sm" className="hidden sm:inline-flex">
                             <Link href="/admin/dashboard">
                                 <LayoutGrid className="size-4" />
                                 Admin
-                            </Link>
-                        </Button>
-                    ) : (
-                        <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
-                            <Link href="/login">
-                                <LogIn className="size-4" />
-                                Login
                             </Link>
                         </Button>
                     )}
@@ -117,13 +110,9 @@ export default function PublicHeader() {
                                         Get Installer
                                     </Link>
                                 </Button>
-                                {isAdmin ? (
+                                {isAdmin && (
                                     <Button asChild variant="outline" className="w-full">
                                         <Link href="/admin/dashboard" onClick={() => setOpen(false)}>Admin Dashboard</Link>
-                                    </Button>
-                                ) : (
-                                    <Button asChild variant="outline" className="w-full">
-                                        <Link href="/login" onClick={() => setOpen(false)}>Login</Link>
                                     </Button>
                                 )}
                             </div>
