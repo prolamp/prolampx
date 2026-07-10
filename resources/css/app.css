@@ -184,4 +184,16 @@
     .public-prose {
         @apply prose prose-indigo max-w-none dark:prose-invert;
     }
+
+    .public-prose figure {
+        @apply my-8;
+    }
+
+    .public-prose figure img {
+        @apply w-full rounded-xl border border-border shadow-md;
+    }
+
+    .public-prose figcaption {
+        @apply mt-3 text-center text-sm text-muted-foreground;
+    }
 }

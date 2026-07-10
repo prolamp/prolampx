@@ -36,7 +36,7 @@ export default function BlogIndex({ posts, categories, activeCategory, seo }: Pr
             </div>
 
             {categories.length > 0 && (
-                <div className="mb-6 flex flex-wrap gap-2">
+                <div className="mb-8 flex flex-wrap gap-2">
                     <button
                         type="button"
                         onClick={() => router.get('/blog', {}, { preserveState: true })}
@@ -64,19 +64,51 @@ export default function BlogIndex({ posts, categories, activeCategory, seo }: Pr
             )}
 
             <ContentWithSidebarAd>
-                <div className="space-y-4">
+                <ul className="flex flex-col gap-5">
                     {posts.data.map((post) => (
-                        <Link key={post.id} href={`/blog/${post.slug}`}>
-                            <PublicCard className="block p-6">
-                                {post.category && (
-                                    <span className="public-accent-text text-xs font-semibold uppercase tracking-wide">{post.category.name}</span>
-                                )}
-                                <h2 className="text-xl font-semibold">{post.title}</h2>
-                                <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>
-                            </PublicCard>
-                        </Link>
+                        <li key={post.id}>
+                            <Link href={`/blog/${post.slug}`} className="group block">
+                                <PublicCard className="overflow-hidden transition hover:translate-y-0 hover:shadow-lg">
+                                    <div className="flex flex-col gap-4 p-4 sm:flex-row sm:items-stretch sm:p-5">
+                                        {post.cover_image && (
+                                            <div className="shrink-0 overflow-hidden rounded-lg border border-border/60 sm:w-44">
+                                                <img
+                                                    src={post.cover_image}
+                                                    alt=""
+                                                    className="h-36 w-full object-cover object-top sm:h-full sm:min-h-[7.5rem]"
+                                                />
+                                            </div>
+                                        )}
+                                        <div className="flex min-w-0 flex-1 flex-col justify-center">
+                                            <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                                                {post.category && (
+                                                    <span className="public-accent-text text-xs font-semibold uppercase tracking-wide">
+                                                        {post.category.name}
+                                                    </span>
+                                                )}
+                                                {post.published_at && (
+                                                    <span className="text-xs text-muted-foreground">
+                                                        {new Date(post.published_at).toLocaleDateString(undefined, {
+                                                            year: 'numeric',
+                                                            month: 'short',
+                                                            day: 'numeric',
+                                                        })}
+                                                    </span>
+                                                )}
+                                            </div>
+                                            <h2 className="mt-1.5 text-lg font-semibold leading-snug group-hover:text-indigo-700 dark:group-hover:text-indigo-300">
+                                                {post.title}
+                                            </h2>
+                                            <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
+                                                {post.excerpt}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </PublicCard>
+                            </Link>
+                        </li>
                     ))}
-                </div>
+                </ul>
             </ContentWithSidebarAd>
         </PublicLayout>
     );
