@@ -34,6 +34,10 @@
         <link rel="icon" href="/logo/white-favicon.svg" type="image/svg+xml">
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
+        @if (filled(config('services.adsense.client_id')))
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ config('services.adsense.client_id') }}" crossorigin="anonymous"></script>
+        @endif
+
         @fonts
 
         @viteReactRefresh
