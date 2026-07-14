@@ -7,7 +7,6 @@ use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\MediaController as AdminMediaController;
 use App\Http\Controllers\Admin\PageController as AdminPageController;
-use App\Http\Controllers\Admin\PortfolioController as AdminPortfolioController;
 use App\Http\Controllers\Admin\SoftwareController as AdminSoftwareController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\BlogController;
@@ -106,15 +105,6 @@ Route::middleware(['auth', 'verified', EnsureUserHasRole::class.':super_admin,ad
         Route::put('/pages/{page:id}', [AdminPageController::class, 'update'])->name('pages.update');
         Route::delete('/pages/{page:id}', [AdminPageController::class, 'destroy'])->name('pages.destroy');
         Route::patch('/pages/{page:id}/toggle-published', [AdminPageController::class, 'togglePublished'])->name('pages.toggle-published');
-
-        Route::get('/portfolio', [AdminPortfolioController::class, 'index'])->name('portfolio.index');
-        Route::get('/portfolio/create', [AdminPortfolioController::class, 'create'])->name('portfolio.create');
-        Route::post('/portfolio', [AdminPortfolioController::class, 'store'])->name('portfolio.store');
-        Route::get('/portfolio/{portfolio:id}', [AdminPortfolioController::class, 'show'])->name('portfolio.show');
-        Route::get('/portfolio/{portfolio:id}/edit', [AdminPortfolioController::class, 'edit'])->name('portfolio.edit');
-        Route::put('/portfolio/{portfolio:id}', [AdminPortfolioController::class, 'update'])->name('portfolio.update');
-        Route::delete('/portfolio/{portfolio:id}', [AdminPortfolioController::class, 'destroy'])->name('portfolio.destroy');
-        Route::patch('/portfolio/{portfolio:id}/toggle-active', [AdminPortfolioController::class, 'toggleActive'])->name('portfolio.toggle-active');
 
         Route::get('/bundles', [AdminBundleController::class, 'index'])->name('bundles.index');
         Route::get('/bundles/create', [AdminBundleController::class, 'create'])->name('bundles.create');

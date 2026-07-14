@@ -26,9 +26,6 @@ export default function PublicHeader() {
             <div className="mx-auto flex h-16 max-w-7xl items-center gap-4 px-4 sm:px-6">
                 <Link href="/" className="group flex shrink-0 items-center gap-2.5">
                     <ProLampLogo variant="full" imageClassName="h-9 w-auto transition group-hover:opacity-90 sm:h-10" />
-                    <span className="hidden text-[10px] font-medium uppercase tracking-wider text-muted-foreground sm:block">
-                        Multi-OS installer
-                    </span>
                 </Link>
 
                 <nav className="hidden flex-1 items-center justify-center md:flex">

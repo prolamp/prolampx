@@ -12,7 +12,6 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             CategorySeeder::class,
             PageSeeder::class,
-            PortfolioSeeder::class,
             BlogCategorySeeder::class,
             BlogSeeder::class,
             SoftwareSeeder::class,

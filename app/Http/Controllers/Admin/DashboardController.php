@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\BlogPost;
 use App\Models\Bundle;
-use App\Models\PortfolioSection;
+use App\Models\Category;
 use App\Models\Software;
 use App\Models\User;
 use Inertia\Inertia;
@@ -18,10 +18,9 @@ class DashboardController extends Controller
         return Inertia::render('admin/dashboard', [
             'stats' => [
                 'software' => Software::count(),
-                'categories' => \App\Models\Category::count(),
+                'categories' => Category::count(),
                 'bundles' => Bundle::count(),
                 'posts' => BlogPost::count(),
-                'portfolio' => PortfolioSection::count(),
                 'users' => User::count(),
             ],
         ]);

@@ -8,19 +8,6 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('portfolio_sections', function (Blueprint $table) {
-            $table->id();
-            $table->string('type');
-            $table->string('title')->nullable();
-            $table->string('subtitle')->nullable();
-            $table->longText('body')->nullable();
-            $table->string('image')->nullable();
-            $table->json('settings')->nullable();
-            $table->unsignedInteger('sort_order')->default(0);
-            $table->boolean('is_active')->default(true);
-            $table->timestamps();
-        });
-
         Schema::create('blog_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -57,6 +44,5 @@ return new class extends Migration
         });
 
         Schema::dropIfExists('blog_categories');
-        Schema::dropIfExists('portfolio_sections');
     }
 };

@@ -1,0 +1,466 @@
+/*
+ * Landing page styles ported from prolampx-landing.
+ * Only used by the MUI-based home page. Global resets (`*`, `body`) are
+ * intentionally dropped so this file does not affect the rest of the app;
+ * MUI CssBaseline handles the body while the home page is mounted.
+ * The `--background` token is renamed to `--ls-background` and the `.shadow`
+ * class to `.ls-shadow` to avoid collisions with Tailwind / shadcn.
+ */
+
+:root {
+  --brand-navy: #1B365D;
+  --brand-navy-dark: #0f2440;
+  --brand-accent: #4F8CFF;
+  --brand-accent-soft: rgba(79, 140, 255, 0.15);
+  --white-rbg: 255, 255, 255;
+  --white-color: rgba(var(--white-rbg), 1);
+  --white-7-color: rgba(var(--white-rbg), 0.7);
+  --black-7-color: #171f33;
+  --black-8-color: #1b253a;
+  --dark-600-color: #64748b;
+
+  --font-geist-sans: "Geist Sans";
+  --font-geist-mono: "Geist Mono";
+
+  --primary-main-light: var(--brand-navy);
+  --primary-dark-light: var(--brand-navy-dark);
+  --primary-contrastText-light: #ffffff;
+
+  --primary-main-dark: var(--brand-navy);
+  --primary-dark-dark: var(--brand-navy-dark);
+  --primary-contrastText-dark: #ffffff;
+
+  --secondary-main-light: var(--dark-600-color);
+  --secondary-dark-light: #1e293b;
+  --secondary-contrastText-light: #64748b;
+
+  --secondary-main-dark: var(--brand-accent);
+  --secondary-dark-dark: #e2e8f0;
+  --secondary-contrastText-dark: #cbd5e1;
+
+  --background-default-dark: var(--black-7-color);
+  --background-default-light: #ffffff;
+
+  --border-color-dark: rgba(148, 163, 184, 0.28);
+  --border-color-light: #e2e8f0;
+
+  --background-primary-light: var(--brand-navy-dark);
+  --background-primary-dark: var(--brand-navy-dark);
+  --shadow-light-color: rgba(15, 23, 42, 0.08);
+  --shadow-dark-color: rgba(0, 0, 0, 0.28);
+
+  --font-heading: var(--font-geist-sans), "Segoe UI", sans-serif;
+  --font-body: var(--font-geist-mono), "Segoe UI", sans-serif;
+  --font-responsive-65: clamp(2rem, 4.5vw, 3.75rem);
+}
+
+@font-face {
+  font-family: "Geist Sans";
+  src: url("../fonts/GeistVF.woff") format("woff");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("../fonts/GeistMonoVF.woff") format("woff");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root.dark {
+  --primary-color: var(--primary-main-dark);
+  --primary-dark-color: var(--primary-dark-dark);
+  --primary-contrastText-color: var(--primary-contrastText-dark);
+  --primary-overlay-color: rgba(15, 36, 64, 0.82);
+
+  --secondary-color: var(--secondary-main-dark);
+  --secondary-dark-color: var(--secondary-dark-dark);
+  --secondary-light-color: var(--brand-navy);
+  --secondary-contrastText-color: var(--secondary-contrastText-dark);
+  --secoundry-body: var(--secondary-contrastText-dark);
+  --ls-background: #222d45;
+
+  --background-offWhite: var(--black-8-color);
+  --AppBar-background: rgba(23, 31, 51, 0.82) !important;
+  --background-dark: #243252;
+  --border-color: var(--border-color-dark);
+  --background-primary: #1c2d4a;
+  --background-overlay: rgba(27, 37, 58, 0.88);
+  --shadow-color: var(--shadow-dark-color);
+  --background-body: var(--black-7-color);
+}
+
+:root:not(.dark) {
+  --primary-color: var(--primary-main-light);
+  --primary-dark-color: var(--primary-dark-light);
+  --primary-contrastText-color: var(--primary-contrastText-light);
+  --primary-overlay-color: rgba(79, 140, 255, 0.08);
+
+  --secondary-color: #3b82f6;
+  --secondary-dark-color: #0f2440;
+  --secondary-light-color: #60a5fa;
+  --secondary-contrastText-color: #5b6b7c;
+  --secoundry-body: #64748b;
+
+  --ls-background: #ffffff;
+  --background-offWhite: #f4f7fb;
+  --background-dark: #eef2f7;
+  --border-color: #dbe3ee;
+  --background-primary: #edf3ff;
+  --background-overlay: rgba(255, 255, 255, 0.94);
+  --shadow-color: rgba(27, 54, 93, 0.1);
+  --background-body: #f8fafc;
+  --AppBar-background: rgba(255, 255, 255, 0.88) !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.glass-header {
+  background: rgba(23, 31, 51, 0.82) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+  color: #ffffff;
+}
+
+:root:not(.dark) .glass-header {
+  background: rgba(255, 255, 255, 0.88) !important;
+  border-bottom: 1px solid rgba(27, 54, 93, 0.08);
+  color: #0f2440;
+  box-shadow: 0 8px 30px rgba(27, 54, 93, 0.06);
+}
+
+:root:not(.dark) .nav-link {
+  color: #0f2440;
+}
+
+:root:not(.dark) .nav-link:hover {
+  color: #3b82f6;
+}
+
+.nav-link {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--brand-accent);
+}
+
+.hero-gradient {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(79, 140, 255, 0.22), transparent 42%),
+    radial-gradient(circle at 80% 0%, rgba(79, 140, 255, 0.1), transparent 38%),
+    linear-gradient(180deg, #171f33 0%, #1b253a 100%);
+}
+
+:root:not(.dark) .hero-gradient {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(79, 140, 255, 0.2), transparent 42%),
+    radial-gradient(circle at 85% 0%, rgba(27, 54, 93, 0.12), transparent 38%),
+    linear-gradient(180deg, #f8fbff 0%, #ffffff 55%, #f4f7fb 100%);
+}
+
+.trust-stat {
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+:root:not(.dark) .trust-stat {
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(27, 54, 93, 0.06);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  display: none !important;
+}
+
+.btn-swiper {
+  background: var(--primary-color);
+  color: var(--primary-contrastText-color);
+  border-radius: 50% !important;
+  width: 50px !important;
+  height: 50px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-swiper span {
+  border-radius: 50% !important;
+  width: 50px !important;
+  height: 50px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-swiper svg {
+  width: 25px !important;
+  height: 25px !important;
+  fill: currentColor;
+}
+
+.testimonials-slider .swiper-wrapper {
+  align-items: flex-start;
+}
+
+.testimonials-section .testimonials-slider {
+  padding-inline: 40px;
+}
+
+.testimonials-section .testimonials-slider .swiper-button-next,
+.testimonials-section .testimonials-slider .swiper-button-prev,
+.testimonials-section .testimonials-slider .testimonials-nav-btn {
+  top: 50%;
+  width: 32px !important;
+  height: 32px !important;
+  margin-top: 0 !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff !important;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.testimonials-section .testimonials-slider .swiper-button-prev {
+  left: 0 !important;
+}
+
+.testimonials-section .testimonials-slider .swiper-button-next {
+  right: 0 !important;
+}
+
+.testimonials-section .testimonials-slider .swiper-button-next span,
+.testimonials-section .testimonials-slider .swiper-button-prev span,
+.testimonials-section .testimonials-slider .testimonials-nav-btn span {
+  width: 32px !important;
+  height: 32px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimonials-section .testimonials-slider .swiper-button-next svg,
+.testimonials-section .testimonials-slider .swiper-button-prev svg,
+.testimonials-section .testimonials-slider .testimonials-nav-btn svg {
+  width: 14px !important;
+  height: 14px !important;
+  fill: currentColor;
+}
+
+:root.dark .testimonials-section .testimonials-slider .swiper-button-next,
+:root.dark .testimonials-section .testimonials-slider .swiper-button-prev,
+:root.dark .testimonials-section .testimonials-slider .testimonials-nav-btn {
+  background: rgba(15, 36, 64, 0.92) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+:root:not(.dark) .testimonials-section .testimonials-slider .swiper-button-next,
+:root:not(.dark) .testimonials-section .testimonials-slider .swiper-button-prev,
+:root:not(.dark) .testimonials-section .testimonials-slider .testimonials-nav-btn {
+  background: var(--primary-dark-color) !important;
+  color: #ffffff !important;
+  border: none;
+  box-shadow: 0 4px 12px rgba(27, 54, 93, 0.18);
+}
+
+.testimonials-section .testimonials-slider .btn-swiper {
+  width: 32px !important;
+  height: 32px !important;
+}
+
+.testimonials-section .testimonials-slider .btn-swiper span {
+  width: 32px !important;
+  height: 32px !important;
+}
+
+.testimonials-section .testimonials-slider .btn-swiper svg {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+.PhoneInput input.PhoneInputInput {
+  border: none !important;
+  font-size: inherit !important;
+  background-color: transparent !important;
+}
+
+.PhoneInput input.PhoneInputInput:focus-visible {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+form .MuiBox-root:focus-visible,
+form .MuiFormControl-root:focus-visible {
+  outline: none !important;
+}
+
+.shadow-white {
+  box-shadow: 0 8px 30px rgba(79, 140, 255, 0.35) !important;
+}
+
+:root:not(.dark) .shadow-white {
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.22) !important;
+}
+
+.ls-shadow {
+  box-shadow: 0 8px 30px var(--shadow-color) !important;
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px) scale(0.98);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.motion-hover {
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.motion-hover:hover {
+  transform: translateY(-6px);
+}
+
+.logo-marquee {
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+
+.logo-marquee-track {
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.logo-marquee-item {
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--secondary-dark-color);
+  background: var(--ls-background);
+  white-space: nowrap;
+}
+
+.portfolio-card {
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--ls-background);
+  height: 100%;
+}
+
+.hero-float {
+  animation: heroFloat 6s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes heroFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.bento-card {
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--ls-background);
+  height: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px var(--shadow-color);
+}
+
+.process-step {
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 24px;
+  background: var(--ls-background);
+  height: 100%;
+}
+
+.testimonial-card {
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 24px;
+  backdrop-filter: blur(12px);
+  background: rgba(34, 45, 69, 0.88);
+}
+
+:root:not(.dark) .testimonial-card {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid #dbe3ee;
+  box-shadow: 0 16px 40px rgba(27, 54, 93, 0.08);
+}
+
+:root:not(.dark) .testimonials-section {
+  background:
+    radial-gradient(circle at top right, rgba(79, 140, 255, 0.12), transparent 35%),
+    linear-gradient(180deg, #edf3ff 0%, #f8fbff 100%) !important;
+}
+
+:root:not(.dark) .testimonials-section::before {
+  display: none !important;
+}
+
+:root:not(.dark) .logo-marquee-item {
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(27, 54, 93, 0.05);
+}
+
+:root:not(.dark) .bento-card,
+:root:not(.dark) .portfolio-card,
+:root:not(.dark) .process-step,
+:root:not(.dark) .contact-info-card {
+  background: #ffffff;
+  box-shadow: 0 12px 32px rgba(27, 54, 93, 0.06);
+}
+
+:root:not(.dark) .about-image {
+  border: 1px solid #dbe3ee;
+  box-shadow: 0 20px 50px rgba(27, 54, 93, 0.1);
+}
+
+.contact-info-card {
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 20px;
+  background: var(--ls-background);
+}

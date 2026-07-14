@@ -1,11 +1,12 @@
-import { Head, Link } from '@inertiajs/react';
+import { Head } from '@inertiajs/react';
 import type { ReactNode } from 'react';
-import CookieConsentBanner, { openCookieConsentBanner } from '@/components/cookie-consent-banner';
+import CookieConsentBanner from '@/components/cookie-consent-banner';
 import PublicHeader from '@/components/public-header';
+import SiteFooter from '@/components/site-footer';
 import { useAdsense } from '@/hooks/use-adsense';
 import { cn } from '@/lib/utils';
 
-export default function PublicLayout({ children }: { children: ReactNode }) {
+export default function PublicLayout({ children, fullBleed = false }: { children: ReactNode; fullBleed?: boolean }) {
     const adsense = useAdsense();
 
     return (
@@ -20,33 +21,8 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
                 </Head>
             )}
             <PublicHeader />
-            <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6">{children}</main>
-            <footer className="mt-16 border-t border-indigo-100/80 bg-white/60 py-10 backdrop-blur-sm dark:border-border/60 dark:bg-card/50">
-                <div className="mx-auto max-w-7xl px-4 text-center sm:px-6">
-                    <p className="text-sm text-muted-foreground">
-                        &copy; {new Date().getFullYear()} ProLampX — One-click software setup for Windows, macOS & Ubuntu.
-                    </p>
-                    <Link href="/page/privacy-policy" className="public-accent-link mt-2 inline-block text-sm">
-                        Privacy Policy
-                    </Link>
-                    <Link href="/page/terms-of-service" className="public-accent-link ml-4 mt-2 inline-block text-sm">
-                        Terms of Service
-                    </Link>
-                    <Link href="/page/cookie-policy" className="public-accent-link ml-4 mt-2 inline-block text-sm">
-                        Cookie Policy
-                    </Link>
-                    <Link href="/contact" className="public-accent-link ml-4 mt-2 inline-block text-sm">
-                        Contact
-                    </Link>
-                    <button
-                        type="button"
-                        className="public-accent-link ml-4 mt-2 inline-block text-sm"
-                        onClick={openCookieConsentBanner}
-                    >
-                        Cookie Settings
-                    </button>
-                </div>
-            </footer>
+            {fullBleed ? <main>{children}</main> : <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6">{children}</main>}
+            <SiteFooter />
             <CookieConsentBanner />
         </div>
     );

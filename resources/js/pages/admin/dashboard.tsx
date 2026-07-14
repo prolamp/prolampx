@@ -1,5 +1,5 @@
 import { Head, Link } from '@inertiajs/react';
-import { Layers, Monitor, Newspaper, Package, Tags, Users } from 'lucide-react';
+import { Monitor, Newspaper, Package, Tags, Users } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 type Props = {
@@ -7,7 +7,6 @@ type Props = {
         software: number;
         bundles: number;
         posts: number;
-        portfolio: number;
         users: number;
         categories: number;
     };
@@ -18,7 +17,6 @@ const links = [
     { title: 'Categories', href: '/admin/categories', icon: Tags, stat: 'categories' as const, gradient: 'from-violet-500 to-purple-500' },
     { title: 'Bundles', href: '/admin/bundles', icon: Package, stat: 'bundles' as const, gradient: 'from-amber-500 to-orange-500' },
     { title: 'Blog', href: '/admin/blog', icon: Newspaper, stat: 'posts' as const, gradient: 'from-emerald-500 to-teal-500' },
-    { title: 'Portfolio', href: '/admin/portfolio', icon: Layers, stat: 'portfolio' as const, gradient: 'from-pink-500 to-rose-500' },
     { title: 'Users', href: '/admin/users', icon: Users, stat: 'users' as const, gradient: 'from-indigo-500 to-blue-500' },
 ];
 
