@@ -49,8 +49,27 @@ Route::get('/s/{token}/prolampx-setup.{extension}', [InstallerController::class,
     ->name('installer.download');
 
 Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
-Route::get('/robots.txt', fn () => response("User-agent: *\nAllow: /\nSitemap: ".url('/sitemap.xml'), 200, ['Content-Type' => 'text/plain']));
-Route::get('/ads.txt', fn () => response(env('ADSENSE_PUBLISHER_ID', ''), 200, ['Content-Type' => 'text/plain']));
+Route::get('/robots.txt', function () {
+    $sitemap = rtrim((string) config('app.url'), '/').'/sitemap.xml';
+
+    $body = implode("\n", [
+        'User-agent: *',
+        'Allow: /',
+        "Sitemap: {$sitemap}",
+        '',
+    ]);
+
+    return response($body, 200, [
+        'Content-Type' => 'text/plain; charset=UTF-8',
+        'Cache-Control' => 'public, max-age=3600',
+    ]);
+})->name('robots');
+Route::get('/ads.txt', function () {
+    return response((string) config('services.adsense.publisher_id'), 200, [
+        'Content-Type' => 'text/plain; charset=UTF-8',
+        'Cache-Control' => 'public, max-age=3600',
+    ]);
+})->name('ads-txt');
 
 Route::middleware(['auth', 'verified', EnsureUserHasRole::class.':super_admin,admin'])
     ->prefix('admin')
