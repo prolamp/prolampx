@@ -1,18 +1,13 @@
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
 import SeoHead from '@/components/seo-head';
 import AboutSection from '@/components/sections/aboutSection';
-import ClientLogosSection from '@/components/sections/clientLogosSection';
 import CtaSection from '@/components/sections/ctaSection';
 import HeroSection from '@/components/sections/heroSection';
-import InstallerSection from '@/components/sections/installerSection';
 import ProcessSection from '@/components/sections/processSection';
+import ProductsSection from '@/components/sections/productsSection';
 import ServicesSection from '@/components/sections/servicesSection';
+import TechStackSection from '@/components/sections/techStackSection';
 import TestimonialSection from '@/components/sections/testimonialSection';
 import PublicLayout from '@/layouts/public-layout';
-import WebTheme from '@/theme/web';
 
 type Props = {
     seo: {
@@ -35,16 +30,16 @@ export default function Home({ seo }: Props) {
                 canonical={seo.canonical}
                 type="website"
             />
-            <WebTheme>
+            <div className="bg-background pb-20 text-on-background selection:bg-secondary-fixed selection:text-on-secondary-fixed md:pb-0">
                 <HeroSection />
-                <ClientLogosSection />
-                <InstallerSection />
                 <AboutSection />
                 <ServicesSection />
                 <ProcessSection />
+                <ProductsSection />
                 <TestimonialSection />
+                <TechStackSection />
                 <CtaSection />
-            </WebTheme>
+            </div>
         </PublicLayout>
     );
 }

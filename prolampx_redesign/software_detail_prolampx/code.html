@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VS Code - ProLampX Software Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f7f9fb;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .glass-pill {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .prose-content h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #191c1e;
+        }
+        .prose-content p {
+            margin-bottom: 1.25rem;
+            line-height: 1.75;
+            color: #44474e;
+        }
+        .prose-content ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+        .ad-placeholder {
+            background-image: repeating-linear-gradient(45deg, #f2f4f6, #f2f4f6 10px, #ffffff 10px, #ffffff 20px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed": "#001a43",
+                      "secondary": "#0057c2",
+                      "surface-dim": "#d8dadc",
+                      "on-surface": "#191c1e",
+                      "secondary-fixed": "#d9e2ff",
+                      "tertiary": "#162132",
+                      "on-background": "#191c1e",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-fixed": "#001b3d",
+                      "error": "#ba1a1a",
+                      "surface-variant": "#e0e3e5",
+                      "primary-fixed-dim": "#aec7f7",
+                      "border-subtle": "#E2E8F0",
+                      "on-tertiary-fixed": "#111c2d",
+                      "surface-container": "#eceef0",
+                      "outline-variant": "#c4c6cf",
+                      "on-primary-container": "#87a0cd",
+                      "surface-container-highest": "#e0e3e5",
+                      "surface-tint": "#465f88",
+                      "tertiary-fixed": "#d8e3fb",
+                      "background": "#f7f9fb",
+                      "outline": "#74777f",
+                      "on-secondary-container": "#fefcff",
+                      "on-surface-variant": "#44474e",
+                      "os-macos": "#1B1B1B",
+                      "secondary-container": "#2c70e2",
+                      "inverse-on-surface": "#eff1f3",
+                      "surface": "#f7f9fb",
+                      "inverse-primary": "#aec7f7",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-low": "#f2f4f6",
+                      "inverse-surface": "#2d3133",
+                      "on-error": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "os-ubuntu": "#E95420",
+                      "os-windows": "#0078D4",
+                      "tertiary-fixed-dim": "#bcc7de",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed-variant": "#3c475a",
+                      "primary-container": "#1b365d",
+                      "surface-container-high": "#e6e8ea",
+                      "secondary-fixed-dim": "#afc6ff",
+                      "on-secondary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "on-secondary-fixed-variant": "#004398",
+                      "primary": "#002046",
+                      "surface-deep": "#0F2440",
+                      "on-tertiary-container": "#949fb5",
+                      "tertiary-container": "#2b3649",
+                      "on-primary-fixed-variant": "#2e476f",
+                      "surface-bright": "#f7f9fb",
+                      "primary-fixed": "#d6e3ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-sm": "8px",
+                      "stack-xl": "64px",
+                      "margin-mobile": "16px",
+                      "gutter": "24px",
+                      "stack-md": "16px",
+                      "stack-lg": "32px",
+                      "container-max": "1200px"
+              },
+              "fontFamily": {
+                      "headline-xl-mobile": ["Plus Jakarta Sans"],
+                      "body-md": ["Plus Jakarta Sans"],
+                      "label-sm": ["Plus Jakarta Sans"],
+                      "headline-xl": ["Plus Jakarta Sans"],
+                      "headline-lg": ["Plus Jakarta Sans"],
+                      "label-md": ["Plus Jakarta Sans"],
+                      "body-lg": ["Plus Jakarta Sans"],
+                      "headline-md": ["Plus Jakarta Sans"]
+              },
+              "fontSize": {
+                      "headline-xl-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 pt-4 px-margin-mobile">
+<nav class="max-w-container-max mx-auto px-6 flex justify-between items-center h-16 backdrop-blur-md bg-white/80 rounded-full border border-border-subtle shadow-[0px_4px_20px_rgba(27,54,93,0.08)]">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md font-bold text-primary">ProLampX</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Installer</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Bundles</a>
+<a class="font-body-md text-body-md text-secondary font-bold hover:text-secondary transition-colors" href="#">Software</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Blog</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-md text-label-md scale-95 active:scale-90 transition-transform hover:opacity-90">
+                Get Installer
+            </button>
+</nav>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile pt-32 pb-stack-xl">
+<!-- Breadcrumb / Back Navigation -->
+<div class="mb-stack-lg">
+<a class="inline-flex items-center gap-2 text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                Back to Catalog
+            </a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Main Content Column -->
+<div class="md:col-span-8">
+<!-- Software Header Card -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl p-8 mb-stack-md flex flex-col md:flex-row gap-8 items-start md:items-center">
+<div class="w-24 h-24 rounded-2xl bg-surface-container flex items-center justify-center p-4">
+<img class="w-full h-full object-contain" data-alt="A clean, minimalist 3D icon of Visual Studio Code with its signature blue ribbon logo, rendered with soft lighting and professional corporate textures against a neutral background. The style is crisp and modern, matching a developer-focused utility application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ0JrDsJMfidQIehlxEK474pTQP__yxlCKNJJguhU11TBEInS5t-UJ27fSxFO6XvuodKunTjzXteK0e0N1DjdI8Vh-CndWxcWvlU4AKA167SYwUkmzDjooz58IdkVSCNBjg66ok23Yxh06Q7Y8mz7ZDlEM62j96m_o4Q5ESDEvf_yGj_9f53RfODlajoBkc-Eip-w577pv7lnvcOKgJAAx8COxpJT6ExVODyTfR7WdIMNoCkaIOAJlNKQ3KGw5PQ1ayQ_WoHtuT4Ei"/>
+</div>
+<div class="flex-1">
+<div class="flex flex-wrap items-center gap-3 mb-2">
+<h1 class="font-headline-lg text-headline-lg text-primary">VS Code</h1>
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-label-sm uppercase">Freeware</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-4">Development • Version 1.92.1</p>
+<div class="flex flex-wrap gap-stack-md">
+<button class="bg-secondary text-on-secondary px-8 py-3 rounded-lg font-label-md text-label-md flex items-center gap-2 transition-all active:scale-95 shadow-sm hover:brightness-110" onclick="toggleSelect(this)">
+<span class="material-symbols-outlined" id="btn-icon">add</span>
+<span id="btn-text">Add to Installer</span>
+</button>
+<button class="border border-outline-variant text-on-surface-variant px-6 py-3 rounded-lg font-label-md text-label-md hover:bg-surface-container-low transition-colors">
+                                View Website
+                            </button>
+</div>
+</div>
+</div>
+<!-- Markdown Content Section -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-xl p-8 mb-stack-lg">
+<div class="prose-content">
+<h2 class="mt-0">Professional Code Editing. Redefined.</h2>
+<p>Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. It comes with built-in support for JavaScript, TypeScript and Node.js and has a rich ecosystem of extensions for other languages and runtimes.</p>
+<h2>Key Features</h2>
+<ul>
+<li><strong>IntelliSense:</strong> Go beyond syntax highlighting and autocomplete with smart completions based on variable types, function definitions, and imported modules.</li>
+<li><strong>Debugging:</strong> Debug code right from the editor. Launch or attach to your running apps and debug with break points, call stacks, and an interactive console.</li>
+<li><strong>Built-in Git:</strong> Working with Git and other SCM providers has never been easier. Review diffs, stage files, and make commits right from the editor.</li>
+<li><strong>Extensible:</strong> Want even more features? Install extensions to add new languages, themes, debuggers, and to connect to additional services.</li>
+</ul>
+<h2>Availability & Packages</h2>
+<p>ProLampX distributes VS Code through official platform package managers to ensure you always have the most secure and up-to-date version possible.</p>
+</div>
+<!-- Platform Availability Section -->
+<div class="mt-10 pt-10 border-t border-border-subtle">
+<h3 class="font-headline-md text-headline-md mb-6 text-primary">Platform Support</h3>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-gutter">
+<!-- Windows -->
+<div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container-low border border-transparent hover:border-os-windows/30 transition-colors">
+<div class="w-10 h-10 rounded-full bg-os-windows/10 flex items-center justify-center text-os-windows">
+<span class="material-symbols-outlined">desktop_windows</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Windows</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">winget install</p>
+</div>
+</div>
+<!-- MacOS -->
+<div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container-low border border-transparent hover:border-os-macos/30 transition-colors">
+<div class="w-10 h-10 rounded-full bg-os-macos/10 flex items-center justify-center text-os-macos">
+<span class="material-symbols-outlined">laptop_mac</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary">macOS</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">brew install</p>
+</div>
+</div>
+<!-- Ubuntu -->
+<div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container-low border border-transparent hover:border-os-ubuntu/30 transition-colors">
+<div class="w-10 h-10 rounded-full bg-os-ubuntu/10 flex items-center justify-center text-os-ubuntu">
+<span class="material-symbols-outlined">terminal</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Ubuntu</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">apt/snap install</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Related Software -->
+<section>
+<h2 class="font-headline-md text-headline-md text-primary mb-6">Similar Apps</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-stack-md">
+<!-- Related 1 -->
+<div class="bg-surface-container-lowest border border-border-subtle p-4 rounded-xl hover:border-secondary transition-all cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center p-2">
+<img class="w-full h-full object-contain" data-alt="A professional icon for Sublime Text with its distinctive 'S' shape in orange, rendered in a crisp vector style with clean lines and soft ambient occlusion. Corporate modern aesthetic for high-end software tools." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKcp03oMbmqvdex0-6ktoJz-oh9Cs6_EGFcwxuxXO_p0g373cETiebYRiFvQyo7EmaDG0a6w-3vNq1dLT7DYDk5mNh0_EAxZqZM9zmqI1OjSSagggqGVlcH72u_d0jRu6lVHc8WepA3IW_vkvEvEh_hC8olOU6HZAnRyvqgB3pzCveumjZu8MqTcKCZwwmo2b7c7wO7eh7VEUBNXuogU9XlbC4806p2o8gAUr6WHIYWtnr6nxY3_AUcLv-vPJum_TxY-x6XEw1eMNw"/>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-primary group-hover:text-secondary">Sublime Text</h4>
+<p class="text-xs text-on-surface-variant">Text Editor</p>
+</div>
+</div>
+</div>
+<!-- Related 2 -->
+<div class="bg-surface-container-lowest border border-border-subtle p-4 rounded-xl hover:border-secondary transition-all cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center p-2">
+<img class="w-full h-full object-contain" data-alt="A minimalist IntelliJ IDEA logo featuring its vibrant purple and blue spectrum, presented as a clean 3D software icon with soft reflections. Professional developer environment aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKBwm8RZUNrjFVrKwVnMEFgdNjsEngKVVXDfPdofEYEegHKu5YpHsqkUAepBSTRT0RfPPYX2Lu-JaYuUISSyiI31BnYvsEUWH9PdnYAgWkuQ_on7FQwb53VGIT_dQr6mG3yllEwsQHzJQEDd7ZjiwmzpBvQR35R6lObEoXubqOPR6JldLRpYXQ-lburDg7CK_3FwzLW_ZQj8ZKlLYybJlw0HV4URilKhG-6636pr9AxUYl_129pxC5c9eZ2Zw5Ttd77-KDhKJyt4KZ"/>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-primary group-hover:text-secondary">IntelliJ IDEA</h4>
+<p class="text-xs text-on-surface-variant">IDE</p>
+</div>
+</div>
+</div>
+<!-- Related 3 -->
+<div class="bg-surface-container-lowest border border-border-subtle p-4 rounded-xl hover:border-secondary transition-all cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center p-2">
+<img class="w-full h-full object-contain" data-alt="The GitHub Desktop icon, a clean purple and white cat-octopus logo in a modern rounded square container. Minimalist and clear lighting, corporate software style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlkixYAw9kBCXLd5s9CCixXfKg1meKDYhAfUxyZYVn5BhFjKaFECd4zaFC8IcJVknc45eAavfYg_bSauvYMaJtc9Jik67B4ntaUuVkCQISWiu2d1r4AvkEBg-iBzPF1bkfXEsmca25gRLdlV9NElaljQ_MseVA9-XMvIUgUKLARHJDlOogQh2GUAoPAptmCritR9eKKFSMHB11eNiBjLBrlPeDBGlBHjtRM0hbZnL85HxXdBFoDeCJSmf9JkP68rLImb7RuGmSp3Wm"/>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-primary group-hover:text-secondary">GitHub Desktop</h4>
+<p class="text-xs text-on-surface-variant">Git Tool</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Sidebar Column -->
+<aside class="md:col-span-4 flex flex-col gap-gutter">
+<!-- Ad Slot 1 -->
+<div class="ad-placeholder w-full aspect-[300/600] border border-dashed border-outline-variant rounded-xl flex flex-col items-center justify-center p-gutter">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2">Advertisement</span>
+<div class="text-center">
+<p class="text-on-surface-variant font-body-md text-body-md mb-4 italic">Support ProLampX by enabling non-intrusive ads.</p>
+<div class="w-full h-px bg-outline-variant mb-4"></div>
+<span class="text-xs text-outline">300x600 Vertical Banner</span>
+</div>
+</div>
+<!-- Stats/Extra Info Card -->
+<div class="bg-surface-container-low border border-border-subtle rounded-xl p-6">
+<h3 class="font-label-md text-label-md text-primary uppercase mb-4 tracking-wider">Software Info</h3>
+<ul class="space-y-4">
+<li class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Downloads</span>
+<span class="font-bold text-primary">12.4M+</span>
+</li>
+<li class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Last Update</span>
+<span class="text-primary">2 days ago</span>
+</li>
+<li class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">License</span>
+<span class="text-primary">MIT License</span>
+</li>
+</ul>
+</div>
+</aside>
+</div>
+</main>
+<!-- BottomNavBar (Action Bar) -->
+<div class="fixed bottom-0 w-full z-50 transform translate-y-full transition-transform duration-300" id="action-bar">
+<div class="max-w-container-max mx-auto px-gutter py-4 bg-primary shadow-[0px_-4px_20px_rgba(27,54,93,0.12)] flex justify-between items-center">
+<div class="flex items-center gap-4 text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-md text-label-md">1 app selected for installation</span>
+</div>
+<div class="flex gap-4">
+<button class="text-on-primary-container opacity-70 hover:opacity-100 transition-all font-label-md text-label-md">Clear Selection</button>
+<button class="bg-secondary text-on-secondary rounded-lg px-6 py-3 font-bold text-label-md flex items-center gap-2 hover:bg-secondary-container transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">download</span>
+                    Download ProLampX
+                </button>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="w-full py-stack-xl border-t border-border-subtle bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-mobile grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="col-span-1 md:col-span-1">
+<span class="font-headline-sm text-headline-sm font-extrabold text-primary mb-4 block">ProLampX</span>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">The precision-engineered software installer for modern professionals. Automated, secure, and fast.</p>
+</div>
+<div class="col-span-1">
+<h4 class="font-label-md text-label-md text-primary mb-4">Resources</h4>
+<div class="flex flex-col gap-2">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary opacity-80 hover:opacity-100 transition-all" href="#">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary opacity-80 hover:opacity-100 transition-all" href="#">Support</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary opacity-80 hover:opacity-100 transition-all" href="#">Guides</a>
+</div>
+</div>
+<div class="col-span-1">
+<h4 class="font-label-md text-label-md text-primary mb-4">Legal</h4>
+<div class="flex flex-col gap-2">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary opacity-80 hover:opacity-100 transition-all" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary opacity-80 hover:opacity-100 transition-all" href="#">Terms of Service</a>
+</div>
+</div>
+<div class="col-span-1">
+<h4 class="font-label-md text-label-md text-primary mb-4">Community</h4>
+<div class="flex flex-col gap-2">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary opacity-80 hover:opacity-100 transition-all" href="#">GitHub</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary opacity-80 hover:opacity-100 transition-all" href="#">Twitter</a>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile mt-12 pt-8 border-t border-border-subtle/30">
+<p class="font-body-md text-body-md text-on-surface-variant opacity-60">© 2024 ProLampX Software. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        let isSelected = false;
+
+        function toggleSelect(btn) {
+            const actionBar = document.getElementById('action-bar');
+            const btnText = document.getElementById('btn-text');
+            const btnIcon = document.getElementById('btn-icon');
+            
+            isSelected = !isSelected;
+            
+            if (isSelected) {
+                btn.classList.replace('bg-secondary', 'bg-surface-container-highest');
+                btn.classList.replace('text-on-secondary', 'text-primary');
+                btnText.innerText = 'Remove from Installer';
+                btnIcon.innerText = 'check';
+                actionBar.classList.remove('translate-y-full');
+                actionBar.classList.add('translate-y-0');
+            } else {
+                btn.classList.replace('bg-surface-container-highest', 'bg-secondary');
+                btn.classList.replace('text-primary', 'text-on-secondary');
+                btnText.innerText = 'Add to Installer';
+                btnIcon.innerText = 'add';
+                actionBar.classList.remove('translate-y-0');
+                actionBar.classList.add('translate-y-full');
+            }
+        }
+    </script>
+</body></html>

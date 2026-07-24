@@ -4,14 +4,15 @@ import { ProLampLogo } from '@/components/prolamp-logo';
 
 const quickLinks = [
     { label: 'Home', href: '/' },
-    { label: 'Installer', href: '/installer' },
-    { label: 'Bundles', href: '/bundles' },
-    { label: 'Software', href: '/software' },
+    { label: 'About', href: '/about' },
+    { label: 'Services', href: '/services' },
+    { label: 'Products', href: '/products' },
     { label: 'Blog', href: '/blog' },
+    { label: 'Contact', href: '/contact' },
 ];
 
 const companyLinks = [
-    { label: 'Contact', href: '/contact' },
+    { label: 'Installer', href: '/installer' },
     { label: 'Privacy Policy', href: '/page/privacy-policy' },
     { label: 'Terms of Service', href: '/page/terms-of-service' },
     { label: 'Cookie Policy', href: '/page/cookie-policy' },
@@ -19,59 +20,87 @@ const companyLinks = [
 
 export default function SiteFooter() {
     return (
-        <footer className="relative mt-12 overflow-hidden border-t border-indigo-100/80 bg-gradient-to-b from-indigo-50/70 to-white/50 backdrop-blur-sm dark:border-border/60 dark:from-[#1c2d4a] dark:to-[#171f33]">
-            <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
-                <div className="grid gap-8 md:grid-cols-3">
-                    <div className="space-y-3">
+        <footer className="relative mt-0 overflow-hidden border-t border-border-subtle bg-surface-container-lowest py-stack-xl">
+            <div className="mx-auto max-w-container-max px-margin-mobile">
+                <div className="grid grid-cols-1 gap-gutter md:grid-cols-4">
+                    <div className="flex flex-col gap-4 md:col-span-1">
                         <Link href="/" className="inline-flex items-center gap-2.5">
                             <ProLampLogo variant="full" imageClassName="h-8 w-auto" />
                         </Link>
-                        <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
-                            Pick your apps, download one installer, and set up a fresh Windows, macOS, or Ubuntu machine in minutes.
+                        <p className="max-w-xs text-body-md text-on-surface-variant">
+                            Premium software development and IT consultancy. We turn vision into high-performance code.
                         </p>
                     </div>
 
-                    <div>
-                        <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground/70">
-                            Quick links
-                        </p>
-                        <ul className="space-y-2">
-                            {quickLinks.map((link) => (
-                                <li key={link.href}>
-                                    <Link href={link.href} className="public-accent-link text-sm">
-                                        {link.label}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
+                    <div className="flex flex-col gap-stack-sm">
+                        <h5 className="mb-2 text-label-md font-semibold uppercase tracking-widest text-primary dark:text-on-surface">
+                            Navigation
+                        </h5>
+                        {quickLinks.map((link) => (
+                            <Link
+                                key={link.href}
+                                href={link.href}
+                                className="text-body-md text-on-surface-variant opacity-80 transition-all hover:text-secondary hover:opacity-100 dark:hover:text-primary"
+                            >
+                                {link.label}
+                            </Link>
+                        ))}
                     </div>
 
-                    <div>
-                        <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground/70">
+                    <div className="flex flex-col gap-stack-sm">
+                        <h5 className="mb-2 text-label-md font-semibold uppercase tracking-widest text-primary dark:text-on-surface">
                             Company
-                        </p>
-                        <ul className="space-y-2">
-                            {companyLinks.map((link) => (
-                                <li key={link.href}>
-                                    <Link href={link.href} className="public-accent-link text-sm">
-                                        {link.label}
-                                    </Link>
-                                </li>
-                            ))}
-                            <li>
-                                <button
-                                    type="button"
-                                    onClick={openCookieConsentBanner}
-                                    className="public-accent-link text-sm"
-                                >
-                                    Cookie Settings
-                                </button>
-                            </li>
-                        </ul>
+                        </h5>
+                        {companyLinks.map((link) => (
+                            <Link
+                                key={link.href}
+                                href={link.href}
+                                className="text-body-md text-on-surface-variant opacity-80 transition-all hover:text-secondary hover:opacity-100 dark:hover:text-primary"
+                            >
+                                {link.label}
+                            </Link>
+                        ))}
+                        <button
+                            type="button"
+                            onClick={openCookieConsentBanner}
+                            className="text-left text-body-md text-on-surface-variant opacity-80 transition-all hover:text-secondary hover:opacity-100 dark:hover:text-primary"
+                        >
+                            Cookie Settings
+                        </button>
+                    </div>
+
+                    <div className="flex flex-col gap-stack-sm">
+                        <h5 className="mb-2 text-label-md font-semibold uppercase tracking-widest text-primary dark:text-on-surface">
+                            Products
+                        </h5>
+                        <Link
+                            href="/installer"
+                            className="text-body-md text-on-surface-variant opacity-80 transition-all hover:text-secondary hover:opacity-100 dark:hover:text-primary"
+                        >
+                            ProLampX Installer
+                        </Link>
+                        <Link
+                            href="/bundles"
+                            className="text-body-md text-on-surface-variant opacity-80 transition-all hover:text-secondary hover:opacity-100 dark:hover:text-primary"
+                        >
+                            App Bundles
+                        </Link>
+                        <a
+                            href="/#about"
+                            className="text-body-md text-on-surface-variant opacity-80 transition-all hover:text-secondary hover:opacity-100 dark:hover:text-primary"
+                        >
+                            About
+                        </a>
+                        <a
+                            href="/#services"
+                            className="text-body-md text-on-surface-variant opacity-80 transition-all hover:text-secondary hover:opacity-100 dark:hover:text-primary"
+                        >
+                            Services
+                        </a>
                     </div>
                 </div>
 
-                <div className="mt-6 border-t border-border/50 pt-5 text-sm text-muted-foreground">
+                <div className="mt-stack-xl border-t border-border-subtle pt-gutter text-body-md text-on-surface-variant">
                     &copy; {new Date().getFullYear()} ProLampX. All rights reserved.
                 </div>
             </div>

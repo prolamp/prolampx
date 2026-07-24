@@ -10,6 +10,7 @@ use App\Models\Software;
 use App\Services\InstallScriptGenerator;
 use App\Services\SoftwareCatalogService;
 use App\Support\OperatingSystemDetector;
+use App\Support\SeoMeta;
 use App\Support\SoftwareIcons;
 use Illuminate\Http\Response as HttpResponse;
 use Inertia\Inertia;
@@ -92,10 +93,7 @@ class InstallerController extends Controller
             'bundles' => $bundles->values()->all(),
             'selectedBundle' => $selectedBundle,
             'preselectedSoftwareIds' => array_values($preselectedSoftwareIds),
-            'seo' => [
-                'title' => 'App Installer — ProLampX',
-                'description' => 'Pick software for your OS and download one installer that installs everything automatically.',
-            ],
+            'seo' => SeoMeta::page('installer', ['path' => '/installer']),
         ]);
     }
 

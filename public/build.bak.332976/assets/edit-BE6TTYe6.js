@@ -1,0 +1,1 @@
+import{n as e,t}from"./jsx-runtime-C_PpxTWX.js";import n from"./form-fields-BssiqBf5.js";var r=e(),i=t();function a(e){let t=(0,r.c)(2),{page:a}=e,o;return t[0]===a?o=t[1]:(o=(0,i.jsx)(n,{page:a}),t[0]=a,t[1]=o),o}a.layout={breadcrumbs:[{title:`Dashboard`,href:`/admin/dashboard`},{title:`Pages`,href:`/admin/pages`},{title:`Edit`,href:`#`}]};export{a as default};

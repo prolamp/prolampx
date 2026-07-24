@@ -1,0 +1,57 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\BlogPost;
+use App\Models\Bundle;
+use App\Models\Page;
+use App\Models\PortfolioItem;
+use App\Models\Software;
+use App\Models\User;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Cache;
+
+class SitemapController extends Controller
+{
+    public function __invoke(): Response
+    {
+        $xml = Cache::remember('sitemap.xml', now()->addHours(6), function () {
+            $urls = collect([
+                ['loc' => url('/'), 'priority' => '1.0'],
+                ['loc' => url('/installer'), 'priority' => '0.9'],
+                ['loc' => url('/bundles'), 'priority' => '0.9'],
+                ['loc' => url('/software'), 'priority' => '0.9'],
+                ['loc' => url('/blog'), 'priority' => '0.8'],
+                ['loc' => url('/about'), 'priority' => '0.8'],
+                ['loc' => url('/services'), 'priority' => '0.8'],
+                ['loc' => url('/contact'), 'priority' => '0.7'],
+            ]);
+
+            BlogPost::query()->published()->get(['slug', 'updated_at'])->each(function (BlogPost $post) use ($urls) {
+                $urls->push(['loc' => url('/blog/'.$post->slug), 'lastmod' => $post->updated_at?->toAtomString(), 'priority' => '0.7']);
+            });
+
+            Software::query()->get(['slug', 'updated_at'])->each(function (Software $item) use ($urls) {
+                $urls->push(['loc' => url('/software/'.$item->slug), 'lastmod' => $item->updated_at?->toAtomString(), 'priority' => '0.7']);
+            });
+
+            Bundle::query()->where('is_active', true)->get(['slug', 'updated_at'])->each(function (Bundle $bundle) use ($urls) {
+                $urls->push(['loc' => url('/bundles/'.$bundle->slug), 'lastmod' => $bundle->updated_at?->toAtomString(), 'priority' => '0.7']);
+            });
+
+            Page::query()->get(['slug', 'updated_at'])->each(function (Page $page) use ($urls) {
+                $urls->push(['loc' => url('/page/'.$page->slug), 'lastmod' => $page->updated_at?->toAtomString(), 'priority' => '0.5']);
+            });
+
+            $body = $urls->map(function (array $url) {
+                $lastmod = isset($url['lastmod']) ? "<lastmod>{$url['lastmod']}</lastmod>" : '';
+
+                return '<url><loc>'.e($url['loc'])."</loc>{$lastmod}<priority>{$url['priority']}</priority></url>";
+            })->implode('');
+
+            return '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'.$body.'</urlset>';
+        });
+
+        return response($xml, 200, ['Content-Type' => 'application/xml']);
+    }
+}

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Software;
 use App\Services\SoftwareCatalogService;
 use App\Support\OperatingSystemDetector;
+use App\Support\SeoMeta;
 use App\Support\SoftwareIcons;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -37,10 +38,7 @@ class SoftwarePageController extends Controller
                     'description' => $s->description,
                 ])->values()->all())
                 ->all(),
-            'seo' => [
-                'title' => 'Free Software Catalog — ProLampX',
-                'description' => 'Browse free and freeware software for Windows, macOS, and Ubuntu. One-click bulk install.',
-            ],
+            'seo' => SeoMeta::page('software', ['path' => '/software']),
         ]);
     }
 
@@ -60,10 +58,14 @@ class SoftwarePageController extends Controller
                 'install_commands' => $software->installCommands,
             ],
             'seo' => [
-                'title' => $software->meta_title ?? "Download {$software->name} — ProLampX",
-                'description' => $software->meta_description ?? $software->description,
-                'keywords' => $software->meta_keywords,
+                'title' => SeoMeta::brandTitle($software->meta_title ?? "Download {$software->name} Free"),
+                'description' => $software->meta_description
+                    ?: ($software->description
+                        ?: "Download and install {$software->name} on Windows, macOS, or Ubuntu with the free ProLampX multi-OS installer."),
+                'keywords' => $software->meta_keywords
+                    ?: "{$software->name}, download {$software->name}, free {$software->name}, ProLampX installer, freeware",
                 'image' => $software->og_image ?? SoftwareIcons::url($software->slug, $software->icon),
+                'canonical' => url('/software/'.$software->slug),
                 'type' => 'software',
             ],
         ]);

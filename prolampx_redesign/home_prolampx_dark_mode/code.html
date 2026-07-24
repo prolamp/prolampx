@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ProLampX | Universal Software Installer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-pill {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .software-grid-pattern {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#d8dadc",
+                        "tertiary-container": "#2b3649",
+                        "inverse-on-surface": "#eff1f3",
+                        "os-windows": "#0078D4",
+                        "outline-variant": "#c4c6cf",
+                        "on-primary-container": "#87a0cd",
+                        "surface": "#0F2440",
+                        "on-tertiary": "#ffffff",
+                        "surface-deep": "#0F2440",
+                        "primary-fixed": "#d6e3ff",
+                        "on-tertiary-container": "#949fb5",
+                        "surface-container-low": "#1b2d48",
+                        "primary-container": "#1b365d",
+                        "tertiary-fixed-dim": "#bcc7de",
+                        "primary-fixed-dim": "#aec7f7",
+                        "secondary-fixed-dim": "#afc6ff",
+                        "surface-tint": "#465f88",
+                        "surface-container-high": "#233857",
+                        "on-secondary-container": "#fefcff",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#001b3d",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#1a304e",
+                        "on-background": "#eff1f3",
+                        "error": "#ba1a1a",
+                        "tertiary": "#162132",
+                        "on-primary-fixed-variant": "#2e476f",
+                        "secondary": "#0057c2",
+                        "os-ubuntu": "#E95420",
+                        "on-secondary-fixed": "#001a43",
+                        "surface-container-highest": "#2b3e5a",
+                        "primary": "#aec7f7",
+                        "surface-variant": "#44474e",
+                        "secondary-container": "#2c70e2",
+                        "on-tertiary-fixed": "#111c2d",
+                        "on-secondary-fixed-variant": "#004398",
+                        "tertiary-fixed": "#d8e3fb",
+                        "inverse-primary": "#002046",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#c4c6cf",
+                        "background": "#0F2440",
+                        "outline": "#8e9199",
+                        "border-subtle": "rgba(255,255,255,0.1)",
+                        "on-tertiary-fixed-variant": "#3c475a",
+                        "on-surface": "#eff1f3",
+                        "secondary-fixed": "#d9e2ff",
+                        "error-container": "#93000a",
+                        "on-error-container": "#ffdad6",
+                        "os-macos": "#f2f4f6",
+                        "surface-container-lowest": "#0b1a2d",
+                        "surface-container": "#162a45",
+                        "inverse-surface": "#eff1f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "stack-xl": "64px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "container-max": "1200px"
+                    },
+                    "fontFamily": {
+                        "headline-xl-mobile": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-xl-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 pt-4 px-margin-mobile">
+<div class="max-w-container-max mx-auto backdrop-blur-md bg-surface-container/60 rounded-full border border-border-subtle shadow-[0px_4px_20px_rgba(0,0,0,0.3)] flex justify-between items-center h-16 px-gutter">
+<a class="font-headline-md text-headline-md font-bold text-primary tracking-tight" href="/">ProLampX</a>
+<div class="hidden md:flex items-center gap-stack-lg">
+<a class="text-secondary font-bold font-body-md text-body-md hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors" href="#">Installer</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors" href="#">Bundles</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors" href="#">Software</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors" href="#">Blog</a>
+</div>
+<button class="bg-secondary text-on-secondary font-label-md text-label-md px-6 py-2.5 rounded-full scale-95 active:scale-90 transition-transform hover:bg-secondary-container">
+            Get Installer
+        </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<main class="relative pt-32 pb-20 md:pt-48 md:pb-stack-xl overflow-hidden">
+<div class="absolute inset-0 software-grid-pattern opacity-30 -z-10"></div>
+<div class="max-w-container-max mx-auto px-margin-mobile grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
+<div class="flex flex-col gap-stack-md text-center lg:text-left z-10">
+<div class="inline-flex items-center gap-2 bg-primary-container text-on-primary-container px-4 py-1 rounded-full w-fit mx-auto lg:mx-0 border border-primary/20">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="font-label-sm text-label-sm">Now supporting Ubuntu 24.04</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface leading-tight">
+                Install Software for Windows, macOS &amp; Ubuntu
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto lg:mx-0">
+                Skip the tedious individual downloads. Pick your essential apps, get one universal installer, and set up your entire environment in minutes.
+            </p>
+<div class="flex flex-col sm:flex-row gap-4 mt-stack-md justify-center lg:justify-start">
+<button class="bg-secondary text-on-secondary font-label-md text-label-md px-8 py-4 rounded-xl shadow-lg hover:bg-secondary-container transition-all active:scale-95">
+                    Get Installer
+                </button>
+<button class="bg-surface-container-high border border-border-subtle text-on-surface font-label-md text-label-md px-8 py-4 rounded-xl hover:bg-surface-container-highest transition-all active:scale-95">
+                    Browse Software
+                </button>
+</div>
+<!-- OS Chips -->
+<div class="flex items-center gap-4 mt-stack-lg justify-center lg:justify-start grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-os-windows/10 text-os-windows border border-os-windows/20">
+<span class="material-symbols-outlined text-[20px]">window</span>
+<span class="font-label-md text-label-md">Windows</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-os-macos/10 text-os-macos border border-os-macos/20">
+<span class="material-symbols-outlined text-[20px]">laptop_mac</span>
+<span class="font-label-md text-label-md">macOS</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-os-ubuntu/10 text-os-ubuntu border border-os-ubuntu/20">
+<span class="material-symbols-outlined text-[20px]">terminal</span>
+<span class="font-label-md text-label-md">Ubuntu</span>
+</div>
+</div>
+</div>
+<!-- Hero Visual -->
+<div class="relative z-0 group">
+<div class="absolute -inset-4 bg-secondary-container/5 rounded-[40px] blur-3xl group-hover:bg-secondary-container/10 transition-colors duration-700"></div>
+<div class="relative bg-surface-container-low border border-border-subtle rounded-3xl shadow-2xl overflow-hidden aspect-[4/3] flex flex-col animate-float">
+<!-- Fake Window Header -->
+<div class="bg-surface-container-high flex items-center gap-1.5 px-4 h-10 border-b border-border-subtle">
+<div class="w-2.5 h-2.5 rounded-full bg-error/60"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-secondary/40"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-surface-dim/40"></div>
+<div class="flex-grow flex justify-center">
+<div class="bg-surface-container-lowest/50 px-3 py-0.5 rounded-md text-[10px] text-on-surface-variant font-medium">prolampx-installer.exe</div>
+</div>
+</div>
+<!-- App Interface Simulation -->
+<div class="p-gutter flex flex-col gap-stack-md h-full bg-surface-container-lowest">
+<div class="flex justify-between items-center">
+<div class="h-6 w-32 bg-surface-container-high rounded opacity-40"></div>
+<div class="h-4 w-16 bg-surface-container-low rounded opacity-40"></div>
+</div>
+<div class="grid grid-cols-4 gap-4">
+<!-- Software Card Placeholders -->
+<div class="aspect-square bg-surface-container-low rounded-xl border border-border-subtle flex items-center justify-center">
+<div class="w-8 h-8 rounded-lg bg-secondary/20 border border-secondary/30"></div>
+</div>
+<div class="aspect-square bg-surface-container rounded-xl border border-secondary flex items-center justify-center relative">
+<div class="w-8 h-8 rounded-lg bg-secondary"></div>
+<div class="absolute -top-2 -right-2 bg-secondary text-white rounded-full p-0.5"><span class="material-symbols-outlined text-[14px]">check</span></div>
+</div>
+<div class="aspect-square bg-surface-container-low rounded-xl border border-border-subtle flex items-center justify-center">
+<div class="w-8 h-8 rounded-lg bg-primary/20"></div>
+</div>
+<div class="aspect-square bg-surface-container rounded-xl border border-secondary flex items-center justify-center relative">
+<div class="w-8 h-8 rounded-lg bg-os-ubuntu/80"></div>
+<div class="absolute -top-2 -right-2 bg-secondary text-white rounded-full p-0.5"><span class="material-symbols-outlined text-[14px]">check</span></div>
+</div>
+</div>
+<div class="mt-auto flex justify-between items-center pt-gutter border-t border-border-subtle">
+<div class="flex flex-col gap-1">
+<div class="h-3 w-24 bg-surface-container-high rounded"></div>
+<div class="h-4 w-40 bg-surface-container-high/60 rounded"></div>
+</div>
+<div class="h-10 w-32 bg-secondary rounded-lg"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- How It Works -->
+<section class="py-stack-xl bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-mobile">
+<div class="text-center max-w-2xl mx-auto mb-stack-xl">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Streamlined Software Setup</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Three simple steps to a fully functional workspace, no matter which operating system you use.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="flex flex-col items-center text-center p-gutter">
+<div class="w-16 h-16 rounded-2xl bg-secondary/10 border border-secondary/20 flex items-center justify-center text-secondary mb-stack-md">
+<span class="material-symbols-outlined text-[32px]">desktop_windows</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">1. Detect OS</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Our system automatically identifies your OS to serve compatible software versions for your machine.</p>
+</div>
+<div class="flex flex-col items-center text-center p-gutter relative">
+<div class="hidden md:block absolute top-12 left-[calc(100%-12px)] w-full h-[1px] border-t border-dashed border-border-subtle z-0"></div>
+<div class="w-16 h-16 rounded-2xl bg-primary-container flex items-center justify-center text-on-primary-container mb-stack-md z-10">
+<span class="material-symbols-outlined text-[32px]">checklist</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">2. Pick Apps</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Select browsers, dev tools, and utilities from our massive library of curated, safe software packages.</p>
+</div>
+<div class="flex flex-col items-center text-center p-gutter">
+<div class="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center text-on-secondary mb-stack-md">
+<span class="material-symbols-outlined text-[32px]">download</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">3. Download &amp; Run</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">One tiny executable downloads and installs everything in the background while you focus on work.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Bundles Teaser (Bento Layout) -->
+<section class="py-stack-xl bg-background overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-mobile">
+<div class="flex flex-col md:flex-row justify-between items-end mb-stack-lg gap-4">
+<div class="max-w-xl">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Curated Toolkits</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Pre-selected sets of software for specific workflows. Start with a foundation.</p>
+</div>
+<a class="text-secondary font-label-md text-label-md flex items-center gap-2 hover:text-primary transition-colors" href="#">
+                View All Bundles <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Featured Bundle -->
+<div class="md:col-span-7 bg-surface-container-low border border-border-subtle rounded-3xl p-stack-lg hover:border-secondary/40 transition-all group">
+<div class="flex flex-col h-full">
+<div class="flex justify-between items-start mb-stack-lg">
+<div>
+<span class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-label-sm text-label-sm mb-2 inline-block uppercase tracking-wider">Recommended</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Web Developer Pro</h3>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<div class="w-10 h-10 rounded-lg bg-surface-container border border-border-subtle flex items-center justify-center"><span class="material-symbols-outlined text-[20px] text-on-surface-variant">code</span></div>
+<div class="w-10 h-10 rounded-lg bg-surface-container border border-border-subtle flex items-center justify-center"><span class="material-symbols-outlined text-[20px] text-on-surface-variant">terminal</span></div>
+<div class="w-10 h-10 rounded-lg bg-surface-container border border-border-subtle flex items-center justify-center"><span class="material-symbols-outlined text-[20px] text-on-surface-variant">public</span></div>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-gutter">The essential stack for modern web development: VS Code, Git, Chrome, Node.js, Docker, and Postman. Ready for high-performance coding.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">12 Essential Apps</span>
+<button class="bg-secondary text-on-secondary px-6 py-3 rounded-xl font-label-md text-label-md hover:bg-secondary-container transition-colors">Select Bundle</button>
+</div>
+</div>
+</div>
+<!-- Side Bundles -->
+<div class="md:col-span-5 flex flex-col gap-gutter">
+<div class="bg-surface-container-low border border-border-subtle rounded-3xl p-gutter hover:border-secondary/40 transition-all">
+<div class="flex gap-stack-md">
+<div class="w-14 h-14 rounded-2xl bg-os-macos/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[28px] text-os-macos">brush</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-1">Design Master</h4>
+<p class="font-label-md text-label-md text-on-surface-variant">Figma, Blender, VLC, and Creative Cloud bridge.</p>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low border border-border-subtle rounded-3xl p-gutter hover:border-secondary/40 transition-all">
+<div class="flex gap-stack-md">
+<div class="w-14 h-14 rounded-2xl bg-os-windows/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[28px] text-os-windows">security</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-1">Secure Privacy</h4>
+<p class="font-label-md text-label-md text-on-surface-variant">Brave, Mullvad, Bitwarden, and Signal.</p>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low border border-border-subtle rounded-3xl p-gutter hover:border-secondary/40 transition-all">
+<div class="flex gap-stack-md">
+<div class="w-14 h-14 rounded-2xl bg-os-ubuntu/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[28px] text-os-ubuntu">settings_suggest</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-1">Fresh Install</h4>
+<p class="font-label-md text-label-md text-on-surface-variant">Chrome, Spotify, Discord, and Steam.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Categories Teaser -->
+<section class="py-stack-xl bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-mobile">
+<h2 class="font-headline-lg text-headline-lg text-on-surface text-center mb-stack-xl">Everything You Need</h2>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-stack-md">
+<a class="group flex flex-col items-center gap-3 p-gutter bg-surface-container border border-border-subtle rounded-2xl hover:border-secondary hover:bg-secondary/10 transition-all" href="#">
+<span class="material-symbols-outlined text-[24px] text-on-surface-variant group-hover:text-secondary">language</span>
+<span class="font-label-md text-label-md text-on-surface">Browsers</span>
+</a>
+<a class="group flex flex-col items-center gap-3 p-gutter bg-surface-container border border-border-subtle rounded-2xl hover:border-secondary hover:bg-secondary/10 transition-all" href="#">
+<span class="material-symbols-outlined text-[24px] text-on-surface-variant group-hover:text-secondary">message</span>
+<span class="font-label-md text-label-md text-on-surface">Messaging</span>
+</a>
+<a class="group flex flex-col items-center gap-3 p-gutter bg-surface-container border border-border-subtle rounded-2xl hover:border-secondary hover:bg-secondary/10 transition-all" href="#">
+<span class="material-symbols-outlined text-[24px] text-on-surface-variant group-hover:text-secondary">play_circle</span>
+<span class="font-label-md text-label-md text-on-surface">Media</span>
+</a>
+<a class="group flex flex-col items-center gap-3 p-gutter bg-surface-container border border-border-subtle rounded-2xl hover:border-secondary hover:bg-secondary/10 transition-all" href="#">
+<span class="material-symbols-outlined text-[24px] text-on-surface-variant group-hover:text-secondary">shield</span>
+<span class="font-label-md text-label-md text-on-surface">Security</span>
+</a>
+<a class="group flex flex-col items-center gap-3 p-gutter bg-surface-container border border-border-subtle rounded-2xl hover:border-secondary hover:bg-secondary/10 transition-all" href="#">
+<span class="material-symbols-outlined text-[24px] text-on-surface-variant group-hover:text-secondary">terminal</span>
+<span class="font-label-md text-label-md text-on-surface">Dev Tools</span>
+</a>
+<a class="group flex flex-col items-center gap-3 p-gutter bg-surface-container border border-border-subtle rounded-2xl hover:border-secondary hover:bg-secondary/10 transition-all" href="#">
+<span class="material-symbols-outlined text-[24px] text-on-surface-variant group-hover:text-secondary">work</span>
+<span class="font-label-md text-label-md text-on-surface">Productivity</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-stack-xl px-margin-mobile bg-background">
+<div class="max-w-container-max mx-auto bg-surface-container-high border border-border-subtle rounded-[40px] p-stack-lg md:p-stack-xl text-center relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-secondary opacity-10 rounded-full blur-3xl -mr-32 -mt-32"></div>
+<div class="absolute bottom-0 left-0 w-64 h-64 bg-secondary opacity-10 rounded-full blur-3xl -ml-32 -mb-32"></div>
+<h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface mb-gutter max-w-2xl mx-auto">Ready to set up your machine?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg max-w-xl mx-auto">Join over 100,000 developers and users who trust ProLampX for their software management.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-secondary text-on-secondary font-label-md text-label-md px-10 py-5 rounded-2xl shadow-xl hover:bg-secondary-container transition-all active:scale-95 flex items-center justify-center gap-3">
+<span class="material-symbols-outlined">download</span>
+                Get Installer Now
+            </button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-stack-xl border-t border-border-subtle bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-mobile grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="flex flex-col gap-4">
+<div class="font-headline-sm text-headline-sm font-extrabold text-primary">ProLampX</div>
+<p class="font-body-md text-body-md text-on-surface-variant">The modern way to manage your software ecosystem across all major operating systems.</p>
+</div>
+<div class="flex flex-col gap-stack-sm">
+<h5 class="font-label-md text-label-md text-primary uppercase tracking-widest mb-2">Platform</h5>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-secondary transition-all" href="#">About</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-secondary transition-all" href="#">Bundles</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-secondary transition-all" href="#">Support</a>
+</div>
+<div class="flex flex-col gap-stack-sm">
+<h5 class="font-label-md text-label-md text-primary uppercase tracking-widest mb-2">Connect</h5>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-secondary transition-all" href="#">Twitter</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-secondary transition-all" href="#">GitHub</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-secondary transition-all" href="#">Discord</a>
+</div>
+<div class="flex flex-col gap-stack-sm">
+<h5 class="font-label-md text-label-md text-primary uppercase tracking-widest mb-2">Legal</h5>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-secondary transition-all" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-secondary transition-all" href="#">Terms of Service</a>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile mt-stack-xl pt-gutter border-t border-border-subtle">
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 ProLampX Software. All rights reserved.</p>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<div class="md:hidden fixed bottom-0 w-full z-50">
+<div class="bg-surface-container-high shadow-[0px_-4px_20px_rgba(0,0,0,0.4)] border-t border-border-subtle">
+<div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+<button class="flex-grow bg-secondary text-on-secondary rounded-lg px-6 py-3 font-bold flex items-center justify-center gap-3 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined">download</span>
+                Download ProLampX
+            </button>
+</div>
+</div>
+</div>
+</body></html>

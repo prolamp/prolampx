@@ -19,7 +19,7 @@ export function PublicCard({ className, ...props }: React.ComponentProps<'div'>)
     return (
         <div
             className={cn(
-                'glass-panel rounded-2xl transition hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-indigo-500/10 dark:hover:shadow-black/20',
+                'glass-panel rounded-2xl transition hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-primary/10 dark:hover:shadow-black/20',
                 className,
             )}
             {...props}

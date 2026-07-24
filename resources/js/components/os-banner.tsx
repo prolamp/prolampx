@@ -17,18 +17,18 @@ export default function OsBanner({ detectedOs, activeOs, isOverridden, onResetDe
     return (
         <div
             className={cn(
-                'flex flex-wrap items-center gap-3 rounded-2xl border border-indigo-200/60 bg-gradient-to-r from-indigo-50 to-violet-50 px-4 py-3 dark:border-indigo-500/20 dark:from-indigo-950/40 dark:to-violet-950/40',
+                'flex flex-wrap items-center gap-3 rounded-xl border border-border-subtle bg-surface-container-low px-4 py-3',
                 className,
             )}
         >
-            <div className="flex size-10 items-center justify-center rounded-xl bg-indigo-600 text-white shadow-lg shadow-indigo-600/30">
+            <div className="flex size-10 items-center justify-center rounded-xl bg-secondary text-on-secondary shadow-md">
                 <Monitor className="size-5" />
             </div>
             <div className="min-w-0 flex-1">
-                <p className="text-sm font-semibold text-indigo-950 dark:text-indigo-100">
+                <p className="text-sm font-semibold text-primary dark:text-on-surface">
                     Showing apps for {osLabel(activeOs)}
                 </p>
-                <p className="text-xs text-indigo-700/80 dark:text-indigo-300/80">
+                <p className="text-xs text-on-surface-variant">
                     {isOverridden
                         ? 'You manually selected this OS.'
                         : `Auto-detected from your browser${detectedOs !== activeOs && detectedOs === 'linux' ? ' (Linux → Ubuntu packages)' : ''}.`}
@@ -44,7 +44,7 @@ export default function OsBanner({ detectedOs, activeOs, isOverridden, onResetDe
                     type="button"
                     variant="outline"
                     size="sm"
-                    className="border-indigo-200 bg-white/80 dark:border-indigo-500/30 dark:bg-card/80"
+                    className="border-border-subtle bg-surface-container-lowest"
                     onClick={() => {
                         clearOsOverride();
                         onResetDetection();

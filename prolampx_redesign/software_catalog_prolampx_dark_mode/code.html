@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Software Catalog | ProLampX Obsidian</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0f1214;
+            color: #e1e2e5;
+        }
+        .software-grid-pattern {
+            background-image: radial-gradient(rgba(174, 199, 247, 0.05) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        .card-hover-up {
+            transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.4s cubic-bezier(0.2, 0, 0, 1);
+        }
+        .card-hover-up:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-container": "#aec7f6",
+                      "primary-container": "#aec7f7",
+                      "on-secondary-fixed": "#001a43",
+                      "on-tertiary-fixed-variant": "#2e476f",
+                      "secondary-fixed": "#d9e2ff",
+                      "surface-container-highest": "#323537",
+                      "secondary-container": "#0057c2",
+                      "surface-container-high": "#272a2c",
+                      "outline": "#8e9099",
+                      "primary-fixed-dim": "#aec7f7",
+                      "on-primary-fixed": "#001b3d",
+                      "on-tertiary-container": "#3a537b",
+                      "on-tertiary": "#143057",
+                      "error": "#ffb4ab",
+                      "tertiary-fixed-dim": "#aec7f7",
+                      "error-container": "#93000a",
+                      "on-secondary-container": "#c4d4ff",
+                      "surface": "#111416",
+                      "on-error": "#690005",
+                      "surface-container-low": "#191c1e",
+                      "primary": "#d6e2ff",
+                      "on-background": "#e1e2e5",
+                      "secondary": "#afc6ff",
+                      "inverse-on-surface": "#2e3133",
+                      "background": "#111416",
+                      "on-tertiary-fixed": "#001b3d",
+                      "surface-container": "#1d2022",
+                      "primary-fixed": "#d6e3ff",
+                      "on-secondary": "#002d6c",
+                      "on-primary-fixed-variant": "#2e4770",
+                      "surface-deep": "#0f2440",
+                      "border-subtle": "rgba(255, 255, 255, 0.1)",
+                      "on-primary": "#153058",
+                      "surface-container-lowest": "#0c0f11",
+                      "on-primary-container": "#3a537c",
+                      "on-surface-variant": "#c4c6cf",
+                      "tertiary": "#d5e2ff",
+                      "surface-variant": "#323537",
+                      "secondary-fixed-dim": "#afc6ff",
+                      "surface-tint": "#aec7f7",
+                      "outline-variant": "#44474e",
+                      "surface-dim": "#111416",
+                      "inverse-primary": "#465f89",
+                      "on-secondary-fixed-variant": "#004398",
+                      "tertiary-fixed": "#d6e3ff",
+                      "on-error-container": "#ffdad6",
+                      "inverse-surface": "#e1e2e5",
+                      "surface-bright": "#37393c",
+                      "on-surface": "#e1e2e5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-lg": "32px",
+                      "stack-sm": "8px",
+                      "stack-md": "16px",
+                      "gutter": "24px",
+                      "container-max": "1200px",
+                      "margin-mobile": "16px",
+                      "stack-xl": "64px"
+              },
+              "fontFamily": {
+                      "label-md": ["Plus Jakarta Sans"],
+                      "headline-lg": ["Plus Jakarta Sans"],
+                      "headline-xl": ["Plus Jakarta Sans"],
+                      "headline-md": ["Plus Jakarta Sans"],
+                      "label-sm": ["Plus Jakarta Sans"],
+                      "headline-xl-mobile": ["Plus Jakarta Sans"],
+                      "body-md": ["Plus Jakarta Sans"],
+                      "body-lg": ["Plus Jakarta Sans"]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/60 dark:bg-surface/60 backdrop-blur-md border-b border-subtle shadow-[0px_4px_20px_rgba(0,0,0,0.4)]">
+<div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-extrabold text-primary dark:text-primary-fixed-dim tracking-tighter">
+                ProLampX
+            </div>
+<div class="hidden md:flex items-center gap-stack-lg">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">About</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Services</a>
+<a class="font-label-md text-label-md text-primary dark:text-primary-fixed-dim font-bold border-b-2 border-primary" href="#">Software</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Blog</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Contact</a>
+</div>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-2.5 rounded-full scale-95 transition-transform duration-200 active:scale-90 hover:bg-secondary">
+                Let's Build
+            </button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-24 min-h-screen software-grid-pattern relative overflow-hidden">
+<!-- Header Section -->
+<section class="max-w-container-max mx-auto px-gutter py-stack-xl text-center relative z-10">
+<div class="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-border-subtle bg-surface-container-low mb-stack-md">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase">Digital Product Excellence</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl md:text-headline-xl text-on-surface mb-stack-md max-w-3xl mx-auto">
+                Next-Gen Software <span class="text-primary-fixed-dim">Ecosystems</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-stack-lg">
+                Elite IT solutions engineered for performance. Explore our curated catalog of enterprise software, cloud-native tools, and high-performance engineering kits.
+            </p>
+<!-- Category Chips -->
+<div class="flex flex-wrap justify-center gap-stack-sm mb-stack-xl">
+<button class="px-5 py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md">All Solutions</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high border border-border-subtle text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-colors">Infrastructure</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high border border-border-subtle text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-colors">Cloud Tools</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high border border-border-subtle text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-colors">Security</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high border border-border-subtle text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-colors">Data Analysis</button>
+</div>
+</section>
+<!-- Software Catalog Grid -->
+<section class="max-w-container-max mx-auto px-gutter pb-stack-xl relative z-10">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-stack-lg">
+<!-- Software Card 1 -->
+<div class="card-hover-up bg-surface-container rounded-[32px] p-8 border border-border-subtle flex flex-col group">
+<div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-stack-lg">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-sm">Obsidian Core CLI</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg flex-grow">
+                        Ultra-low latency command line interface designed for rapid microservice deployment and cluster orchestration.
+                    </p>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-label-sm text-label-sm text-primary-fixed-dim">v2.4.0 Stable</span>
+<a class="text-on-surface hover:text-primary transition-colors flex items-center gap-1 font-label-md text-label-md" href="#">
+                            Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Software Card 2 -->
+<div class="card-hover-up bg-surface-container rounded-[32px] p-8 border border-border-subtle flex flex-col group">
+<div class="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mb-stack-lg">
+<span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">cloud_done</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-sm">Lumen Mesh Cloud</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg flex-grow">
+                        Next-generation service mesh providing seamless connectivity and advanced telemetry for distributed systems.
+                    </p>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-label-sm text-label-sm text-primary-fixed-dim">Enterprise Edition</span>
+<a class="text-on-surface hover:text-primary transition-colors flex items-center gap-1 font-label-md text-label-md" href="#">
+                            Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Software Card 3 -->
+<div class="card-hover-up bg-surface-container rounded-[32px] p-8 border border-border-subtle flex flex-col group">
+<div class="w-16 h-16 rounded-2xl bg-tertiary/10 flex items-center justify-center mb-stack-lg">
+<span class="material-symbols-outlined text-tertiary text-3xl" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-sm">Shield Guard Pro</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg flex-grow">
+                        AI-driven endpoint protection with real-time threat intelligence and automated incident response capabilities.
+                    </p>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-label-sm text-label-sm text-primary-fixed-dim">Hotfix Applied</span>
+<a class="text-on-surface hover:text-primary transition-colors flex items-center gap-1 font-label-md text-label-md" href="#">
+                            Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Software Card 4 -->
+<div class="card-hover-up bg-surface-container rounded-[32px] p-8 border border-border-subtle flex flex-col group">
+<div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-stack-lg">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">database</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-sm">Titan DB Cluster</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg flex-grow">
+                        Distributed SQL database engine optimized for massive read/write operations and high availability.
+                    </p>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-label-sm text-label-sm text-primary-fixed-dim">Cluster Ready</span>
+<a class="text-on-surface hover:text-primary transition-colors flex items-center gap-1 font-label-md text-label-md" href="#">
+                            Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Featured Tech Card (Bento Style Span) -->
+<div class="card-hover-up lg:col-span-2 bg-surface-container-highest rounded-[32px] p-8 border border-primary/20 flex flex-col md:flex-row gap-stack-lg items-center relative overflow-hidden">
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="relative z-10 md:w-1/2">
+<div class="mb-stack-md inline-block px-3 py-1 bg-primary/20 text-primary rounded-lg font-label-sm text-label-sm">NEW RELEASE</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-stack-sm">Quantum SDK</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg">
+                            The ultimate toolkit for building quantum-ready applications today. Includes high-level abstractions and local simulation engines.
+                        </p>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-8 py-3 rounded-full hover:bg-secondary transition-colors">Get Beta Access</button>
+</div>
+<div class="relative z-10 md:w-1/2 flex justify-center">
+<div class="w-full h-48 rounded-2xl bg-surface-container flex items-center justify-center border border-border-subtle animate-float">
+<span class="material-symbols-outlined text-6xl text-primary" style="font-variation-settings: 'FILL' 1;">vibration</span>
+</div>
+</div>
+</div>
+<!-- Software Card 5 -->
+<div class="card-hover-up bg-surface-container rounded-[32px] p-8 border border-border-subtle flex flex-col group">
+<div class="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mb-stack-lg">
+<span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">monitoring</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-sm">Sightline Dashboard</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg flex-grow">
+                        Real-time visualization engine for complex system monitoring and business intelligence analytics.
+                    </p>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-label-sm text-label-sm text-primary-fixed-dim">Cloud Native</span>
+<a class="text-on-surface hover:text-primary transition-colors flex items-center gap-1 font-label-md text-label-md" href="#">
+                            Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Contact Section -->
+<section class="max-w-container-max mx-auto px-gutter py-stack-xl">
+<div class="bg-surface-container-high rounded-[40px] p-stack-lg md:p-stack-xl flex flex-col items-center text-center border border-border-subtle relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary via-transparent to-secondary"></div>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-stack-sm relative z-10">Stay Synchronized</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg max-w-xl relative z-10">
+                    Get bi-weekly technical briefs on new software releases, architecture patterns, and ecosystem engineering updates.
+                </p>
+<div class="flex flex-col md:flex-row w-full max-w-lg gap-stack-sm relative z-10">
+<input class="flex-grow bg-surface-container-lowest border border-border-subtle rounded-full px-6 py-3 text-on-surface focus:ring-2 focus:ring-primary focus:outline-none transition-all" placeholder="Enter your corporate email" type="email"/>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-8 py-3 rounded-full hover:bg-secondary transition-colors whitespace-nowrap">Subscribe Now</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-subtle">
+<div class="flex flex-col md:flex-row justify-between items-center py-stack-lg px-gutter max-w-container-max mx-auto gap-stack-md">
+<div class="flex flex-col items-center md:items-start">
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface mb-2">ProLampX</div>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 ProLampX Obsidian. Elite Ecosystem Engineering.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-stack-lg">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim underline decoration-primary transition-opacity duration-200" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim underline decoration-primary transition-opacity duration-200" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim underline decoration-primary transition-opacity duration-200" href="#">Architecture</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim underline decoration-primary transition-opacity duration-200" href="#">Careers</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple scroll effect for Navbar transparency logic
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-xl');
+            } else {
+                nav.classList.remove('shadow-xl');
+            }
+        });
+
+        // Hover interaction for cards
+        document.querySelectorAll('.card-hover-up').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const icon = card.querySelector('.material-symbols-outlined');
+                if(icon) icon.classList.add('scale-110');
+            });
+            card.addEventListener('mouseleave', () => {
+                const icon = card.querySelector('.material-symbols-outlined');
+                if(icon) icon.classList.remove('scale-110');
+            });
+        });
+    </script>
+</body></html>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BlogCategory;
 use App\Models\BlogPost;
+use App\Support\SeoMeta;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -39,10 +40,7 @@ class BlogController extends Controller
                 ->orderBy('sort_order')
                 ->get(['id', 'name', 'slug']),
             'activeCategory' => $categorySlug,
-            'seo' => [
-                'title' => 'Blog — ProLampX',
-                'description' => 'Tips, tutorials, and guides for setting up Windows, macOS, and Ubuntu with the right software.',
-            ],
+            'seo' => SeoMeta::page('blog', ['path' => '/blog']),
         ]);
     }
 
@@ -65,11 +63,11 @@ class BlogController extends Controller
                 ] : null,
             ],
             'seo' => [
-                'title' => $post->meta_title ?? $post->title,
+                'title' => SeoMeta::brandTitle($post->meta_title ?? $post->title, 'ProLampX Blog'),
                 'description' => $post->meta_description ?? str($post->body)->stripTags()->limit(160)->value(),
-                'keywords' => $post->meta_keywords,
-                'image' => $post->og_image ?? $post->cover_image,
-                'canonical' => $post->canonical_url,
+                'keywords' => $post->meta_keywords ?: 'ProLampX blog, software setup guides, free software installer, Windows macOS Ubuntu',
+                'image' => $post->og_image ?? $post->cover_image ?? config('seo.defaults.image'),
+                'canonical' => $post->canonical_url ?: url('/blog/'.$post->slug),
                 'type' => 'article',
             ],
         ]);

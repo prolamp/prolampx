@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tips, Guides, and Updates | ProLampX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f7f9fb;
+        }
+        .article-card:hover .card-image {
+            transform: scale(1.05);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed-dim": "#bcc7de",
+                      "on-tertiary-fixed-variant": "#3c475a",
+                      "tertiary-fixed": "#d8e3fb",
+                      "background": "#f7f9fb",
+                      "on-primary-fixed": "#001b3d",
+                      "on-secondary-container": "#fefcff",
+                      "on-secondary-fixed-variant": "#004398",
+                      "primary-container": "#1b365d",
+                      "inverse-primary": "#aec7f7",
+                      "error": "#ba1a1a",
+                      "secondary-fixed-dim": "#afc6ff",
+                      "outline-variant": "#c4c6cf",
+                      "surface-bright": "#f7f9fb",
+                      "primary-fixed": "#d6e3ff",
+                      "on-tertiary-container": "#949fb5",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-fixed-dim": "#aec7f7",
+                      "inverse-surface": "#2d3133",
+                      "surface-deep": "#0F2440",
+                      "on-tertiary": "#ffffff",
+                      "primary": "#002046",
+                      "surface-container-high": "#e6e8ea",
+                      "on-tertiary-fixed": "#111c2d",
+                      "os-macos": "#1B1B1B",
+                      "error-container": "#ffdad6",
+                      "on-error": "#ffffff",
+                      "surface-container-highest": "#e0e3e5",
+                      "surface": "#f7f9fb",
+                      "on-primary-fixed-variant": "#2e476f",
+                      "tertiary": "#162132",
+                      "on-primary": "#ffffff",
+                      "inverse-on-surface": "#eff1f3",
+                      "border-subtle": "#E2E8F0",
+                      "on-background": "#191c1e",
+                      "secondary-container": "#2c70e2",
+                      "on-secondary-fixed": "#001a43",
+                      "on-primary-container": "#87a0cd",
+                      "surface-container-low": "#f2f4f6",
+                      "secondary": "#0057c2",
+                      "on-secondary": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "surface-variant": "#e0e3e5",
+                      "outline": "#74777f",
+                      "on-surface-variant": "#44474e",
+                      "on-surface": "#191c1e",
+                      "secondary-fixed": "#d9e2ff",
+                      "surface-tint": "#465f88",
+                      "surface-dim": "#d8dadc",
+                      "os-windows": "#0078D4",
+                      "os-ubuntu": "#E95420",
+                      "surface-container": "#eceef0",
+                      "tertiary-container": "#2b3649"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-xl": "64px",
+                      "stack-sm": "8px",
+                      "stack-lg": "32px",
+                      "gutter": "24px",
+                      "stack-md": "16px",
+                      "margin-mobile": "16px",
+                      "container-max": "1200px"
+              },
+              "fontFamily": {
+                      "label-md": ["Plus Jakarta Sans"],
+                      "body-md": ["Plus Jakarta Sans"],
+                      "label-sm": ["Plus Jakarta Sans"],
+                      "headline-xl": ["Plus Jakarta Sans"],
+                      "body-lg": ["Plus Jakarta Sans"],
+                      "headline-md": ["Plus Jakarta Sans"],
+                      "headline-xl-mobile": ["Plus Jakarta Sans"],
+                      "headline-lg": ["Plus Jakarta Sans"]
+              },
+              "fontSize": {
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "headline-xl-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 pt-4 px-margin-mobile">
+<nav class="max-w-container-max mx-auto px-6 flex justify-between items-center h-16 backdrop-blur-md bg-white/80 rounded-full border border-border-subtle shadow-[0px_4px_20px_rgba(27,54,93,0.08)]">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md font-bold text-primary">ProLampX</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Installer</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Bundles</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Software</a>
+<a class="font-body-md text-body-md text-secondary font-bold hover:text-secondary transition-colors" href="#">Blog</a>
+</div>
+<button class="bg-primary text-white px-6 py-2 rounded-full font-label-md text-label-md hover:scale-95 active:scale-90 transition-transform">Get Installer</button>
+</nav>
+</header>
+<!-- Hero / Header Section -->
+<main class="pt-32 pb-stack-xl max-w-container-max mx-auto px-margin-mobile">
+<div class="text-center mb-12">
+<h1 class="font-headline-xl text-headline-xl text-primary mb-4 md:block hidden">Tips, Guides, and Updates</h1>
+<h1 class="font-headline-xl-mobile text-headline-xl-mobile text-primary mb-4 md:hidden">Tips, Guides, and Updates</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Expert advice on streamlining your development environment, latest software releases, and platform-specific optimization guides.</p>
+</div>
+<!-- Filter Chips -->
+<div class="flex items-center justify-center gap-3 mb-12 overflow-x-auto custom-scrollbar pb-4">
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-md text-label-md transition-all">All Posts</button>
+<button class="bg-surface-container-lowest border border-border-subtle text-on-surface-variant px-6 py-2 rounded-full font-label-md text-label-md hover:border-secondary transition-all">Guides</button>
+<button class="bg-surface-container-lowest border border-border-subtle text-on-surface-variant px-6 py-2 rounded-full font-label-md text-label-md hover:border-secondary transition-all">News</button>
+<button class="bg-surface-container-lowest border border-border-subtle text-on-surface-variant px-6 py-2 rounded-full font-label-md text-label-md hover:border-secondary transition-all flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-os-windows"></span> Windows
+            </button>
+<button class="bg-surface-container-lowest border border-border-subtle text-on-surface-variant px-6 py-2 rounded-full font-label-md text-label-md hover:border-secondary transition-all flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-os-macos"></span> macOS
+            </button>
+<button class="bg-surface-container-lowest border border-border-subtle text-on-surface-variant px-6 py-2 rounded-full font-label-md text-label-md hover:border-secondary transition-all flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-os-ubuntu"></span> Ubuntu
+            </button>
+</div>
+<!-- Layout Wrapper for Sidebar + Content -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Article Grid -->
+<div class="lg:col-span-8 space-y-gutter">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Article Card 1 (Featured) -->
+<article class="article-card group flex flex-col bg-surface-container-lowest rounded-xl border border-border-subtle overflow-hidden transition-all hover:shadow-lg lg:col-span-2 md:flex-row h-full">
+<div class="md:w-1/2 overflow-hidden h-64 md:h-auto">
+<img class="card-image w-full h-full object-cover transition-transform duration-500" data-alt="A clean, high-resolution top-down shot of a modern programmer's workspace with a sleek mechanical keyboard, a high-end mouse, and a professional monitor showing code. The aesthetic is corporate modern with soft natural lighting and a color palette of deep navies and crisp whites, reflecting a professional technical environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDT0DkmsVImw2D-s3MHvU_nSlBpQz1lVkswE8WG40qvbLnXYblJ3LmJevnRFlPwfY3iZNY9aRyW6gMfb_BqxLGq7glmtdwA5hLDspPOV-SBhRi7Q_g556PH1qdn049kidy878xnXwP97jb0eZcp38kxG3DQh147Q8lbgt0VVYF5Rn0IX7CXLYCbdRYo-YPh-Cegkkny8pZqoFb8MGQHTaUG9RLxCyTPAMJ9oXx1-f0igZQUQWaS1D7bTuBXbC_UA-7RV67eU--_Mj-p"/>
+</div>
+<div class="p-8 md:w-1/2 flex flex-col justify-center">
+<div class="flex items-center gap-3 mb-4">
+<span class="bg-secondary/10 text-secondary px-3 py-1 rounded font-label-sm text-label-sm uppercase">Featured</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">May 15, 2024</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4 leading-tight group-hover:text-secondary transition-colors">Optimizing Windows 11 for High-Performance Development</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">Learn how to strip away system bloat and configure WSL2 for the ultimate development experience on the latest Windows architecture.</p>
+<a class="mt-auto flex items-center gap-2 font-label-md text-label-md text-secondary group-hover:underline" href="#">
+                                Read Article <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Article Card 2 -->
+<article class="article-card group flex flex-col bg-surface-container-lowest rounded-xl border border-border-subtle overflow-hidden transition-all hover:shadow-lg">
+<div class="h-48 overflow-hidden">
+<img class="card-image w-full h-full object-cover transition-transform duration-500" data-alt="A minimalist 3D rendering of various operating system icons like Windows, Apple, and Ubuntu logos floating in a clean, digital void. The lighting is sophisticated, using studio-style rim lights and soft shadows against a light grey background, creating a professional and technical atmosphere for a software library." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBcDABFBMiiZPz1HRcIc7kPd81SqXwP7oiM8nYDo-cX_jhu1YOVB92sS2HN4NgQgGoeptZ-Bx-ym_y-NNQQIQfSM5ViwFlVtfcnmWzOnS0LmKS4ktLYFdVUghPH9to75lOIRmRNbunKvjYDgFAopfXfLo4XWrnmDSBzmu1UKq-hlIkK7ekWUo2b7FHm0XL3NqcCHfQsirIsJAAcp6zKgbFvpNMETWHBgb0J1AN_WTWVpvoJRkC8Ai5DVfKesLonAtgBeJqlXb6WgGG"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex items-center gap-3 mb-3">
+<span class="text-os-ubuntu font-label-sm text-label-sm border border-os-ubuntu/20 px-2 py-0.5 rounded">Ubuntu</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">May 12, 2024</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3 group-hover:text-secondary transition-colors">Top 10 Essential CLI Tools for Ubuntu 24.04</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">Enhance your terminal workflow with these power-user utilities designed for the latest LTS release.</p>
+<a class="mt-auto flex items-center gap-2 font-label-md text-label-md text-secondary" href="#">
+                                Learn More <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Article Card 3 -->
+<article class="article-card group flex flex-col bg-surface-container-lowest rounded-xl border border-border-subtle overflow-hidden transition-all hover:shadow-lg">
+<div class="h-48 overflow-hidden">
+<img class="card-image w-full h-full object-cover transition-transform duration-500" data-alt="Close-up of a high-end laptop screen displaying a dark mode code editor with vibrant syntax highlighting. The image focuses on clarity and professional precision, with a shallow depth of field blurring out a minimalist desk setup in the background. The mood is calm, focused, and highly productive." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOCXaF1iLLKi3KnGM-fnUlevLUKonCRZT_-frRWtC-UiqOjXmVVQTKxKkEXsHpbMNo2n6zF8dF4FI_EXCW5OWpaVqBpOxmtYk86SJ5eJG65cOhj2qry7xQBM5AiWWh72Ka2hrsZ0VPnimkmQDknc7ixIOttI1hdHHs-VZVNaDDUbejO8oq5xzdeo6l9JNIe418MzIMNcDpNRqbeZxREF3Eu0DC-t7PL7lERbzK9uv1lZBCrusCgVIncbEnaTRGkjLPzLxZ0bo5xu_T"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex items-center gap-3 mb-3">
+<span class="text-os-macos font-label-sm text-label-sm border border-os-macos/20 px-2 py-0.5 rounded">macOS</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">May 10, 2024</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3 group-hover:text-secondary transition-colors">Mastering Brew: Advanced Package Management</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">A deep dive into Homebrew's lesser-known commands to help you manage your macOS dev environment like a pro.</p>
+<a class="mt-auto flex items-center gap-2 font-label-md text-label-md text-secondary" href="#">
+                                Learn More <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Article Card 4 -->
+<article class="article-card group flex flex-col bg-surface-container-lowest rounded-xl border border-border-subtle overflow-hidden transition-all hover:shadow-lg">
+<div class="h-48 overflow-hidden">
+<img class="card-image w-full h-full object-cover transition-transform duration-500" data-alt="A stylized digital illustration of a software package being safely downloaded, using clean lines and a palette of navy and accent blue. The visual style is professional corporate tech, emphasizing security, speed, and reliability. High-contrast elements against a soft background ensure focus on the central concept." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2U1gCiJkDBeQfk3msL7NX8tMY-E4bbAX81LmrbphE0YnYmC8AVzVpI2wTPwhz-CmCsxSONyfvXMHb5ymsYPuwerLYryI2T2xEsG36fWxsOkXQI_R0bNkfvV44HDcCxEP5UJm__usBm2dleONRGJiqfADuci63ApHkvaS602I8_qoxeBMZDJOJ3s5FA4c22HGfq0IvYmjQKXj5KNFGKCyK7bzpRTrgrboa9nytd2lcUH1Bb-wH3S7U5qh1Am7cs6uZl_F7Z5Jz3Jqi"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex items-center gap-3 mb-3">
+<span class="text-secondary font-label-sm text-label-sm border border-secondary/20 px-2 py-0.5 rounded">News</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">May 05, 2024</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3 group-hover:text-secondary transition-colors">ProLampX v2.4 Release: What's New?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">Introducing parallel downloads, bundle exporting, and full support for the latest Linux kernels.</p>
+<a class="mt-auto flex items-center gap-2 font-label-md text-label-md text-secondary" href="#">
+                                Learn More <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Article Card 5 -->
+<article class="article-card group flex flex-col bg-surface-container-lowest rounded-xl border border-border-subtle overflow-hidden transition-all hover:shadow-lg">
+<div class="h-48 overflow-hidden">
+<img class="card-image w-full h-full object-cover transition-transform duration-500" data-alt="An abstract visualization of data streams and digital connectivity, rendered in a sophisticated palette of deep blue and electric blue. The artwork is clean and professional, avoiding messy elements, and represents modern software infrastructure and network performance in a corporate tech context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb9AdzZyshPe6BFskCu67qI6Ubeyw-pvv6tWy_L7dGJZdjsbWtGAXPfR3Tvm5OE61tcoFXtdhvVHepMjHP3WR-s15IIAr5GQXoEGAWBLif1_9hnMO3z2JZz5JJumLUkM8myuRBtWZwms8uEDPsrxsAESVjP-JYbjauHKWH_5loWe-cZHJais0W2kwaEsrgmPTxHHRj2sNZrqHmROkXos3pwW-J_qASMW0yLk38EmionSmAHia9d7muhSYMOWDBbD_EiFad-GUAuY7c"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex items-center gap-3 mb-3">
+<span class="text-on-surface-variant font-label-sm text-label-sm border border-border-subtle px-2 py-0.5 rounded">Guides</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">May 01, 2024</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3 group-hover:text-secondary transition-colors">Security Checklist for New Dev Machines</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">Essential steps to ensure your local environment is hardened against common vulnerabilities from day one.</p>
+<a class="mt-auto flex items-center gap-2 font-label-md text-label-md text-secondary" href="#">
+                                Learn More <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</article>
+</div>
+<!-- Pagination -->
+<div class="flex items-center justify-center gap-4 pt-12">
+<button class="w-10 h-10 flex items-center justify-center rounded-full border border-border-subtle text-on-surface-variant hover:bg-surface-container hover:text-primary transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<div class="flex gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-primary text-on-primary font-label-md">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full border border-border-subtle text-on-surface-variant hover:bg-surface-container font-label-md">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full border border-border-subtle text-on-surface-variant hover:bg-surface-container font-label-md">3</button>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full border border-border-subtle text-on-surface-variant hover:bg-surface-container hover:text-primary transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Sidebar -->
+<aside class="lg:col-span-4 space-y-gutter">
+<!-- Search Box -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-border-subtle">
+<h4 class="font-label-md text-label-md text-primary mb-4 uppercase tracking-wider">Search Blog</h4>
+<div class="relative">
+<input class="w-full pl-10 pr-4 py-3 rounded-lg border border-border-subtle focus:ring-2 focus:ring-secondary focus:border-transparent outline-none font-body-md" placeholder="Search for guides..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-3.5 text-on-surface-variant">search</span>
+</div>
+</div>
+<!-- Newsletter -->
+<div class="bg-primary text-on-primary p-8 rounded-xl relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="font-headline-md text-headline-md mb-2">Stay Updated</h4>
+<p class="font-body-md text-body-md opacity-80 mb-6">Get the latest setup guides and software releases delivered to your inbox.</p>
+<form class="space-y-3">
+<input class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 placeholder-white/50 text-white outline-none focus:bg-white/20 transition-all" placeholder="email@address.com" type="email"/>
+<button class="w-full bg-secondary text-white py-3 rounded-lg font-label-md text-label-md hover:bg-secondary-container transition-all">Subscribe Now</button>
+</form>
+</div>
+<!-- Decorative Element -->
+<div class="absolute -right-12 -bottom-12 w-48 h-48 bg-secondary/10 rounded-full blur-3xl"></div>
+</div>
+<!-- AdSense Slot (Placeholder as per Guidance) -->
+<div class="border-2 border-dashed border-border-subtle rounded-xl p-4 flex flex-col items-center justify-center min-h-[300px] bg-surface-container-low">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-2">Advertisement</span>
+<div class="w-full h-full flex items-center justify-center opacity-30">
+<span class="material-symbols-outlined text-[64px]">featured_video</span>
+</div>
+</div>
+<!-- Popular Categories -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-border-subtle">
+<h4 class="font-label-md text-label-md text-primary mb-4 uppercase tracking-wider">Popular Tags</h4>
+<div class="flex flex-wrap gap-2">
+<a class="bg-surface-container-low text-on-surface-variant px-3 py-1 rounded-full text-label-sm hover:bg-secondary/10 hover:text-secondary transition-all" href="#">#docker</a>
+<a class="bg-surface-container-low text-on-surface-variant px-3 py-1 rounded-full text-label-sm hover:bg-secondary/10 hover:text-secondary transition-all" href="#">#productivity</a>
+<a class="bg-surface-container-low text-on-surface-variant px-3 py-1 rounded-full text-label-sm hover:bg-secondary/10 hover:text-secondary transition-all" href="#">#terminal</a>
+<a class="bg-surface-container-low text-on-surface-variant px-3 py-1 rounded-full text-label-sm hover:bg-secondary/10 hover:text-secondary transition-all" href="#">#vscode</a>
+<a class="bg-surface-container-low text-on-surface-variant px-3 py-1 rounded-full text-label-sm hover:bg-secondary/10 hover:text-secondary transition-all" href="#">#automation</a>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full py-stack-xl border-t border-border-subtle">
+<div class="max-w-container-max mx-auto px-margin-mobile grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="col-span-1 md:col-span-1">
+<span class="font-headline-sm text-headline-sm font-extrabold text-primary block mb-4">ProLampX</span>
+<p class="font-body-md text-body-md text-on-surface-variant">The definitive utility library for multi-platform professional developers.</p>
+</div>
+<div>
+<h5 class="font-label-md text-label-md text-primary mb-4">Product</h5>
+<ul class="space-y-2">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Download</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Software List</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Bundles</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-md text-label-md text-primary mb-4">Support</h5>
+<ul class="space-y-2">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Documentation</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Help Center</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Community</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-md text-label-md text-primary mb-4">Legal</h5>
+<ul class="space-y-2">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Cookie Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile mt-12 pt-8 border-t border-border-subtle flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="font-body-md text-body-md text-on-surface-variant opacity-80">© 2024 ProLampX Software. All rights reserved.</span>
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:text-secondary" href="#"><span class="material-symbols-outlined">brand_family</span></a>
+<a class="text-on-surface-variant hover:text-secondary" href="#"><span class="material-symbols-outlined">terminal</span></a>
+<a class="text-on-surface-variant hover:text-secondary" href="#"><span class="material-symbols-outlined">code</span></a>
+</div>
+</div>
+</footer>
+<!-- BottomNavBar (Action Bar on Mobile) -->
+<div class="fixed bottom-0 w-full z-50 md:hidden">
+<div class="bg-primary dark:bg-primary-container flex justify-between items-center px-gutter py-4 shadow-[0px_-4px_20px_rgba(27,54,93,0.12)]">
+<button class="bg-secondary text-on-secondary rounded-lg px-6 py-3 font-bold flex items-center justify-center gap-2 w-full active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+<span class="font-label-md text-label-md">Download ProLampX</span>
+</button>
+</div>
+</div>
+<script>
+        // Simple filter chip interaction
+        const chips = document.querySelectorAll('.flex.overflow-x-auto button');
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                chips.forEach(c => {
+                    c.classList.remove('bg-primary', 'text-on-primary');
+                    c.classList.add('bg-surface-container-lowest', 'text-on-surface-variant', 'border-border-subtle');
+                });
+                chip.classList.remove('bg-surface-container-lowest', 'text-on-surface-variant', 'border-border-subtle');
+                chip.classList.add('bg-primary', 'text-on-primary');
+            });
+        });
+
+        // Header transparency shift on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body></html>

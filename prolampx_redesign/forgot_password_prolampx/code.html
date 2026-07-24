@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Forgot Password | TechNexus ProLampX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#d8dadc",
+                        "tertiary-container": "#2b3649",
+                        "inverse-on-surface": "#eff1f3",
+                        "os-windows": "#0078D4",
+                        "outline-variant": "#c4c6cf",
+                        "on-primary-container": "#87a0cd",
+                        "surface": "#f7f9fb",
+                        "on-tertiary": "#ffffff",
+                        "surface-deep": "#0F2440",
+                        "primary-fixed": "#d6e3ff",
+                        "on-tertiary-container": "#949fb5",
+                        "surface-container-low": "#f2f4f6",
+                        "primary-container": "#1b365d",
+                        "tertiary-fixed-dim": "#bcc7de",
+                        "primary-fixed-dim": "#aec7f7",
+                        "secondary-fixed-dim": "#afc6ff",
+                        "surface-tint": "#465f88",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary-container": "#fefcff",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#001b3d",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#f7f9fb",
+                        "on-background": "#191c1e",
+                        "error": "#ba1a1a",
+                        "tertiary": "#162132",
+                        "on-primary-fixed-variant": "#2e476f",
+                        "secondary": "#0057c2",
+                        "os-ubuntu": "#E95420",
+                        "on-secondary-fixed": "#001a43",
+                        "surface-container-highest": "#e0e3e5",
+                        "primary": "#002046",
+                        "surface-variant": "#e0e3e5",
+                        "secondary-container": "#2c70e2",
+                        "on-tertiary-fixed": "#111c2d",
+                        "on-secondary-fixed-variant": "#004398",
+                        "tertiary-fixed": "#d8e3fb",
+                        "inverse-primary": "#aec7f7",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#44474e",
+                        "background": "#f7f9fb",
+                        "outline": "#74777f",
+                        "border-subtle": "#E2E8F0",
+                        "on-tertiary-fixed-variant": "#3c475a",
+                        "on-surface": "#191c1e",
+                        "secondary-fixed": "#d9e2ff",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "os-macos": "#1B1B1B",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "inverse-surface": "#2d3133"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-xl": "64px",
+                        "gutter": "24px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "margin-mobile": "16px",
+                        "stack-sm": "8px",
+                        "container-max": "1200px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-xl-mobile": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "headline-xl-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #F8FAFC;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-pill {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-surface min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+<!-- Atmospheric Background Decoration -->
+<div class="absolute inset-0 pointer-events-none opacity-20 overflow-hidden">
+<div class="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-primary-container rounded-full blur-[120px]"></div>
+<div class="absolute -bottom-[10%] -right-[10%] w-[30%] h-[30%] bg-secondary-container rounded-full blur-[100px]"></div>
+</div>
+<!-- Header Navigation (Simplified/Transactional Suppressed - Manual Mockup of minimal brand presence) -->
+<header class="fixed top-0 w-full z-50 flex justify-center py-6">
+<div class="glass-pill px-6 py-2 rounded-full flex items-center shadow-sm">
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">TechNexus</span>
+</div>
+</header>
+<!-- Main Recovery Card Canvas -->
+<main class="w-full max-w-md px-margin-mobile z-10">
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl shadow-lg p-stack-lg md:p-stack-xl flex flex-col gap-stack-md transition-all duration-300">
+<!-- Icon & Content -->
+<div class="flex flex-col items-center text-center gap-stack-sm mb-stack-sm">
+<div class="w-16 h-16 rounded-full bg-primary-container/10 flex items-center justify-center mb-stack-sm">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="lock_reset">lock_reset</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Forgot Password?</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px]">
+                    No worries! Enter your email below and we'll send you a secure link to reset your account.
+                </p>
+</div>
+<!-- Form -->
+<form class="flex flex-col gap-stack-md" id="recoveryForm">
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant block ml-1" for="email">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-xl" data-icon="mail">mail</span>
+<input class="w-full pl-11 pr-4 py-3 rounded-lg border border-outline-variant bg-surface focus:ring-2 focus:ring-primary focus:border-transparent transition-all font-body-md text-body-md outline-none" id="email" placeholder="name@company.com" required="" type="email"/>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary font-label-md text-body-md py-3.5 rounded-lg shadow-md hover:bg-primary-container hover:shadow-lg transition-all duration-300 active:scale-[0.98] mt-stack-sm flex items-center justify-center gap-2" type="submit">
+                    Send Recovery Link
+                    <span class="material-symbols-outlined text-xl" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+<!-- Success State (Hidden initially) -->
+<div class="hidden flex flex-col items-center text-center gap-stack-sm py-stack-md" id="successMessage">
+<div class="w-12 h-12 rounded-full bg-green-100 text-green-700 flex items-center justify-center mb-2">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface font-semibold">Check your inbox!</p>
+<p class="font-label-md text-label-md text-on-surface-variant">If an account exists for that email, we've sent instructions.</p>
+</div>
+<!-- Footer Action -->
+<div class="mt-stack-sm pt-stack-sm border-t border-outline-variant/30 text-center">
+<a class="inline-flex items-center gap-2 font-label-md text-label-md text-primary hover:text-secondary transition-colors group" href="#">
+<span class="material-symbols-outlined text-lg transition-transform group-hover:-translate-x-1" data-icon="arrow_back">arrow_back</span>
+                    Back to Login
+                </a>
+</div>
+</div>
+<!-- Support Text -->
+<p class="text-center mt-stack-lg font-label-sm text-label-sm text-outline">
+            Need more help? <a class="text-primary hover:underline underline-offset-4" href="#">Contact Support</a>
+</p>
+</main>
+<!-- Simple Footer (Manual Mock of Global Footer Content per JSON instructions) -->
+<footer class="w-full mt-auto py-8 text-center px-margin-mobile">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-stack-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant opacity-70">© 2024 TechNexus IT Solutions. All rights reserved.</span>
+<div class="flex gap-stack-md flex-wrap justify-center">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Us</a>
+</div>
+</div>
+</footer>
+<script>
+        document.getElementById('recoveryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const form = e.target;
+            const success = document.getElementById('successMessage');
+            
+            // Interaction logic
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin" data-icon="progress_activity">progress_activity</span> Sending...';
+            btn.disabled = true;
+            btn.classList.add('opacity-50', 'cursor-not-allowed');
+
+            setTimeout(() => {
+                form.classList.add('hidden');
+                success.classList.remove('hidden');
+                success.classList.add('animate-fade-in');
+            }, 1500);
+        });
+    </script>
+</body></html>

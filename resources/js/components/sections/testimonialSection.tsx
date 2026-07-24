@@ -1,149 +1,85 @@
-"use client";
+import { Star } from 'lucide-react';
+import { Autoplay, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { testimonials } from '@/data/testimonials';
 
-import CustomSection from "@/components/ui/customSection";
-import RevealOnScroll from "@/components/ui/revealOnScroll";
-import SectionTitle from "@/components/ui/sectionTitle";
-import CustomSlider from "@/components/swiper/customSlider";
-import { SwiperSlide } from "swiper/react";
-import {
-  Avatar,
-  Box,
-  Rating,
-  Stack,
-  Typography
-} from "@mui/material";
-import Grid2 from "@mui/material/Grid2";
-import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
-import { useTheme } from "@mui/material/styles";
-import { testimonials } from "@/data/testimonials";
+import 'swiper/css';
+import 'swiper/css/pagination';
 
-const metrics = [
-  { value: "4.9/5", label: "Average client rating" },
-  { value: "95%", label: "Repeat collaboration rate" },
-  { value: "50+", label: "Successful deliveries" },
-];
+export default function TestimonialSection() {
+    return (
+        <section className="relative overflow-hidden bg-primary py-stack-xl dark:bg-surface-container">
+            <div className="software-grid-pattern pointer-events-none absolute inset-0 opacity-10" />
+            <div className="relative z-10 mx-auto max-w-container-max px-margin-mobile">
+                <div className="mx-auto mb-stack-xl max-w-2xl text-center">
+                    <h2 className="mb-4 text-headline-lg font-bold text-white dark:text-on-surface">
+                        What Our Partners Say
+                    </h2>
+                    <p className="text-body-md text-on-primary-container dark:text-on-surface-variant">
+                        We let our results speak through the words of our clients.
+                    </p>
+                </div>
 
-const customBreakpoints = {
-  320: { slidesPerView: 1 },
-  768: { slidesPerView: 2 },
-  1200: { slidesPerView: 3 },
-};
-
-const TestimonialSection = () => {
-  const theme = useTheme();
-  const isDark = theme.palette.mode === "dark";
-  const titleColor = isDark ? "primary.white" : "primary.dark";
-  const bodyColor = isDark ? "primary.white" : "secondary.contrastText";
-  const cardTextColor = isDark ? "primary.white" : "secondary.dark";
-  const cardMutedColor = isDark ? "primary.white" : "secondary.contrastText";
-
-  return (
-    <CustomSection
-      className="testimonials-section"
-      backgroundColor={isDark ? "background.primary" : "background.offWhite"}
-      backgroundImage={isDark ? "/images/feedback.webp" : undefined}
-      sx={{ py: { xs: 8, md: 12 } }}
-      overlayColor="var(--background-overlay)"
-      id="testimonials"
-    >
-      <Stack spacing={5}>
-        <RevealOnScroll>
-          <Box sx={{ textAlign: { xs: "center", md: "left" } }}>
-            <SectionTitle titleText="What clients say" textColor={titleColor} />
-            <Typography variant="body1" sx={{ color: bodyColor, opacity: 0.85, maxWidth: 680, mt: 2 }}>
-              Trusted by founders and teams who value quality, speed, and clear communication.
-            </Typography>
-          </Box>
-        </RevealOnScroll>
-
-        <Grid2 container spacing={2}>
-          {metrics.map((metric, index) => (
-            <Grid2 key={metric.label} size={{ xs: 12, md: 4 }}>
-              <RevealOnScroll delay={index * 80}>
-                <Box className="trust-stat" sx={{ textAlign: "center" }}>
-                  <Typography variant="h4" color={titleColor} fontWeight={700}>
-                    {metric.value}
-                  </Typography>
-                  <Typography variant="body2" color={bodyColor} sx={{ opacity: 0.8 }}>
-                    {metric.label}
-                  </Typography>
-                </Box>
-              </RevealOnScroll>
-            </Grid2>
-          ))}
-        </Grid2>
-
-        <RevealOnScroll delay={120}>
-          <CustomSlider
-            className="testimonials-slider"
-            autoplay={true}
-            pagination={false}
-            navigation={true}
-            loop={true}
-            slidesPerView={3}
-            breakpoints={customBreakpoints}
-          >
-            {testimonials.map((slide) => (
-              <SwiperSlide key={slide.id}>
-                <Box sx={{ p: { xs: 1, md: 1.5 }, width: "100%" }}>
-                  <Box
-                    className="testimonial-card ls-shadow motion-hover"
-                    sx={{
-                      p: 3,
-                      height: 280,
-                      display: "flex",
-                      flexDirection: "column",
-                      overflow: "hidden",
+                <Swiper
+                    modules={[Autoplay, Pagination]}
+                    className="partners-swiper !pb-12"
+                    spaceBetween={24}
+                    slidesPerView={1}
+                    loop={testimonials.length > 3}
+                    autoplay={{
+                        delay: 4500,
+                        disableOnInteraction: false,
+                        pauseOnMouseEnter: true,
                     }}
-                  >
-                    <FormatQuoteIcon sx={{ color: "secondary.main", fontSize: 28, flexShrink: 0 }} />
-                    <Rating value={slide.rating} readOnly size="small" sx={{ mt: 1.5, flexShrink: 0 }} />
-                    <Box
-                      sx={{
-                        flex: 1,
-                        minHeight: 0,
-                        overflowY: "auto",
-                        mt: 1.5,
-                        mb: 2,
-                        pr: 0.5,
-                      }}
-                    >
-                      <Typography
-                        variant="body1"
-                        component="p"
-                        sx={{ color: cardMutedColor, opacity: 0.92, lineHeight: 1.7 }}
-                      >
-                        “{slide.quote}”
-                      </Typography>
-                    </Box>
-                    <Stack direction="row" spacing={1.5} alignItems="center" sx={{ flexShrink: 0 }}>
-                      <Avatar sx={{ bgcolor: "secondary.main", color: "primary.white", width: 40, height: 40, flexShrink: 0 }}>
-                        {slide.initials}
-                      </Avatar>
-                      <Box sx={{ minWidth: 0 }}>
-                        <Typography
-                          variant="subtitle2"
-                          sx={{ color: cardTextColor, fontWeight: 700, lineHeight: 1.3 }}
-                        >
-                          {slide.name}
-                        </Typography>
-                        <Typography
-                          variant="caption"
-                          sx={{ color: cardMutedColor, opacity: 0.75, display: "block", lineHeight: 1.3 }}
-                        >
-                          {slide.role}
-                        </Typography>
-                      </Box>
-                    </Stack>
-                  </Box>
-                </Box>
-              </SwiperSlide>
-            ))}
-          </CustomSlider>
-        </RevealOnScroll>
-      </Stack>
-    </CustomSection>
-  );
-};
+                    pagination={{ clickable: true }}
+                    breakpoints={{
+                        768: { slidesPerView: 2 },
+                        1024: { slidesPerView: 3 },
+                    }}
+                >
+                    {testimonials.map((item) => (
+                        <SwiperSlide key={item.id} className="!h-auto">
+                            <div className="flex h-full min-h-[280px] flex-col rounded-[32px] border border-white/10 bg-white/5 p-8 backdrop-blur-md dark:border-border-subtle dark:bg-surface-container-high/40">
+                                <div className="mb-4 flex gap-1 text-secondary-fixed dark:text-primary">
+                                    {Array.from({ length: item.rating }).map((_, i) => (
+                                        <Star key={i} className="size-5 fill-current" />
+                                    ))}
+                                </div>
+                                <p className="mb-8 flex-grow italic text-white dark:text-on-surface-variant">
+                                    &ldquo;{item.quote}&rdquo;
+                                </p>
+                                <div className="flex items-center gap-4">
+                                    <div className="flex size-12 items-center justify-center rounded-full bg-secondary-container/20 font-bold text-white dark:bg-primary/20 dark:text-primary">
+                                        {item.initials}
+                                    </div>
+                                    <div>
+                                        <div className="font-bold text-white dark:text-on-surface">{item.name}</div>
+                                        <div className="text-label-sm text-on-primary-container dark:text-on-surface-variant">
+                                            {item.role}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
 
-export default TestimonialSection;
+            <style>{`
+                .partners-swiper .swiper-pagination-bullet {
+                    background: rgba(255, 255, 255, 0.45);
+                    opacity: 1;
+                }
+                .partners-swiper .swiper-pagination-bullet-active {
+                    background: #ffffff;
+                }
+                .dark .partners-swiper .swiper-pagination-bullet {
+                    background: rgba(174, 199, 247, 0.35);
+                }
+                .dark .partners-swiper .swiper-pagination-bullet-active {
+                    background: #aec7f7;
+                }
+            `}</style>
+        </section>
+    );
+}

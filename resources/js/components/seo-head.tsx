@@ -40,7 +40,8 @@ export default function SeoHead({
         toAbsoluteUrl(appUrl, canonical) ||
         (appUrl ? `${appUrl}${pageUrl.split('?')[0] || '/'}` : undefined);
 
-    const imageUrl = toAbsoluteUrl(appUrl, image);
+    const imageUrl =
+        toAbsoluteUrl(appUrl, image) || toAbsoluteUrl(appUrl, '/images/prolampx-logo.png');
     const pageType = type === 'article' ? 'article' : 'website';
 
     const schemaType =
@@ -58,7 +59,7 @@ export default function SeoHead({
         jsonLd.image = imageUrl;
     }
 
-    if (type === 'website') {
+    if (type === 'website' || type === 'software') {
         jsonLd.publisher = {
             '@type': 'Organization',
             name: siteName,
@@ -67,9 +68,18 @@ export default function SeoHead({
         };
     }
 
+    if (type === 'software') {
+        jsonLd.applicationCategory = 'UtilitiesApplication';
+        jsonLd.offers = {
+            '@type': 'Offer',
+            price: '0',
+            priceCurrency: 'USD',
+        };
+    }
+
     return (
         <Head title={title}>
-            <meta name="robots" content="index, follow" />
+            <meta name="robots" content="index, follow, max-image-preview:large" />
             {description && <meta name="description" content={description} />}
             {keywords && <meta name="keywords" content={keywords} />}
             {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}

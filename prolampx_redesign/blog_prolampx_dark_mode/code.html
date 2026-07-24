@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ProLampX Obsidian | Insights &amp; Ecosystem Engineering Blog</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#aec7f6",
+                    "primary-container": "#aec7f7",
+                    "on-secondary-fixed": "#001a43",
+                    "on-tertiary-fixed-variant": "#2e476f",
+                    "secondary-fixed": "#d9e2ff",
+                    "surface-container-highest": "#323537",
+                    "secondary-container": "#0057c2",
+                    "surface-container-high": "#272a2c",
+                    "outline": "#8e9099",
+                    "primary-fixed-dim": "#aec7f7",
+                    "on-primary-fixed": "#001b3d",
+                    "on-tertiary-container": "#3a537b",
+                    "on-tertiary": "#143057",
+                    "error": "#ffb4ab",
+                    "tertiary-fixed-dim": "#aec7f7",
+                    "error-container": "#93000a",
+                    "on-secondary-container": "#c4d4ff",
+                    "surface": "#111416",
+                    "os-macos": "#1b1b1b",
+                    "on-error": "#690005",
+                    "surface-container-low": "#191c1e",
+                    "primary": "#d6e2ff",
+                    "on-background": "#e1e2e5",
+                    "secondary": "#afc6ff",
+                    "inverse-on-surface": "#2e3133",
+                    "background": "#111416",
+                    "on-tertiary-fixed": "#001b3d",
+                    "surface-container": "#1d2022",
+                    "primary-fixed": "#d6e3ff",
+                    "on-secondary": "#002d6c",
+                    "os-windows": "#0078d4",
+                    "on-primary-fixed-variant": "#2e4770",
+                    "surface-deep": "#0f2440",
+                    "border-subtle": "rgba(255, 255, 255, 0.1)",
+                    "on-primary": "#153058",
+                    "surface-container-lowest": "#0c0f11",
+                    "on-primary-container": "#3a537c",
+                    "on-surface-variant": "#c4c6cf",
+                    "tertiary": "#d5e2ff",
+                    "surface-variant": "#323537",
+                    "secondary-fixed-dim": "#afc6ff",
+                    "surface-tint": "#aec7f7",
+                    "outline-variant": "#44474e",
+                    "surface-dim": "#111416",
+                    "inverse-primary": "#465f89",
+                    "on-secondary-fixed-variant": "#004398",
+                    "os-ubuntu": "#e95420",
+                    "tertiary-fixed": "#d6e3ff",
+                    "on-error-container": "#ffdad6",
+                    "inverse-surface": "#e1e2e5",
+                    "surface-bright": "#37393c",
+                    "on-surface": "#e1e2e5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "32px",
+                    "stack-sm": "8px",
+                    "stack-md": "16px",
+                    "gutter": "24px",
+                    "container-max": "1200px",
+                    "margin-mobile": "16px",
+                    "stack-xl": "64px"
+            },
+            "fontFamily": {
+                    "label-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "headline-xl": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "headline-xl-mobile": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-xl-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0f1214;
+            color: #e1e2e5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .software-grid {
+            background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .card-hover-up {
+            transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1), box-shadow 0.4s ease;
+        }
+
+        .card-hover-up:hover {
+            transform: translateY(-8px);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #111416;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #323537;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="dark bg-background software-grid min-h-screen font-body-md text-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 glass-nav bg-surface/60 border-b border-subtle shadow-[0px_4px_20px_rgba(0,0,0,0.4)]">
+<div class="max-w-container-max mx-auto px-gutter py-4 flex justify-between items-center">
+<div class="font-headline-md text-headline-md font-extrabold text-primary tracking-tighter">ProLampX</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">About</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Services</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Software</a>
+<a class="font-label-md text-label-md text-primary font-bold border-b-2 border-primary" href="#">Blog</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Contact</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-md text-label-md scale-95 transition-transform duration-200 active:scale-90 hover:bg-secondary">
+                Let's Build
+            </button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-32 pb-stack-xl max-w-container-max mx-auto px-gutter">
+<!-- Blog Hero Section -->
+<header class="relative mb-stack-xl">
+<div class="max-w-3xl">
+<div class="inline-flex items-center px-3 py-1 rounded-full border border-primary/30 bg-primary/5 mb-4">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Digital Insights</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface mb-6 md:text-headline-xl leading-tight">
+                    Engineering the <br/><span class="text-primary">Ecosystem of Tomorrow.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    Deep dives into IT architecture, enterprise scalability, and the innovative software solutions driving the ProLampX Obsidian legacy.
+                </p>
+</div>
+<!-- Atmospheric Decoration -->
+<div class="absolute -top-12 -right-12 w-64 h-64 bg-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="absolute top-1/2 right-10 hidden lg:block opacity-40 animate-float">
+
+</div>
+</header>
+<!-- Search and Filters Bar -->
+<section class="mb-stack-lg flex flex-col md:flex-row gap-4 items-center justify-between">
+<div class="relative w-full md:w-96">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-high border border-subtle rounded-xl py-3 pl-12 pr-4 font-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all placeholder:text-on-surface-variant/50" placeholder="Search insights..." type="text"/>
+</div>
+<div class="flex gap-2 overflow-x-auto pb-2 md:pb-0 w-full md:w-auto custom-scrollbar">
+<button class="whitespace-nowrap px-5 py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md">All Posts</button>
+<button class="whitespace-nowrap px-5 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors">Architecture</button>
+<button class="whitespace-nowrap px-5 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors">Cloud Strategy</button>
+<button class="whitespace-nowrap px-5 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors">Cybersecurity</button>
+<button class="whitespace-nowrap px-5 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors">DevOps</button>
+</div>
+</section>
+<!-- Featured Article (Asymmetric Layout) -->
+<article class="relative grid grid-cols-1 lg:grid-cols-12 gap-gutter bg-surface-container rounded-[32px] overflow-hidden border border-subtle mb-stack-xl card-hover-up group">
+<div class="lg:col-span-7 h-80 lg:h-full relative overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A sophisticated dark-themed high-tech server room with glowing blue fiber optic cables weaving through minimalist black rack systems. The lighting is moody and cinematic, emphasizing technical precision and enterprise-level scale. The style is sleek, corporate modern with a hint of futuristic engineering aesthetic, featuring cold blue and deep obsidian tones." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCG3mm1cpoSAdhD6AZ8jx6vgHow149l5bvDQ3hey11LqI9ZHzi8CehsKsIZpv_-poQ5Syx8JIK93Dju9N2XqOsjVuovi1-gkj6Ac_KdMBxv7YDtGoAQ_eInlEc7YXitfRe2n5uqnrgUTiTvAJU5THPqYD44ds9ln1hGHq3pSCs6JQ_C-kYkHf8EpFxh0mIi_vtrSRlDeMa2feMXgXrxhXi13G42MDKb5us3E4jw4XTAZWX5WOT-Wz1oZ8xp7rMqO5TrEyv_qesPFWgj')"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container via-transparent to-transparent hidden lg:block"></div>
+</div>
+<div class="lg:col-span-5 p-stack-lg flex flex-col justify-center">
+<div class="flex items-center gap-4 mb-4">
+<span class="font-label-sm text-label-sm text-primary-container bg-primary/10 px-3 py-1 rounded-full border border-primary/20">Featured</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">March 12, 2024</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4 group-hover:text-primary transition-colors">Architecting Resilient Multi-Cloud Ecosystems for 2025</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 line-clamp-3">
+                    As enterprises shift towards distributed architectures, the need for cohesive multi-cloud management becomes critical. Explore ProLampX's approach to seamless cross-provider integration and zero-downtime scalability protocols.
+                </p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest border border-subtle">
+<img class="w-full h-full object-cover rounded-full" data-alt="Close-up professional portrait of a tech executive with a confident expression, set against a dark, out-of-focus modern office background with subtle neon blue highlights. The lighting is sharp and professional, highlighting skin textures and facial features with a cinematic corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvMoYSEFrfX7PrtOV4OOPSo3Xx1FJiFMRPBZTFGy3z82BUC0JaDjTgpubXGGIK1GKiFTFYwVEMd_pxcc3GD9knTBnHVZR2l5lnsyuCafsgJoWeNPx6qqmjP3rn0yosVGyLiJYaTNQ8sZnnmK6cxJyfxVzX0PV8Bh4QCfzoLrMFYw8fLNXArv-anDxupsrIlOMrKOdET1nWyYq_z_EKKq7mHLuwImRVjkqgzq0g5Ni29siI4SdfhJcTo7XrKNVjjwTDkZ-qixpBgKIW"/>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Elena Vance</p>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant">CTO, Obsidian Engineering</p>
+</div>
+</div>
+<a class="inline-flex items-center gap-2 font-label-md text-label-md text-primary group/link" href="#">
+                        Read Insight <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Blog Grid (Bento Style) -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<article class="flex flex-col bg-surface-container-low border border-subtle rounded-3xl p-stack-md card-hover-up group">
+<div class="h-48 rounded-2xl overflow-hidden mb-6 relative">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="A clean, minimalist 3D rendering of abstract floating data nodes connected by thin glowing lines over a dark navy background. The visual represents network security and digital infrastructure with a high-end corporate feel, using a palette of deep blues, grays, and bright electric blue accents." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBXtxP6Fn-dWIP_81bFBbPoUw1bA8HWr0ghXEPJQMI7K5bdJ3nkoLbO6Z7XiwwKJ2taJ3iTQIos6euKTe9bcf3oof1Axa-6n9wLrH_igU2IQDYajUQzjV9YCP558dmQrPvy2VvIhhpnQcNU2b5clojtSL--7BJyJtYqhkv7wg-g8paH-1sSXpjIxJgGnv93aJL4En7PA-l5rtH1PNAU6LJWvQxknNkv5W7eGPFr025dkB2lqV2Jcn6jjEr8W0WiBLi2zMzos7xGCcgz')"></div>
+<div class="absolute top-3 left-3">
+<span class="bg-surface-container-highest/80 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm text-on-surface border border-subtle">Security</span>
+</div>
+</div>
+<div class="flex flex-col flex-grow">
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-2">March 08, 2024</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors">The Zero-Trust Mandate</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Protecting legacy systems in an era of sophisticated lateral-movement cyber attacks.</p>
+<div class="mt-auto pt-4 border-t border-subtle flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface-variant italic">5 min read</span>
+<button class="w-10 h-10 rounded-full border border-subtle flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors group-hover:border-primary">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="flex flex-col bg-surface-container-low border border-subtle rounded-3xl p-stack-md card-hover-up group">
+<div class="h-48 rounded-2xl overflow-hidden mb-6 relative">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Futuristic software development environment showing a dark mode code editor with vibrant syntax highlighting in neon greens and blues. A holographic abstract representation of an AI model floats above the screen, suggesting advanced software engineering. The atmosphere is tech-forward, high-precision, and sophisticated." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBgZcnJc1NiDj6hhSkysrKYGIz9WfoPqiTvNZ0tkn-pDRKNZ7DS6JEGYwuvSM6s0xxPGip7BENi7-N04crlazXTcDZ0flyaJDqNS30YvMxP9P2pe39xisZEQtdGb5BJfbe9-paJh9wCEXyn1U8OZW8YEDUTfWKgQqhWB4pt_6e-2OQhJMt8RMB993ZRQqdipYQRz3j96zPfwoV4WUd4gZk5HQ-dSu1BUrrN4k-ovqfiuLROSYHmi2ePYR5jJC9Hcrik95tXY2Xwzxsu')"></div>
+<div class="absolute top-3 left-3">
+<span class="bg-surface-container-highest/80 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm text-on-surface border border-subtle">Software</span>
+</div>
+</div>
+<div class="flex flex-col flex-grow">
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-2">March 05, 2024</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors">Leveraging LLMs for Code Refactoring</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">How ProLampX engineers utilize AI to optimize high-performance runtime libraries.</p>
+<div class="mt-auto pt-4 border-t border-subtle flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface-variant italic">8 min read</span>
+<button class="w-10 h-10 rounded-full border border-subtle flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors group-hover:border-primary">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="flex flex-col bg-surface-container-low border border-subtle rounded-3xl p-stack-md card-hover-up group">
+<div class="h-48 rounded-2xl overflow-hidden mb-6 relative">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="A modern architectural blueprint transitioning into a digital 3D wireframe of a city building, illuminated by soft glowing cyan lines on a dark obsidian base. The composition is clean and focused on structural integrity and engineering excellence, maintaining a professional tech-noir mood with high contrast and sharp details." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBVTo4R6JQcNkEpZZrjoYKhFM3yYNiwm5fSXPGeglYLu5va1saTrkABmYdlZ3b8bx23cT_6Z0EX4EMXI-8Mx6rrSlVcZjksbEuJzendCuIuZ788IIgG1NDAyUISZbhpSDUjkqB7bl-D_V64Mm2z8HsoMSl56alNEFmYN25jCuCBqK_R1vrJrm1i4YfxG0qByd6no7WSQSBvEv6HSSxOSgPIfOEG2ct7uzxZWk5X6zVPKZTdfUQO6B_6NfReNP2VLmHXgj1ic1bOBRVX')"></div>
+<div class="absolute top-3 left-3">
+<span class="bg-surface-container-highest/80 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm text-on-surface border border-subtle">Infrastructure</span>
+</div>
+</div>
+<div class="flex flex-col flex-grow">
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-2">Feb 28, 2024</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-primary transition-colors">Obsidian Infrastructure Core</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Inside the proprietary hardware stack powering our high-availability clients.</p>
+<div class="mt-auto pt-4 border-t border-subtle flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface-variant italic">12 min read</span>
+<button class="w-10 h-10 rounded-full border border-subtle flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors group-hover:border-primary">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+</article>
+</section>
+<!-- Newsletter CTA -->
+<section class="mt-stack-xl p-stack-lg bg-surface-container-high rounded-[40px] border border-subtle relative overflow-hidden">
+<div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+<div class="max-w-xl text-center lg:text-left">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Subscribe to Engineering Weekly</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Stay ahead of the curve with our curated technical newsletter. No fluff, just elite IT strategy.</p>
+</div>
+<form class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
+<input class="px-6 py-3 bg-surface-container-lowest border border-subtle rounded-full text-on-surface focus:outline-none focus:ring-2 focus:ring-primary w-full sm:w-80" placeholder="Enter your work email" type="email"/>
+<button class="px-8 py-3 bg-primary text-on-primary font-label-md text-label-md rounded-full hover:bg-secondary transition-all active:scale-95" type="submit">Sign Up</button>
+</form>
+</div>
+<!-- Background detail -->
+<div class="absolute -bottom-10 -left-10 w-40 h-40 bg-secondary/5 rounded-full blur-[60px]"></div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-surface-container-lowest border-t border-subtle">
+<div class="max-w-container-max mx-auto px-gutter py-stack-lg flex flex-col md:flex-row justify-between items-center gap-stack-md">
+<div class="flex flex-col items-center md:items-start gap-2">
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface">ProLampX</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-center md:text-left opacity-70">
+                    © 2024 ProLampX Obsidian. Elite Ecosystem Engineering.
+                </p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-opacity duration-200 hover:opacity-80 underline decoration-primary" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-opacity duration-200 hover:opacity-80 underline decoration-primary" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-opacity duration-200 hover:opacity-80 underline decoration-primary" href="#">Architecture</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-opacity duration-200 hover:opacity-80 underline decoration-primary" href="#">Careers</a>
+</div>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container border border-subtle text-on-surface hover:text-primary hover:border-primary transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">language</span>
+</a>
+<a class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container border border-subtle text-on-surface hover:text-primary hover:border-primary transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</a>
+</div>
+</div>
+</footer>
+<!-- FAB (Suppressed on Blog Detail/Index as per mandate, but included if primary action is needed) -->
+<!-- Not rendered here to prioritize the content canvas per relevance check -->
+<script>
+        // Micro-interactions for glass elements
+        document.querySelectorAll('.card-hover-up').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const { left, top, width, height } = card.getBoundingClientRect();
+                const x = (e.clientX - left) / width;
+                const y = (e.clientY - top) / height;
+                card.style.setProperty('--mouse-x', x);
+                card.style.setProperty('--mouse-y', y);
+            });
+        });
+
+        // Simple scroll reveal
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('article').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
+</body></html>

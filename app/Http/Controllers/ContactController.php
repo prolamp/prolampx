@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreContactRequest;
 use App\Mail\ContactMessageMail;
+use App\Support\SeoMeta;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Mail;
 use Inertia\Inertia;
@@ -15,10 +16,7 @@ class ContactController extends Controller
     {
         return Inertia::render('contact/index', [
             'contactEmail' => config('mail.contact_to'),
-            'seo' => [
-                'title' => 'Contact Us — ProLampX',
-                'description' => 'Get in touch with the ProLampX team for support, feedback, privacy requests, or business inquiries.',
-            ],
+            'seo' => SeoMeta::page('contact', ['path' => '/contact']),
         ]);
     }
 

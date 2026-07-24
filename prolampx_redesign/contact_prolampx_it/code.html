@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact Us | ProLampX IT Agency</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#eff1f3",
+                    "primary": "#002046",
+                    "on-background": "#191c1e",
+                    "secondary": "#0057c2",
+                    "tertiary-fixed-dim": "#bcc7de",
+                    "on-secondary-container": "#fefcff",
+                    "error-container": "#ffdad6",
+                    "os-macos": "#1B1B1B",
+                    "surface": "#f7f9fb",
+                    "surface-container-low": "#f2f4f6",
+                    "on-error": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-tertiary-container": "#949fb5",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#001b3d",
+                    "primary-fixed-dim": "#aec7f7",
+                    "on-tertiary-fixed-variant": "#3c475a",
+                    "secondary-container": "#2c70e2",
+                    "surface-container-highest": "#e0e3e5",
+                    "secondary-fixed": "#d9e2ff",
+                    "outline": "#74777f",
+                    "surface-container-high": "#e6e8ea",
+                    "tertiary-container": "#2b3649",
+                    "primary-container": "#1b365d",
+                    "on-secondary-fixed": "#001a43",
+                    "surface-bright": "#f7f9fb",
+                    "on-surface": "#191c1e",
+                    "inverse-surface": "#2d3133",
+                    "surface-dim": "#d8dadc",
+                    "outline-variant": "#c4c6cf",
+                    "on-secondary-fixed-variant": "#004398",
+                    "inverse-primary": "#aec7f7",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#d8e3fb",
+                    "os-ubuntu": "#E95420",
+                    "secondary-fixed-dim": "#afc6ff",
+                    "surface-tint": "#465f88",
+                    "on-surface-variant": "#44474e",
+                    "on-primary-container": "#87a0cd",
+                    "surface-variant": "#e0e3e5",
+                    "tertiary": "#162132",
+                    "border-subtle": "#E2E8F0",
+                    "surface-deep": "#0F2440",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#d6e3ff",
+                    "on-secondary": "#ffffff",
+                    "os-windows": "#0078D4",
+                    "on-primary-fixed-variant": "#2e476f",
+                    "on-tertiary-fixed": "#111c2d",
+                    "background": "#f7f9fb",
+                    "surface-container": "#eceef0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "32px",
+                    "stack-sm": "8px",
+                    "stack-md": "16px",
+                    "margin-mobile": "16px",
+                    "stack-xl": "64px",
+                    "gutter": "24px",
+                    "container-max": "1200px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "headline-xl": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "headline-xl-mobile": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .form-input-focus:focus {
+            outline: none;
+            border-color: #0057c2;
+            box-shadow: 0 0 0 2px rgba(0, 87, 194, 0.1);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 pt-4 px-margin-mobile">
+<nav class="max-w-container-max mx-auto px-6 h-16 flex justify-between items-center backdrop-blur-md bg-white/80 rounded-full border border-border-subtle shadow-[0px_4px_20px_rgba(27,54,93,0.08)]">
+<div class="font-headline-md text-headline-md font-bold text-primary">ProLampX</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant font-body-md hover:text-secondary transition-colors" href="#">Home</a>
+<a class="text-on-surface-variant font-body-md hover:text-secondary transition-colors" href="#">Installer</a>
+<a class="text-on-surface-variant font-body-md hover:text-secondary transition-colors" href="#">Bundles</a>
+<a class="text-on-surface-variant font-body-md hover:text-secondary transition-colors" href="#">Software</a>
+<a class="text-on-surface-variant font-body-md hover:text-secondary transition-colors" href="#">Blog</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-md hover:bg-secondary transition-all active:scale-95">
+                Get Installer
+            </button>
+</nav>
+</header>
+<main class="pt-32 pb-stack-xl">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile mb-stack-xl text-center">
+<h1 class="font-headline-xl text-headline-xl text-primary mb-stack-sm">Let's build something great together.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                Ready to scale your technical infrastructure? Our team of engineers is standing by to help you deploy, manage, and optimize your software ecosystem.
+            </p>
+</section>
+<!-- Main Content Grid -->
+<section class="max-w-container-max mx-auto px-margin-mobile grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Contact Form (Bento Style) -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-stack-lg rounded-xl border border-border-subtle shadow-sm">
+<form class="space-y-stack-md" onsubmit="event.preventDefault();">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-primary">Name</label>
+<input class="w-full p-4 rounded-lg bg-surface border border-border-subtle form-input-focus transition-all text-body-md" placeholder="John Doe" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-primary">Email</label>
+<input class="w-full p-4 rounded-lg bg-surface border border-border-subtle form-input-focus transition-all text-body-md" placeholder="john@company.com" type="email"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-primary">Company</label>
+<input class="w-full p-4 rounded-lg bg-surface border border-border-subtle form-input-focus transition-all text-body-md" placeholder="Enterprise Tech" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-primary">Service Interest</label>
+<select class="w-full p-4 rounded-lg bg-surface border border-border-subtle form-input-focus transition-all text-body-md appearance-none">
+<option>Software Installation</option>
+<option>Custom Bundles</option>
+<option>System Integration</option>
+<option>Cloud Migration</option>
+<option>Technical Support</option>
+</select>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-primary">Message</label>
+<textarea class="w-full p-4 rounded-lg bg-surface border border-border-subtle form-input-focus transition-all text-body-md resize-none" placeholder="Tell us about your project..." rows="5"></textarea>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 rounded-lg font-headline-md hover:bg-secondary transition-all shadow-md active:scale-[0.99]">
+                        Send Inquiry
+                    </button>
+</form>
+</div>
+<!-- Side Info & Map -->
+<div class="lg:col-span-5 space-y-gutter">
+<!-- Info Cards -->
+<div class="bg-primary text-on-primary p-stack-lg rounded-xl shadow-lg relative overflow-hidden">
+<!-- Subtle background decoration -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary opacity-20 blur-3xl -mr-16 -mt-16 rounded-full"></div>
+<h3 class="font-headline-md text-headline-md mb-stack-md">Contact Information</h3>
+<div class="space-y-stack-md">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary-fixed">mail</span>
+<div>
+<p class="font-label-sm uppercase opacity-70">Email Us</p>
+<p class="font-body-md">hello@prolampx.com</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary-fixed">location_on</span>
+<div>
+<p class="font-label-sm uppercase opacity-70">London HQ</p>
+<p class="font-body-md">124 City Road, London, EC1V 2NX, United Kingdom</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary-fixed">location_on</span>
+<div>
+<p class="font-label-sm uppercase opacity-70">New York Office</p>
+<p class="font-body-md">5th Ave, New York, NY 10118, United States</p>
+</div>
+</div>
+</div>
+<div class="mt-stack-lg pt-stack-md border-t border-white/10 flex gap-4">
+<a class="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors" href="#"><span class="material-symbols-outlined">link</span></a>
+<a class="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+</div>
+</div>
+<!-- Stylized Map -->
+<div class="h-64 rounded-xl border border-border-subtle bg-surface-container overflow-hidden relative group">
+<img class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500" data-alt="A clean, minimalist architectural map view of a modern London cityscape with subtle navy and silver accents. The map uses a light-mode professional aesthetic, focusing on precise geometric streets and landmarks in a corporate tech style. The mood is clean, reliable, and high-performance." data-location="London" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq1f3lbaF1Ju3v7ovL-RW4CzBqqWWF05OclPcplslGX-_b7cXyWTkhnGWqUHekizKol-VIEhmCaCioPEk4sKXmE0eiHKg8z1EghfoAYSNY811Ifpnqm7Gt1GX8RXOtjetvpxqFjuC3e7wL7IXjqEmpoz4C8M-k6G8RbMnYAu4vpeXDk-jjZVpru_gRW73cGyL1DxWvXsurBMggM86bkVwaARbZZ-M-_W8gC4HbXGBSJRqHMvUByh-myHtLnpYaEnZ3zdrgjjkfh_wK"/>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center animate-ping"></div>
+<div class="absolute w-8 h-8 bg-secondary rounded-full border-4 border-white shadow-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[16px]">location_on</span>
+</div>
+</div>
+<div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full border border-border-subtle shadow-sm">
+<p class="text-label-sm text-primary">Global HQ: London</p>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile mt-stack-xl">
+<div class="text-center mb-stack-lg">
+<h2 class="font-headline-lg text-headline-lg text-primary">Common Questions</h2>
+<p class="text-on-surface-variant font-body-md">Everything you need to know about starting a project with us.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<!-- FAQ Item 1 -->
+<div class="p-stack-md bg-surface-container-lowest border border-border-subtle rounded-xl hover:border-secondary transition-colors">
+<h4 class="font-headline-md text-primary text-[18px] mb-2">What are your typical project timelines?</h4>
+<p class="text-on-surface-variant font-body-md">Most enterprise software deployments take 2-4 weeks, while custom infrastructure projects can range from 2 to 6 months depending on complexity.</p>
+</div>
+<!-- FAQ Item 2 -->
+<div class="p-stack-md bg-surface-container-lowest border border-border-subtle rounded-xl hover:border-secondary transition-colors">
+<h4 class="font-headline-md text-primary text-[18px] mb-2">How do you structure your pricing?</h4>
+<p class="text-on-surface-variant font-body-md">We offer flexible models including project-based fixed fees, monthly retainers for ongoing support, and per-seat licensing for ProLampX software.</p>
+</div>
+<!-- FAQ Item 3 -->
+<div class="p-stack-md bg-surface-container-lowest border border-border-subtle rounded-xl hover:border-secondary transition-colors">
+<h4 class="font-headline-md text-primary text-[18px] mb-2">What is your core technical expertise?</h4>
+<p class="text-on-surface-variant font-body-md">We specialize in systems architecture, cross-platform software distribution, secure automation, and enterprise-grade IT infrastructure management.</p>
+</div>
+<!-- FAQ Item 4 -->
+<div class="p-stack-md bg-surface-container-lowest border border-border-subtle rounded-xl hover:border-secondary transition-colors">
+<h4 class="font-headline-md text-primary text-[18px] mb-2">Do you provide 24/7 technical support?</h4>
+<p class="text-on-surface-variant font-body-md">Yes, we offer premium SLA-backed support packages that include round-the-clock monitoring and emergency incident response for critical systems.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-xl border-t border-border-subtle bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-mobile grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="md:col-span-1">
+<div class="font-headline-sm text-headline-sm font-extrabold text-primary mb-4">ProLampX</div>
+<p class="text-on-surface-variant font-body-md opacity-80">Empowering technical teams with precision software solutions since 2018.</p>
+</div>
+<div>
+<h5 class="font-label-md text-primary mb-4">Company</h5>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant font-body-md hover:text-secondary transition-colors" href="#">About</a></li>
+<li><a class="text-on-surface-variant font-body-md hover:text-secondary transition-colors" href="#">Careers</a></li>
+<li><a class="text-on-surface-variant font-body-md hover:text-secondary transition-colors" href="#">Blog</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-md text-primary mb-4">Legal</h5>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant font-body-md hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant font-body-md hover:text-secondary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-on-surface-variant font-body-md hover:text-secondary transition-colors" href="#">Security</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-md text-primary mb-4">Connect</h5>
+<div class="flex gap-4">
+<a class="text-on-surface-variant hover:text-secondary opacity-80 hover:opacity-100 transition-all" href="#">GitHub</a>
+<a class="text-on-surface-variant hover:text-secondary opacity-80 hover:opacity-100 transition-all" href="#">Twitter</a>
+<a class="text-on-surface-variant hover:text-secondary opacity-80 hover:opacity-100 transition-all" href="#">Support</a>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile mt-stack-lg pt-stack-md border-t border-border-subtle">
+<p class="text-on-surface-variant font-label-sm text-center">© 2024 ProLampX Software. All rights reserved.</p>
+</div>
+</footer>
+<!-- Bottom Action Bar (Mobile Only Placeholder for intent) -->
+<div class="md:hidden fixed bottom-0 w-full z-50 bg-primary dark:bg-primary-container shadow-[0px_-4px_20px_rgba(27,54,93,0.12)]">
+<div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+<button class="w-full bg-secondary text-on-secondary rounded-lg px-6 py-3 font-bold flex items-center justify-center gap-2 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined">download</span>
+                Download ProLampX
+            </button>
+</div>
+</div>
+<script>
+        // Minimal interaction logic for inputs
+        document.querySelectorAll('input, textarea, select').forEach(element => {
+            element.addEventListener('focus', () => {
+                element.parentElement.querySelector('label').classList.add('text-secondary');
+            });
+            element.addEventListener('blur', () => {
+                element.parentElement.querySelector('label').classList.remove('text-secondary');
+            });
+        });
+
+        // Simple scroll reveal for FAQ
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-4');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.p-stack-md').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-4');
+            observer.observe(el);
+        });
+    </script>
+</body></html>

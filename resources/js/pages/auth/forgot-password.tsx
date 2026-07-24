@@ -1,6 +1,5 @@
-// Components
 import { Form, Head } from '@inertiajs/react';
-import { LoaderCircle } from 'lucide-react';
+import { LoaderCircle, Mail } from 'lucide-react';
 import InputError from '@/components/input-error';
 import TextLink from '@/components/text-link';
 import { Button } from '@/components/ui/button';
@@ -14,8 +13,14 @@ export default function ForgotPassword({ status }: { status?: string }) {
         <>
             <Head title="Forgot password" />
 
+            <div className="mb-6 flex justify-center">
+                <div className="flex size-14 items-center justify-center rounded-full bg-secondary/10 text-secondary dark:bg-primary/10 dark:text-primary">
+                    <Mail className="size-6" />
+                </div>
+            </div>
+
             {status && (
-                <div className="mb-4 text-center text-sm font-medium text-green-600">
+                <div className="mb-4 rounded-xl border border-green-500/20 bg-green-500/10 p-3 text-center text-sm font-medium text-green-700 dark:text-green-400">
                     {status}
                 </div>
             )}
@@ -25,7 +30,9 @@ export default function ForgotPassword({ status }: { status?: string }) {
                     {({ processing, errors }) => (
                         <>
                             <div className="grid gap-2">
-                                <Label htmlFor="email">Email address</Label>
+                                <Label htmlFor="email" className="text-primary dark:text-on-surface">
+                                    Email address
+                                </Label>
                                 <Input
                                     id="email"
                                     type="email"
@@ -33,30 +40,30 @@ export default function ForgotPassword({ status }: { status?: string }) {
                                     autoComplete="off"
                                     autoFocus
                                     placeholder="email@example.com"
+                                    className="rounded-xl border-border-subtle bg-surface-container-low"
                                 />
-
                                 <InputError message={errors.email} />
                             </div>
 
                             <div className="my-6 flex items-center justify-start">
                                 <Button
-                                    className="w-full"
+                                    className="w-full rounded-xl bg-primary text-primary-foreground hover:bg-secondary hover:text-on-secondary dark:text-inverse-surface"
                                     disabled={processing}
                                     data-test="email-password-reset-link-button"
                                 >
-                                    {processing && (
-                                        <LoaderCircle className="h-4 w-4 animate-spin" />
-                                    )}
-                                    Email password reset link
+                                    {processing && <LoaderCircle className="h-4 w-4 animate-spin" />}
+                                    Send recovery link
                                 </Button>
                             </div>
                         </>
                     )}
                 </Form>
 
-                <div className="space-x-1 text-center text-sm text-muted-foreground">
-                    <span>Or, return to</span>
-                    <TextLink href={login()}>log in</TextLink>
+                <div className="space-x-1 text-center text-sm text-on-surface-variant">
+                    <span>Or return to</span>
+                    <TextLink href={login()} className="text-secondary dark:text-primary">
+                        log in
+                    </TextLink>
                 </div>
             </div>
         </>
@@ -64,6 +71,6 @@ export default function ForgotPassword({ status }: { status?: string }) {
 }
 
 ForgotPassword.layout = {
-    title: 'Forgot password',
-    description: 'Enter your email to receive a password reset link',
+    title: 'Forgot password?',
+    description: 'Enter your email and we will send a recovery link',
 };

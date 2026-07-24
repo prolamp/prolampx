@@ -1,5 +1,5 @@
 import { Link, usePage } from '@inertiajs/react';
-import { Download, Layers, LayoutGrid, Menu, Monitor, Newspaper } from 'lucide-react';
+import { Briefcase, Home, Info, LayoutGrid, Mail, Menu, Newspaper, Package } from 'lucide-react';
 import { useState } from 'react';
 import { ProLampLogo } from '@/components/prolamp-logo';
 import { Button } from '@/components/ui/button';
@@ -7,60 +7,56 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/co
 import { cn } from '@/lib/utils';
 
 const navLinks = [
-    { href: '/', label: 'Home', match: (path: string) => path === '/' },
-    { href: '/installer', label: 'Installer', icon: Download, match: (path: string) => path.startsWith('/installer') },
-    { href: '/bundles', label: 'Bundles', icon: Layers, match: (path: string) => path.startsWith('/bundles') },
-    { href: '/software', label: 'Software', icon: Monitor, match: (path: string) => path.startsWith('/software') },
+    { href: '/', label: 'Home', icon: Home, match: (path: string) => path === '/' },
+    { href: '/about', label: 'About', icon: Info, match: (path: string) => path.startsWith('/about') },
+    { href: '/services', label: 'Services', icon: Briefcase, match: (path: string) => path.startsWith('/services') },
+    { href: '/products', label: 'Products', icon: Package, match: (path: string) => path.startsWith('/products') },
     { href: '/blog', label: 'Blog', icon: Newspaper, match: (path: string) => path.startsWith('/blog') },
+    { href: '/contact', label: 'Contact', icon: Mail, match: (path: string) => path.startsWith('/contact') },
 ];
 
 export default function PublicHeader() {
     const { url, props } = usePage();
     const auth = (props as { auth?: { user?: { role?: string } | null } }).auth;
     const [open, setOpen] = useState(false);
-    const path = url.split('?')[0];
+    const path = url.split('?')[0].split('#')[0];
     const isAdmin = auth?.user?.role === 'super_admin' || auth?.user?.role === 'admin';
 
     return (
-        <header className="sticky top-0 z-50 border-b border-white/60 bg-white/80 shadow-sm shadow-indigo-500/5 backdrop-blur-xl supports-[backdrop-filter]:bg-white/70 dark:border-border/60 dark:bg-card/80 dark:shadow-black/10 dark:supports-[backdrop-filter]:bg-card/70">
-            <div className="mx-auto flex h-16 max-w-7xl items-center gap-4 px-4 sm:px-6">
+        <header className="sticky top-0 z-50 px-margin-mobile pt-4">
+            <div className="glass-pill mx-auto flex h-16 max-w-container-max items-center justify-between gap-4 rounded-full border border-border-subtle bg-surface-container-lowest/80 px-gutter shadow-[0px_4px_20px_rgba(27,54,93,0.08)] dark:bg-surface-container/60 dark:shadow-[0px_4px_20px_rgba(0,0,0,0.4)]">
                 <Link href="/" className="group flex shrink-0 items-center gap-2.5">
-                    <ProLampLogo variant="full" imageClassName="h-9 w-auto transition group-hover:opacity-90 sm:h-10" />
+                    <ProLampLogo variant="full" imageClassName="h-8 w-auto transition group-hover:opacity-90 sm:h-9" />
                 </Link>
 
-                <nav className="hidden flex-1 items-center justify-center md:flex">
-                    <div className="flex items-center gap-1 rounded-full border border-indigo-100/80 bg-indigo-50/50 p-1 dark:border-border/60 dark:bg-muted/50">
-                        {navLinks.map(({ href, label, match }) => (
-                            <Link
-                                key={href}
-                                href={href}
-                                className={cn(
-                                    'rounded-full px-4 py-2 text-sm font-medium transition',
-                                    match(path)
-                                        ? 'bg-white text-indigo-700 shadow-sm dark:bg-card dark:text-indigo-200'
-                                        : 'text-muted-foreground hover:text-indigo-700 dark:hover:text-indigo-300',
-                                )}
-                            >
-                                {label}
-                            </Link>
-                        ))}
-                    </div>
+                <nav className="hidden flex-1 items-center justify-center gap-stack-lg md:flex">
+                    {navLinks.map(({ href, label, match }) => (
+                        <Link
+                            key={href}
+                            href={href}
+                            className={cn(
+                                'text-body-md transition-colors',
+                                match(path)
+                                    ? 'font-bold text-secondary dark:text-primary'
+                                    : 'text-on-surface-variant hover:text-secondary dark:hover:text-primary',
+                            )}
+                        >
+                            {label}
+                        </Link>
+                    ))}
                 </nav>
 
                 <div className="ml-auto flex items-center gap-2">
                     <Button
                         asChild
                         size="sm"
-                        className="hidden bg-gradient-to-r from-indigo-600 to-violet-600 shadow-md shadow-indigo-600/25 sm:inline-flex"
+                        className="hidden rounded-full bg-primary text-primary-foreground hover:bg-secondary hover:text-on-secondary sm:inline-flex"
                     >
-                        <Link href="/installer">
-                            <Download className="size-4" />
-                            Get Installer
-                        </Link>
+                        <Link href="/contact">Start Project</Link>
                     </Button>
 
                     {isAdmin && (
-                        <Button asChild variant="outline" size="sm" className="hidden sm:inline-flex">
+                        <Button asChild variant="outline" size="sm" className="hidden rounded-full sm:inline-flex">
                             <Link href="/admin/dashboard">
                                 <LayoutGrid className="size-4" />
                                 Admin
@@ -70,7 +66,7 @@ export default function PublicHeader() {
 
                     <Sheet open={open} onOpenChange={setOpen}>
                         <SheetTrigger asChild>
-                            <Button variant="outline" size="icon" className="md:hidden">
+                            <Button variant="outline" size="icon" className="rounded-full md:hidden">
                                 <Menu className="size-4" />
                                 <span className="sr-only">Open menu</span>
                             </Button>
@@ -91,25 +87,26 @@ export default function PublicHeader() {
                                         className={cn(
                                             'flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition',
                                             match(path)
-                                                ? 'bg-indigo-50 text-indigo-700 dark:bg-indigo-950/50 dark:text-indigo-200'
+                                                ? 'bg-secondary-fixed text-on-secondary-fixed dark:bg-primary-container/50 dark:text-primary'
                                                 : 'text-foreground hover:bg-muted',
                                         )}
                                     >
-                                        {Icon && <Icon className="public-accent-text size-4" />}
+                                        <Icon className="public-accent-text size-4" />
                                         {label}
                                     </Link>
                                 ))}
                             </nav>
-                            <div className="mt-6 space-y-2 border-t pt-6">
-                                <Button asChild className="w-full bg-gradient-to-r from-indigo-600 to-violet-600">
-                                    <Link href="/installer" onClick={() => setOpen(false)}>
-                                        <Download className="size-4" />
-                                        Get Installer
+                            <div className="mt-6 space-y-2 border-t border-border-subtle pt-6">
+                                <Button asChild className="w-full rounded-full bg-primary hover:bg-secondary">
+                                    <Link href="/contact" onClick={() => setOpen(false)}>
+                                        Start Project
                                     </Link>
                                 </Button>
                                 {isAdmin && (
-                                    <Button asChild variant="outline" className="w-full">
-                                        <Link href="/admin/dashboard" onClick={() => setOpen(false)}>Admin Dashboard</Link>
+                                    <Button asChild variant="outline" className="w-full rounded-full">
+                                        <Link href="/admin/dashboard" onClick={() => setOpen(false)}>
+                                            Admin Dashboard
+                                        </Link>
                                     </Button>
                                 )}
                             </div>

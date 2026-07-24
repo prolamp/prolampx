@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bundle;
 use App\Models\Software;
+use App\Support\SeoMeta;
 use App\Support\SoftwareIcons;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -22,10 +23,7 @@ class BundlePageController extends Controller
 
         return Inertia::render('bundles/index', [
             'bundles' => $bundles,
-            'seo' => [
-                'title' => 'Software Bundles — ProLampX',
-                'description' => 'Browse curated app bundles and use them to build your ProLampX installer in one click.',
-            ],
+            'seo' => SeoMeta::page('bundles', ['path' => '/bundles']),
         ]);
     }
 
@@ -38,8 +36,13 @@ class BundlePageController extends Controller
         return Inertia::render('bundles/show', [
             'bundle' => $this->formatBundle($bundle, detailed: true),
             'seo' => [
-                'title' => $bundle->meta_title ?? "{$bundle->name} — ProLampX Bundle",
-                'description' => $bundle->meta_description ?? $bundle->description,
+                'title' => SeoMeta::brandTitle($bundle->meta_title ?? "{$bundle->name} Software Bundle"),
+                'description' => $bundle->meta_description
+                    ?: ($bundle->description
+                        ?: "Install the {$bundle->name} app bundle on Windows, macOS, or Ubuntu with one ProLampX setup file."),
+                'keywords' => "{$bundle->name}, software bundle, app bundle, ProLampX installer, curated apps",
+                'image' => config('seo.defaults.image'),
+                'canonical' => url('/bundles/'.$bundle->slug),
             ],
         ]);
     }

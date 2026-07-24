@@ -1,16 +1,16 @@
-import { Link, router, usePage } from '@inertiajs/react';
-import { Check, Download, Loader2, Package } from 'lucide-react';
+import { router, usePage } from '@inertiajs/react';
 import { useEffect, useMemo, useState } from 'react';
-import InstallerRunGuide from '@/components/installer-run-guide';
-import OsBanner from '@/components/os-banner';
+import InstallerBuilder from '@/components/installer/installer-builder';
+import InstallerBundlesTeaser from '@/components/installer/installer-bundles-teaser';
+import InstallerCategoriesTeaser from '@/components/installer/installer-categories-teaser';
+import InstallerHero from '@/components/installer/installer-hero';
+import InstallerHowItWorks from '@/components/installer/installer-how-it-works';
+import InstallerShellCta from '@/components/installer/installer-shell-cta';
 import SeoHead from '@/components/seo-head';
-import SoftwareIcon from '@/components/software-icon';
 import { useCatalogSync } from '@/hooks/use-catalog-sync';
-import { OS_OPTIONS, useDetectedOS } from '@/hooks/use-detected-os';
-import PublicLayout, { PublicCard } from '@/layouts/public-layout';
+import { useDetectedOS } from '@/hooks/use-detected-os';
+import PublicLayout from '@/layouts/public-layout';
 import type { CatalogOs } from '@/lib/detect-os';
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
 
 type SoftwareItem = {
     id: number;
@@ -40,8 +40,12 @@ type Props = {
     bundles: BundlePreview[];
     selectedBundle: BundlePreview | null;
     preselectedSoftwareIds: number[];
-    seo: { title: string; description: string };
+    seo: { title: string; description?: string; keywords?: string; image?: string | null; canonical?: string | null };
 };
+
+function scrollToBuilder() {
+    document.getElementById('builder')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
 
 export default function InstallerIndex({
     selectedOs,
@@ -66,7 +70,6 @@ export default function InstallerIndex({
         [categories],
     );
 
-    const grouped = useMemo(() => categories, [categories]);
     const preselectedKey = preselectedSoftwareIds.join(',');
 
     useCatalogSync({
@@ -78,13 +81,11 @@ export default function InstallerIndex({
         },
     });
 
-    // Sync selection when server sends new preselection (bundle change, OS change, etc.)
     useEffect(() => {
         setSelected(preselectedSoftwareIds);
         setDownloadUrl(null);
     }, [preselectedKey, preselectedSoftwareIds]);
 
-    // Align catalog OS with client detection while preserving bundle query param
     useEffect(() => {
         if (selectedOs !== os && !isOverridden) {
             const params: Record<string, string> = { os };
@@ -95,8 +96,15 @@ export default function InstallerIndex({
         }
     }, [os, selectedOs, isOverridden, activeBundleSlug]);
 
+    useEffect(() => {
+        if (activeBundleSlug) {
+            scrollToBuilder();
+        }
+    }, [activeBundleSlug]);
+
     const toggle = (id: number) => {
         setSelected((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
+        setDownloadUrl(null);
     };
 
     const changeOs = (next: CatalogOs) => {
@@ -110,6 +118,18 @@ export default function InstallerIndex({
 
     const applyBundle = (bundle: BundlePreview) => {
         router.get('/installer', { os, bundle: bundle.slug }, { preserveState: false });
+    };
+
+    const clearBundle = () => {
+        router.get('/installer', { os }, { preserveState: false });
+    };
+
+    const clearSelection = () => {
+        setSelected([]);
+        setDownloadUrl(null);
+        if (activeBundleSlug) {
+            clearBundle();
+        }
     };
 
     const generate = async () => {
@@ -138,165 +158,43 @@ export default function InstallerIndex({
     const effectiveDetected = clientDetected !== 'unknown' ? clientDetected : (detectedOs as typeof clientDetected);
 
     return (
-        <PublicLayout>
-            <SeoHead title={seo.title} description={seo.description} />
-            <div className="mb-6">
-                <h1 className="text-3xl font-bold tracking-tight md:text-4xl">App Installer</h1>
-                <p className="mt-2 text-muted-foreground">
-                    Select apps or start from a bundle — download one file that installs everything automatically.
-                </p>
-                {selectedBundle && (
-                    <p className="mt-2 text-sm font-medium text-indigo-700 dark:text-indigo-300">
-                        Using bundle: {selectedBundle.name}
-                        {selected.length === 0 && (
-                            <span className="font-normal text-muted-foreground">
-                                {' '}— no apps in this bundle are available for {os}. Try another OS or pick apps manually.
-                            </span>
-                        )}
-                    </p>
-                )}
-            </div>
-
-            <OsBanner
-                detectedOs={effectiveDetected}
-                activeOs={os}
-                isOverridden={isOverridden}
-                onResetDetection={() => {
-                    resetDetection();
-                    router.get('/installer', activeBundleSlug ? { bundle: activeBundleSlug } : {}, { preserveState: false });
-                }}
-                className="mb-6"
-            />
-
-            {bundles.length > 0 && (
-                <section className="mb-8">
-                    <div className="mb-4 flex items-end justify-between gap-4">
-                        <div>
-                            <h2 className="text-lg font-semibold">Start from a bundle</h2>
-                            <p className="text-sm text-muted-foreground">Pre-selected app groups — or browse all bundles.</p>
-                        </div>
-                        <Link href="/bundles" className="public-accent-link text-sm">
-                            View all bundles
-                        </Link>
-                    </div>
-                    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                        {bundles.map((bundle) => {
-                            const isActive = activeBundleSlug === bundle.slug;
-                            const availableCount = bundle.software_ids.filter((id) => catalogIds.has(id)).length;
-
-                            return (
-                                <button
-                                    key={bundle.id}
-                                    type="button"
-                                    onClick={() => applyBundle(bundle)}
-                                    className={cn(
-                                        'rounded-2xl border p-4 text-left transition',
-                                        isActive
-                                            ? 'border-indigo-400 bg-indigo-50/80 shadow-md ring-2 ring-indigo-200 dark:border-indigo-500/50 dark:bg-indigo-950/40 dark:ring-indigo-500/30'
-                                            : 'border-transparent bg-white/80 shadow-sm hover:border-indigo-200 hover:shadow-md dark:bg-card/80 dark:hover:border-indigo-500/30',
-                                    )}
-                                >
-                                    <div className="flex items-center gap-2 font-semibold">
-                                        <Package className="public-accent-text size-4" />
-                                        {bundle.name}
-                                    </div>
-                                    {bundle.description && (
-                                        <p className="mt-2 line-clamp-2 text-sm text-muted-foreground">{bundle.description}</p>
-                                    )}
-                                    <div className="mt-3 flex flex-wrap gap-1.5">
-                                        {bundle.software.slice(0, 6).map((app) => (
-                                            <SoftwareIcon key={app.id} name={app.name} icon={app.icon} slug={app.slug} size="sm" />
-                                        ))}
-                                    </div>
-                                    <p className="mt-3 text-xs text-muted-foreground">
-                                        {availableCount} app{availableCount !== 1 ? 's' : ''} available for {os}
-                                    </p>
-                                </button>
-                            );
-                        })}
-                    </div>
-                </section>
-            )}
-
-            <div className="mb-6 flex flex-wrap items-center gap-3">
-                <label className="text-sm font-medium text-muted-foreground">Switch OS:</label>
-                <select
-                    value={os}
-                    onChange={(e) => changeOs(e.target.value as CatalogOs)}
-                    className="public-surface rounded-xl px-4 py-2 text-sm shadow-sm backdrop-blur-sm focus:ring-2 focus:ring-indigo-500/30 focus:outline-none dark:focus:ring-indigo-400/30"
-                >
-                    {OS_OPTIONS.map((option) => (
-                        <option key={option.value} value={option.value}>{option.label}</option>
-                    ))}
-                </select>
-                <span className="text-sm text-muted-foreground">{selected.length} selected</span>
-                {activeBundleSlug && (
-                    <Link
-                        href={`/installer?os=${os}`}
-                        className="public-accent-link text-sm"
-                    >
-                        Clear bundle
-                    </Link>
-                )}
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-2">
-                {Object.entries(grouped).map(([category, items]) => (
-                    <PublicCard key={category} className="p-5">
-                        <h2 className="public-heading-accent mb-4 text-lg font-semibold">{category}</h2>
-                        <div className="space-y-2">
-                            {items.map((item) => {
-                                const checked = selected.includes(item.id);
-                                return (
-                                    <button
-                                        key={item.id}
-                                        type="button"
-                                        onClick={() => toggle(item.id)}
-                                        className={cn(
-                                            'flex w-full items-center gap-3 rounded-xl border p-3 text-left transition',
-                                            checked
-                                                ? 'border-indigo-300 bg-indigo-50/80 shadow-sm dark:border-indigo-500/50 dark:bg-indigo-950/40'
-                                                : 'border-transparent bg-muted/40 hover:bg-muted/70 dark:bg-muted/20 dark:hover:bg-muted/40',
-                                        )}
-                                    >
-                                        <SoftwareIcon name={item.name} icon={item.icon} slug={item.slug} size="sm" />
-                                        <span className="flex-1 font-medium">{item.name}</span>
-                                        <span className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">{item.license_type}</span>
-                                        <span className={cn(
-                                            'flex size-5 items-center justify-center rounded-full border',
-                                            checked ? 'border-indigo-600 bg-indigo-600 text-white' : 'border-muted-foreground/30',
-                                        )}>
-                                            {checked && <Check className="size-3" />}
-                                        </span>
-                                    </button>
-                                );
-                            })}
-                        </div>
-                    </PublicCard>
-                ))}
-            </div>
-
-            <PublicCard className="mt-8 flex flex-wrap items-center gap-4 p-6">
-                <Button
-                    size="lg"
-                    disabled={loading || selected.length === 0}
-                    onClick={generate}
-                    className="bg-gradient-to-r from-indigo-600 to-violet-600 shadow-lg shadow-indigo-600/25"
-                >
-                    {loading ? <Loader2 className="size-4 animate-spin" /> : <Download className="size-4" />}
-                    {loading ? 'Generating…' : 'Download Installer'}
-                </Button>
-                {downloadUrl && (
-                    <Button asChild size="lg" variant="outline">
-                        <a href={downloadUrl}>Download {filename}</a>
-                    </Button>
-                )}
-                <InstallerRunGuide
+        <PublicLayout fullBleed>
+            <SeoHead {...seo} />
+            <div className="bg-background pb-4 text-on-background selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+                <InstallerHero onGetInstaller={scrollToBuilder} />
+                <InstallerHowItWorks />
+                <InstallerBundlesTeaser bundles={bundles} onSelectBundle={applyBundle} />
+                <InstallerCategoriesTeaser />
+                <InstallerShellCta onGetInstaller={scrollToBuilder} />
+                <InstallerBuilder
                     os={os}
+                    effectiveDetected={effectiveDetected}
+                    isOverridden={isOverridden}
+                    activeBundleSlug={activeBundleSlug}
+                    selectedBundle={selectedBundle}
+                    categories={categories}
+                    bundles={bundles}
+                    catalogIds={catalogIds}
+                    selected={selected}
+                    loading={loading}
+                    downloadUrl={downloadUrl}
                     filename={filename}
-                    ready={!!downloadUrl}
+                    onToggle={toggle}
+                    onChangeOs={changeOs}
+                    onApplyBundle={applyBundle}
+                    onClearBundle={clearBundle}
+                    onClearSelection={clearSelection}
+                    onGenerate={generate}
+                    onResetDetection={() => {
+                        resetDetection();
+                        router.get(
+                            '/installer',
+                            activeBundleSlug ? { bundle: activeBundleSlug } : {},
+                            { preserveState: false },
+                        );
+                    }}
                 />
-            </PublicCard>
+            </div>
         </PublicLayout>
     );
 }

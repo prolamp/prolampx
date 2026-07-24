@@ -34,7 +34,7 @@ createInertiaApp({
                 return [AppLayout, SettingsLayout];
             case name.startsWith('admin/'):
                 return AdminLayout;
-            case ['home', 'installer/index', 'bundles/index', 'bundles/show', 'blog/index', 'blog/show', 'software/index', 'software/show', 'page/show', 'contact/index'].includes(name):
+            case ['home', 'installer/index', 'bundles/index', 'bundles/show', 'blog/index', 'blog/show', 'software/index', 'software/show', 'page/show', 'contact/index', 'about/index', 'services/index', 'products/index'].includes(name):
                 return null;
             default:
                 return AppLayout;

@@ -98,7 +98,9 @@ export default function ContactForm() {
         <form onSubmit={submit} className="space-y-5" noValidate>
             <div className="grid gap-5 sm:grid-cols-2">
                 <div className="grid gap-2">
-                    <Label htmlFor="name">Name</Label>
+                    <Label htmlFor="name" className="text-primary dark:text-on-surface">
+                        Name
+                    </Label>
                     <Input
                         id="name"
                         value={data.name}
@@ -111,7 +113,9 @@ export default function ContactForm() {
                     <InputError message={fieldError('name')} />
                 </div>
                 <div className="grid gap-2">
-                    <Label htmlFor="email">Email</Label>
+                    <Label htmlFor="email" className="text-primary dark:text-on-surface">
+                        Email
+                    </Label>
                     <Input
                         id="email"
                         type="email"
@@ -127,7 +131,9 @@ export default function ContactForm() {
             </div>
 
             <div className="grid gap-2">
-                <Label htmlFor="subject">Subject</Label>
+                <Label htmlFor="subject" className="text-primary dark:text-on-surface">
+                    Subject
+                </Label>
                 <Input
                     id="subject"
                     value={data.subject}
@@ -140,7 +146,9 @@ export default function ContactForm() {
             </div>
 
             <div className="grid gap-2">
-                <Label htmlFor="message">Message</Label>
+                <Label htmlFor="message" className="text-primary dark:text-on-surface">
+                    Message
+                </Label>
                 <textarea
                     id="message"
                     value={data.message}
@@ -160,7 +168,7 @@ export default function ContactForm() {
             <Button
                 type="submit"
                 disabled={processing || !canSubmit}
-                className="w-full bg-gradient-to-r from-indigo-600 to-violet-600 sm:w-auto disabled:opacity-60"
+                className="w-full rounded-xl bg-primary text-primary-foreground hover:bg-secondary hover:text-on-secondary sm:w-auto disabled:opacity-60 dark:text-inverse-surface"
             >
                 {processing ? <Spinner /> : <Send className="size-4" />}
                 Send message

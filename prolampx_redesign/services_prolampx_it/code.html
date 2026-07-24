@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Services | ProLampX IT Agency</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-on-surface": "#eff1f3",
+                      "primary": "#002046",
+                      "on-background": "#191c1e",
+                      "secondary": "#0057c2",
+                      "tertiary-fixed-dim": "#bcc7de",
+                      "on-secondary-container": "#fefcff",
+                      "error-container": "#ffdad6",
+                      "os-macos": "#1B1B1B",
+                      "surface": "#f7f9fb",
+                      "surface-container-low": "#f2f4f6",
+                      "on-error": "#ffffff",
+                      "error": "#ba1a1a",
+                      "on-tertiary-container": "#949fb5",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-fixed": "#001b3d",
+                      "primary-fixed-dim": "#aec7f7",
+                      "on-tertiary-fixed-variant": "#3c475a",
+                      "secondary-container": "#2c70e2",
+                      "surface-container-highest": "#e0e3e5",
+                      "secondary-fixed": "#d9e2ff",
+                      "outline": "#74777f",
+                      "surface-container-high": "#e6e8ea",
+                      "tertiary-container": "#2b3649",
+                      "primary-container": "#1b365d",
+                      "on-secondary-fixed": "#001a43",
+                      "surface-bright": "#f7f9fb",
+                      "on-surface": "#191c1e",
+                      "inverse-surface": "#2d3133",
+                      "surface-dim": "#d8dadc",
+                      "outline-variant": "#c4c6cf",
+                      "on-secondary-fixed-variant": "#004398",
+                      "inverse-primary": "#aec7f7",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed": "#d8e3fb",
+                      "os-ubuntu": "#E95420",
+                      "secondary-fixed-dim": "#afc6ff",
+                      "surface-tint": "#465f88",
+                      "on-surface-variant": "#44474e",
+                      "on-primary-container": "#87a0cd",
+                      "surface-variant": "#e0e3e5",
+                      "tertiary": "#162132",
+                      "border-subtle": "#E2E8F0",
+                      "surface-deep": "#0F2440",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "primary-fixed": "#d6e3ff",
+                      "on-secondary": "#ffffff",
+                      "os-windows": "#0078D4",
+                      "on-primary-fixed-variant": "#2e476f",
+                      "on-tertiary-fixed": "#111c2d",
+                      "background": "#f7f9fb",
+                      "surface-container": "#eceef0"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-lg": "32px",
+                      "stack-sm": "8px",
+                      "stack-md": "16px",
+                      "margin-mobile": "16px",
+                      "stack-xl": "64px",
+                      "gutter": "24px",
+                      "container-max": "1200px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Plus Jakarta Sans"],
+                      "label-md": ["Plus Jakarta Sans"],
+                      "headline-xl": ["Plus Jakarta Sans"],
+                      "label-sm": ["Plus Jakarta Sans"],
+                      "headline-md": ["Plus Jakarta Sans"],
+                      "body-lg": ["Plus Jakarta Sans"],
+                      "headline-xl-mobile": ["Plus Jakarta Sans"],
+                      "body-md": ["Plus Jakarta Sans"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                      "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-xl-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+        }
+        .service-hover-card:hover .service-icon {
+            transform: translateY(-4px) scale(1.1);
+            color: theme('colors.secondary');
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 pt-4 px-margin-mobile">
+<nav class="max-w-container-max mx-auto px-6 flex justify-between items-center h-16 backdrop-blur-md bg-white/80 rounded-full border border-border-subtle shadow-[0px_4px_20px_rgba(27,54,93,0.08)]">
+<div class="font-headline-md text-headline-md font-bold text-primary">ProLampX</div>
+<div class="hidden md:flex items-center space-x-8 font-body-md text-body-md">
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Installer</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Bundles</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Software</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">Blog</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-md text-label-md hover:bg-secondary transition-all active:scale-95">Get Installer</button>
+</nav>
+</header>
+<main class="pt-32">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile mb-stack-xl">
+<div class="relative overflow-hidden rounded-[2.5rem] bg-primary-container p-12 md:p-24 text-center md:text-left">
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+
+</div>
+<div class="relative z-10 max-w-3xl">
+<span class="inline-block px-4 py-1.5 rounded-full bg-secondary/20 text-secondary font-label-sm text-label-sm mb-6">OUR EXPERTISE</span>
+<h1 class="font-headline-xl text-headline-xl md:text-headline-xl text-white mb-6 leading-tight">Solutions tailored to your vision.</h1>
+<p class="font-body-lg text-body-lg text-on-primary-container mb-10 max-w-2xl opacity-90">We bridge the gap between complex technical requirements and intuitive user experiences. ProLampX delivers engineering excellence across the entire digital ecosystem.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+<button class="bg-secondary text-white px-8 py-4 rounded-xl font-label-md text-label-md hover:shadow-lg transition-all active:scale-95">Consult our Tech Leads</button>
+<button class="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-xl font-label-md text-label-md transition-all">View Our Stack</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Service Categories - Bento Grid -->
+<section class="max-w-container-max mx-auto px-margin-mobile mb-stack-xl">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Our Core Capabilities</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl mx-auto">From strategic design to enterprise-scale engineering, we provide end-to-end services for modern businesses.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Web Dev -->
+<div class="md:col-span-8 group service-hover-card p-10 bg-white rounded-3xl border border-border-subtle hover:border-secondary/30 transition-all flex flex-col md:flex-row gap-8 shadow-sm">
+<div class="flex-1">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6 service-icon transition-transform" data-icon="terminal">terminal</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Web Development</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">High-performance web applications built for scale and security.</p>
+<ul class="space-y-3">
+<li class="flex items-center gap-3 font-label-md text-label-md text-primary"><span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span> Full-stack Development</li>
+<li class="flex items-center gap-3 font-label-md text-label-md text-primary"><span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span> E-commerce Platforms</li>
+<li class="flex items-center gap-3 font-label-md text-label-md text-primary"><span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span> Enterprise Portals</li>
+</ul>
+</div>
+<div class="w-full md:w-64 h-48 md:h-auto rounded-2xl overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A high-tech workspace showing a wide curved monitor with complex code on the screen. The room is softly lit with cool blue ambient light, reflecting off the clean white desk surfaces. The style is modern corporate, emphasizing clean lines and a professional developer environment. The atmosphere suggests precision and high-performance engineering." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk23-LMB-2AkEWHuY0EWM3QVvfat_cTO7vISC_kX0OcsDeu3bJi8iIezi-_arN7nlm9g1VVN0S9b18d8oqvV3Pt-bqqoHlWyCCNrCRg2MIG3ZUXVZLWldl2HkN5Ryu2rPoMi6Xo72Xo25E5wA89F5HLuroVaRD2_ZFoRG9W_uGzDuuKadMOlWc3K-YgANcYU1-r5R0clxiRFyCwKZYRnOVBVYaJx5rXERBSaUFpPqwaj-hqCLfaRDQ8np4ivIJmkrLShZp6w-cUCP0"/>
+</div>
+</div>
+<!-- Staff Aug -->
+<div class="md:col-span-4 group service-hover-card p-10 bg-white rounded-3xl border border-border-subtle hover:border-secondary/30 transition-all shadow-sm">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6 service-icon transition-transform" data-icon="groups">groups</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Staff Augmentation</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Scale your team with elite talent on demand.</p>
+<div class="space-y-4">
+<div class="p-4 bg-surface-container rounded-xl border border-border-subtle">
+<p class="font-label-md text-label-md text-primary">Dedicated Dev Teams</p>
+<p class="text-[13px] text-on-surface-variant">Embedded engineers for long-term vision.</p>
+</div>
+<div class="p-4 bg-surface-container rounded-xl border border-border-subtle">
+<p class="font-label-md text-label-md text-primary">Tech Lead Consulting</p>
+<p class="text-[13px] text-on-surface-variant">Strategic guidance and architecture reviews.</p>
+</div>
+</div>
+</div>
+<!-- Mobile Apps -->
+<div class="md:col-span-4 group service-hover-card p-10 bg-white rounded-3xl border border-border-subtle hover:border-secondary/30 transition-all shadow-sm">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6 service-icon transition-transform" data-icon="smartphone">smartphone</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Mobile App Development</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Seamless mobile experiences that users love to keep.</p>
+<div class="flex flex-wrap gap-2 mt-auto">
+<span class="px-3 py-1 bg-surface-container rounded-full text-[12px] font-bold text-primary border border-border-subtle">NATIVE IOS</span>
+<span class="px-3 py-1 bg-surface-container rounded-full text-[12px] font-bold text-primary border border-border-subtle">ANDROID</span>
+<span class="px-3 py-1 bg-surface-container rounded-full text-[12px] font-bold text-primary border border-border-subtle">FLUTTER</span>
+</div>
+</div>
+<!-- UI/UX -->
+<div class="md:col-span-8 group service-hover-card p-10 bg-primary-container text-white rounded-3xl transition-all flex flex-col md:flex-row gap-8 shadow-xl">
+<div class="flex-1">
+<span class="material-symbols-outlined text-primary-fixed-dim text-4xl mb-6 service-icon transition-transform" data-icon="brush">brush</span>
+<h3 class="font-headline-md text-headline-md text-white mb-4">UI/UX Design</h3>
+<p class="font-body-md text-body-md text-on-primary-container mb-6">Where aesthetics meet functionality to drive conversion.</p>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="token">token</span>
+<span class="font-label-md text-label-md">Product Strategy</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="grid_view">grid_view</span>
+<span class="font-label-md text-label-md">Design Systems</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="ads_click">ads_click</span>
+<span class="font-label-md text-label-md">Prototyping</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="biotech">biotech</span>
+<span class="font-label-md text-label-md">User Research</span>
+</div>
+</div>
+</div>
+<div class="w-full md:w-80 relative group overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-4">
+<div class="absolute inset-0 bg-gradient-to-br from-secondary/20 to-transparent"></div>
+<div class="relative z-10 space-y-4">
+<div class="h-8 w-3/4 bg-white/20 rounded-full"></div>
+<div class="h-32 w-full bg-white/10 rounded-xl border border-white/20"></div>
+<div class="grid grid-cols-3 gap-2">
+<div class="h-10 bg-white/20 rounded-lg"></div>
+<div class="h-10 bg-white/20 rounded-lg"></div>
+<div class="h-10 bg-white/20 rounded-lg"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technology Stack -->
+<section class="bg-surface-container-low py-stack-xl">
+<div class="max-w-container-max mx-auto px-margin-mobile">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div class="max-w-xl">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Our Technology Stack</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">We utilize the most reliable and forward-thinking technologies to ensure your product is built for the future.</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-2 px-4 py-2 bg-white rounded-lg border border-border-subtle font-label-sm text-label-sm text-primary">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                            ACTIVE SUPPORT
+                        </div>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6">
+<!-- Tech Card 1 -->
+<div class="bg-white p-8 rounded-2xl border border-border-subtle flex flex-col items-center justify-center text-center hover:shadow-md transition-shadow">
+<div class="w-12 h-12 mb-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-os-windows" data-icon="data_object">data_object</span>
+</div>
+<p class="font-label-md text-label-md text-primary">React</p>
+</div>
+<!-- Tech Card 2 -->
+<div class="bg-white p-8 rounded-2xl border border-border-subtle flex flex-col items-center justify-center text-center hover:shadow-md transition-shadow">
+<div class="w-12 h-12 mb-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-os-macos" data-icon="terminal">terminal</span>
+</div>
+<p class="font-label-md text-label-md text-primary">Swift</p>
+</div>
+<!-- Tech Card 3 -->
+<div class="bg-white p-8 rounded-2xl border border-border-subtle flex flex-col items-center justify-center text-center hover:shadow-md transition-shadow">
+<div class="w-12 h-12 mb-4 flex items-center justify-center text-os-ubuntu">
+<span class="material-symbols-outlined text-4xl" data-icon="phone_iphone">phone_iphone</span>
+</div>
+<p class="font-label-md text-label-md text-primary">Flutter</p>
+</div>
+<!-- Tech Card 4 -->
+<div class="bg-white p-8 rounded-2xl border border-border-subtle flex flex-col items-center justify-center text-center hover:shadow-md transition-shadow">
+<div class="w-12 h-12 mb-4 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-4xl" data-icon="javascript">javascript</span>
+</div>
+<p class="font-label-md text-label-md text-primary">Node.js</p>
+</div>
+<!-- Tech Card 5 -->
+<div class="bg-white p-8 rounded-2xl border border-border-subtle flex flex-col items-center justify-center text-center hover:shadow-md transition-shadow">
+<div class="w-12 h-12 mb-4 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-4xl" data-icon="cloud">cloud</span>
+</div>
+<p class="font-label-md text-label-md text-primary">AWS</p>
+</div>
+<!-- Tech Card 6 -->
+<div class="bg-white p-8 rounded-2xl border border-border-subtle flex flex-col items-center justify-center text-center hover:shadow-md transition-shadow">
+<div class="w-12 h-12 mb-4 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-4xl" data-icon="database">database</span>
+</div>
+<p class="font-label-md text-label-md text-primary">PostgreSQL</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Case Study Teasers -->
+<section class="py-stack-xl max-w-container-max mx-auto px-margin-mobile">
+<div class="mb-12">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">Proven Results</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Real-world impact delivered through strategic execution.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Case Study 1 -->
+<div class="group cursor-pointer">
+<div class="relative h-80 rounded-[2rem] overflow-hidden mb-6">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A futuristic dashboard interface displayed on a tablet, featuring clean data visualizations, blue and white professional color palette, and high-contrast typography. Soft studio lighting highlights the glass screen of the device resting on a marble surface. The style is professional tech-focused, minimal, and high-fidelity, conveying data accuracy and modern design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWbXOl1qOElUdEPqBUhkkgIgxn6xOxANAiyqLr9K9qiBVAHtfajSwPi10U-0NJFaDYekHb1RVcj1VnG6sE_LKwC9dq3RAN7_ljBuLQccv_7QP22VNpoIYBJt7ScIRSfTIN9_yRYGBy8lc4VdjcWAt_gnoVSw_dZ_AmNYpMFmbhoFH2B11eJ9nJf6An-EpdEtdc7YG1jzx3mPpV3rJDzS3BC2_dGdzM0A5sfTqoCGZipHUABUnqlTQ99BBq1W2AHZWwLYc_RRXoHabn"/>
+<div class="absolute top-6 left-6 px-4 py-1.5 rounded-full glass-card text-primary font-label-sm text-label-sm">E-COMMERCE</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Revitalizing Global Retail</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">How we scaled a legacy marketplace to handle 10x traffic during peak seasons with zero downtime.</p>
+<a class="inline-flex items-center gap-2 text-secondary font-bold hover:gap-4 transition-all" href="#">
+                        View Case Study <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- Case Study 2 -->
+<div class="group cursor-pointer">
+<div class="relative h-80 rounded-[2rem] overflow-hidden mb-6">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A smartphone screen showing a sleek health-tracking mobile app with vibrant progress rings and soft gradients. The background is a minimalist gym setting with blurred equipment and bright natural sunlight streaming through windows. The design is contemporary and energetic, utilizing the ProLampX secondary blue as a key highlight color. The atmosphere is optimistic and high-tech." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0eT_HhhuigCjR4Sx4HfyGaLfQbtBHbjA5LNeWYqckbcbp3HD2Mlkec_hi7MZthOMaGRfiMvPIQACJ5xAVChZs10_IXnEkE37THNv0-QlZXpn3XcR8UjSmXjPEmv7EOAPoDWRtNEBhw7puISwDLfKeCtb5ld3Z2vH0DNA8KrRvM3infMdH91ktxTOJqlFCRmsB_4-mjqEtiHXnHa95k9yTCp7QHrATAVzX_UL-RC15IzEJu-jqAPxqDMo5X5U5eaCQcQbWCmKlIn2b"/>
+<div class="absolute top-6 left-6 px-4 py-1.5 rounded-full glass-card text-primary font-label-sm text-label-sm">MOBILE HEALTH</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Precision in Patient Care</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Developing a secure, HIPAA-compliant platform connecting 50k patients with practitioners in real-time.</p>
+<a class="inline-flex items-center gap-2 text-secondary font-bold hover:gap-4 transition-all" href="#">
+                        View Case Study <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile pb-stack-xl">
+<div class="bg-primary text-white rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl">
+<div class="absolute inset-0 opacity-10">
+
+</div>
+<div class="relative z-10 max-w-2xl mx-auto">
+<h2 class="font-headline-xl text-headline-xl mb-8">Ready to bring your product to life?</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container mb-12 opacity-90">Let's discuss your technical challenges and find the most efficient path to market. Our tech leads are ready to consult.</p>
+<button class="bg-secondary hover:bg-secondary-container text-white px-12 py-5 rounded-2xl font-label-md text-headline-md transition-all active:scale-95 shadow-xl">Start a Project</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full py-stack-xl border-t border-border-subtle">
+<div class="max-w-container-max mx-auto px-margin-mobile grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="col-span-1 md:col-span-1">
+<div class="font-headline-sm text-headline-sm font-extrabold text-primary mb-6">ProLampX</div>
+<p class="text-on-surface-variant font-body-md text-body-md mb-6 opacity-80">Empowering enterprise vision with modern engineering and design precision.</p>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-primary mb-6 uppercase tracking-widest">Company</h4>
+<div class="flex flex-col gap-4">
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-body-md" href="#">About</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-body-md" href="#">Careers</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-body-md" href="#">Support</a>
+</div>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-primary mb-6 uppercase tracking-widest">Legal</h4>
+<div class="flex flex-col gap-4">
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-body-md" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-body-md" href="#">Terms of Service</a>
+</div>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-primary mb-6 uppercase tracking-widest">Social</h4>
+<div class="flex flex-col gap-4">
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-body-md" href="#">GitHub</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-body-md" href="#">Twitter</a>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile mt-16 pt-8 border-t border-border-subtle flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-on-surface-variant font-body-md text-body-md opacity-70">© 2024 ProLampX Software. All rights reserved.</p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-secondary cursor-pointer" data-icon="language">language</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-secondary cursor-pointer" data-icon="dark_mode">dark_mode</span>
+</div>
+</div>
+</footer>
+<!-- BottomNavBar (Action Bar Pattern) -->
+<div class="fixed bottom-0 w-full z-50 md:hidden bg-primary shadow-[0px_-4px_20px_rgba(27,54,93,0.12)]">
+<div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+<div class="flex flex-col">
+<span class="text-white/60 font-label-sm text-[10px] uppercase">READY TO SCALE?</span>
+<span class="text-white font-label-md text-label-md">Start a Project</span>
+</div>
+<button class="bg-secondary text-on-secondary rounded-lg px-6 py-3 font-bold flex items-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+                Consult
+            </button>
+</div>
+</div>
+<script>
+        // Simple scroll interaction for header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header nav');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>
